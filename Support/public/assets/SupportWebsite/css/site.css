@@ -1,0 +1,28 @@
+.navbar-header{padding-top:10px; padding-right: 10px;}
+.carousel-control{padding-top:140px;height: 99%;}
+.carousel{margin-top: 50px;}
+#posts > blockquote > p {font-size: 10pt}
+.no_padding{padding:0 !important;}
+.btn-branded{background-color: #f8b619; color:white;}
+.form-control{margin-top: 10px;}
+.social{width: 50px;height: 50px;margin-top: 5px; font-size: 30pt; margin-right: 20px; margin-left: 0px; padding: 0;}
+.social-container
+{
+  padding-left: 20px;
+  margin-top: 50px;
+
+}
+.social-container a
+{
+  text-decoration: none;
+}
+.mail-btn i{margin-left: 8px; font-size: 25pt; color: #f8b619;}
+.g-btn i{color:#c83e2d !important;}
+.fb-btn:hover{background: #3b5998;}
+.y-btn:hover{background: #eb2629;}
+.g-btn:hover{background: #c83e2d;}
+.t-btn:hover{background: #33ccff;}
+.b-btn:hover{background: #005cff;}
+.mail-btn:hover{background: #f8b619;}
+.fb-btn:hover i,.t-btn:hover i,.y-btn:hover i,.b-btn:hover i,.g-btn:hover i,.mail-btn:hover i{color: white !important;}
+
