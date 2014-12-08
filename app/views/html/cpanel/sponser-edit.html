@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap-switch.css">	
+	<link rel="stylesheet" href="css/switch-highlight.css">	
+	<script src="text-editor/tinymce/js/tinymce/tinymce.min.js"></script>
+	<script>tinymce.init({selector:'.event-description'});</script>
+	<meta charset="UTF-8">
+	<title>Support's CPanel | Sponser Edit</title>
+</head>
+<body>
+ 	<div class="container">
+<div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Admin Panel</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Events</a></li>
+              <li><a href="#">Sponsers</a></li>
+              <li><a href="#">Slider</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Supportians</a></li>
+              <li><a href="#">Post</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class=" message-btn"><a href="#"><i class="glyphicon glyphicon-envelope"></i></a></li>
+              <li class="dropdown user-option-btn">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-user"></i><i class="caret"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Create Account</a></li>
+                            <li><a href="#">Change Password</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>   
+                    </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+
+
+	
+                    
+		
+	
+	<!-- Events Panel -->
+		<div class="col-sm-9">
+	    	<form class="form-horizontal" method="POST" action="">
+    			<div class="form-group">
+        			<label for="inputEmail" class="control-label col-xs-2">Availibility :</label>
+        			<div>
+            		<input type="checkbox" id="Available" name="download-version" checked data-size="large" data-on-text="On" data-off-text="Off">
+        			</div>
+    			</div>
+    			<div class="form-group">
+        			<label for="inputEmail" class="control-label col-xs-2">Name :</label>
+        			<div class="col-xs-10">
+            		<input type="email" class="form-control" id="inputEmail" placeholder="Type the Event Name">
+        			</div>
+    			</div>
+    			<div class="form-group">
+        		<label for="inputslogan" class="control-label col-xs-2">Slug :</label>
+	        		<div class="col-xs-10">
+	            	<input type="text" class="form-control" id="inputslogan" placeholder="Type the Evet Slug">
+	        		</div>
+    			</div>
+    			<div class="form-group">
+        			<label class="control-label col-xs-2">Image Logo :</label>
+	        		<div class="col-xs-10">
+	            	<input type="file" class="form-control" id="img-upload" placeholder="Paste the Event Link " >
+                    <label class="btn btn-primary" for="img-upload">Upload logo</label>
+	        		</div>
+    			</div>
+    			<div class="form-group">
+        		<label for="inputlink" class="control-label col-xs-2">Website :</label>
+	        		<div class="col-xs-10">
+	            	<input type="text" class="form-control" id="inputlink" placeholder="Paste the Event Link ">
+	        		</div>
+    			</div>
+    			<div class="form-group">
+        		<label for="short-des" class="control-label col-xs-2">Information :</label>
+	        		<div class="col-xs-10">
+	            	<textarea class="form-control" id="short-des"></textarea>
+	        		</div>
+    			</div>
+    			<div class="form-group">
+    				<label for="short-des" class="control-label col-xs-2">Events :</label>
+    					<div class="col-xs-10">
+    					<a href="#EventsModal" data-toggle="modal" class="btn btn-primary col-xs-3" >Choose Events</a>
+    					</div>
+    				</div>
+    			<div class="form-group">
+        			<div class="col-xs-offset-2 col-xs-10 text-right">
+            		<button type="submit" class="btn btn-primary">Save</button>
+        			</div>
+    			</div>
+			</form>   	
+	    </div>
+	  </div>
+	  <!-- Modal -->
+	  <div id="EventsModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close btn-primary" data-dismiss="modal" aria-hidden="true">&times;</button>
+                     <h4 class="modal-title">Events</h4>
+                 </div>
+                 <div class="modal-body">
+                 	<input type="checkbox" checked> Event ... <br>
+                 	<input type="checkbox"> Event ... <br>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+	  	
+	</div><!-- End Main Panel -->
+	</div><!-- End Container-->
+
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-switch.js"></script>
+    <script src="js/switch.js"></script>
+    <script src="js/switch-highlight.js"></script>
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>
