@@ -1,0 +1,146 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+.holder{
+  position: relative;
+}
+.holder .avatar{
+  margin: 25px auto;
+}
+.holder .avatar img.user {
+  background-color: #f8b619;
+  box-shadow: 0 0 0 5px #f8b619;
+  border-radius: 50%;
+}
+.holder .avatar img.user:hover {
+  cursor: pointer;
+  -moz-animation: bounceOut .4s linear;
+  -webkit-animation: bounceOut .4s linear;
+}
+
+@-moz-keyframes bounceOut {
+  0% {
+    box-shadow: 0 0 0 4px #f8b619;
+    opacity: 1;
+  }
+
+  25% {
+    box-shadow: 0 0 0 1px #f8b619;
+    opacity: 1;
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px #f8b619;
+    opacity: 1;
+  }
+
+  75% {
+    box-shadow: 0 0 0 4px #f8b619;
+    opacity: 1;
+  }
+
+  100% {
+    box-shadow: 0 0 0 5px #f8b619;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes bounceOut {
+  0% {
+    box-shadow: 0 0 0 4px #f8b619;
+    opacity: 1;
+  }
+
+  25% {
+    box-shadow: 0 0 0 1px #f8b619;
+    opacity: 1;
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px #f8b619;
+    opacity: 1;
+  }
+
+  75% {
+    box-shadow: 0 0 0 4px #f8b619;
+    opacity: 1;
+  }
+
+  100% {
+    box-shadow: 0 0 0 5px #f8b619;
+    opacity: 1;
+  }
+}
+
+
+
+
+
+.holder2{
+  position: relative;
+}
+.holder2 .avatar2{
+  margin: 25px auto;
+}
+.holder2 .avatar2 img.user2 {
+  background-color: #3a3a3c;
+  box-shadow: 0 0 0 5px #3a3a3c;
+}
+.holder2 .avatar2 img.user2:hover {
+  cursor: pointer;
+  -moz-animation: bounceOutt .4s linear;
+  -webkit-animation: bounceOutt .4s linear;
+}
+
+@-moz-keyframes bounceOutt {
+  0% {
+    box-shadow: 0 0 0 4px #3a3a3c;
+    opacity: 1;
+  }
+
+  25% {
+    box-shadow: 0 0 0 1px #3a3a3c;
+    opacity: 1;
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px #3a3a3c;
+    opacity: 1;
+  }
+
+  75% {
+    box-shadow: 0 0 0 4px #3a3a3c;
+    opacity: 1;
+  }
+
+  100% {
+    box-shadow: 0 0 0 5px #3a3a3c;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes bounceOutt {
+  0% {
+    box-shadow: 0 0 0 4px #3a3a3c;
+    opacity: 1;
+  }
+
+  25% {
+    box-shadow: 0 0 0 1px #3a3a3c;
+    opacity: 1;
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px #3a3a3c;
+    opacity: 1;
+  }
+
+  75% {
+    box-shadow: 0 0 0 4px #3a3a3c;
+    opacity: 1;
+  }
+
+  100% {
+    box-shadow: 0 0 0 5px #3a3a3c;
+    opacity: 1;
+  }
+}
