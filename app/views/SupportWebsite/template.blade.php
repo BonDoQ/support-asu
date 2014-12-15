@@ -114,7 +114,7 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <center><h3 id="myModalLabel">Contact Us</h3></center>
               </div>
-               <form class="form-horizontal" method="POST" action="{{URL::route('contactus')}}">
+               <form class="form-horizontal" method="POST" action="/contactus">
               <div class="modal-body" {{$errors->has('sender_name') ? 'has->error': ''}}>
                <input type="text" class="form-control" placeholder="Full Name" name="sender_name" required >
                 <input type="email" class="form-control" placeholder="Email address" name="sender_email" required>
@@ -132,42 +132,7 @@
 
       </div><!-- /.navbar -->
 
-    @section('slider')
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
-        <?php $i =0; ?>
-        @if($sliders !=null)
-        @foreach ($sliders as $slider)
-        @if ($i == 0)
-          <div class="item active">
-        @else
-          <div class="item">
-        @endif
-          <img src="{{asset($slider->imgPath)}}" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>{{$slider->name}}</h1>
-              <p class="lead">{{$slider->description}}</p>
-              <a class="btn btn-large btn-primary" href="/events/{{$slider->name}}">Read more</a>
-            </div>
-          </div>
-        </div>
-        <?php $i = 1; ?>
-        @endforeach
-        @endif
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
-
-    <!-- /.carousel -->
-    @if(Request::is('/', 'home', 'events', 'sponsors', 'about'))
-      @show
-    @else
-      @stop
-    @endif
+    
 
     @yield('content')
 
@@ -176,8 +141,8 @@
 
       <div id="footer">
         <div class="container-fluid">
-          <div class="col-sm-5" id="posts">
-            <blockquote>
+          <div class="col-sm-4" id="posts">
+            <!--blockquote>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
               <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
             </blockquote>
@@ -188,18 +153,18 @@
             <blockquote>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
               <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
-            </blockquote>
+            </blockquote-->
           </div>
 
          
 
           
 
-          <div class="col-sm-2 social-container">
+          <div class="col-sm-5 social-container">
             <ul class="col-sm-12">
-              <a href="#"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
-              <a href="#"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
-              <a href="#"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>
+              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
+              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
+              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>
               <a href="#"><li class="social col-sm-6"><i class="icon-googleplus"></i></li></a>
               <a href="#"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
               <a href="#"><li class="social col-sm-6"><i class="icon-pinterest"></i></li></a>
@@ -208,7 +173,7 @@
 
       </div>
     </div>
-        <p id="foot">© 2013 SUPPORT - All Rights Reserved</p>
+        <p id="foot">© {{date("Y")}} SUPPORT - All Rights Reserved</p>
       </footer>
 
 
@@ -221,6 +186,7 @@
     <script src="{{asset('assets/SupportWebsite/js/jquery.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
+    <script src="{{asset('assets/SupportWebsite/js/notify.min.js')}}"></script>
     <script>
       !function ($) {
         $(function(){
@@ -228,6 +194,15 @@
           $('#myCarousel').carousel()
         })
       }(window.jQuery)
+    </script>
+      <script type="text/javascript">
+      @if(Session::has('success'))
+        success_notif("{{Session::get('success')}}");
+      @elseif(Session::has('fail'))
+        fail_notif("{{Session::get('fail')}}");
+      @elseif(Session::has('warn'))
+        warn_notif("{{Session::get('warn')}}");
+      @endif
     </script>
     <!--<script type="text/javascript" src="{{asset('assets/SupportWebsite/js/jquery.ufvalidator-1.0.7.js')}}"></script>-->
     <!--<script type="text/javascript" src="{{asset('assets/SupportWebsite/js/reg.js')}}"></script>-->

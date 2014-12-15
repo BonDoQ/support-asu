@@ -4,21 +4,36 @@ class CpanelSponserController extends BaseController
 {
     public function index()
     {
+      if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+      {
         //Getting data from the database.
         $sponsers = Sponser::all();
 
         //Directing to the index view.
         return View::make('Cpanel.sponsers', ['sponsers' => $sponsers]);
+      }
+      else
+        return Redirect::to('cpanel');
     }
 
     public function create()
     {
-        $vents = Event::all();
-        return View::make('Cpanel.sponser-create', ['vents' => $vents]);
+       if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+        {
+            $vents = Event::all();
+             return View::make('Cpanel.sponser-create', ['vents' => $vents]);
+        }
+        else
+          return Redirect::to('cpanel');  
     }
 
     public function store()
     {
+        if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+        {
         //Validation.
         $validation = Validator::make(Input::all(), [
             'name' => 'required',
@@ -71,31 +86,43 @@ class CpanelSponserController extends BaseController
 
         //Directing to the index route.
         return Redirect::route('cpanel.sponsors.index');
+       }
+       else
+          return Redirect::to('cpanel'); 
     }
 
     public function edit($sponser_id)
     {
-        //Getting data from the database.
-        $vents = Event::all();
-        $sponser = Sponser::whereid($sponser_id)->first();
-        $ventsofsponser = $sponser->Vents()->get();
+      if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+        {
+            //Getting data from the database.
+            $vents = Event::all();
+            $sponser = Sponser::whereid($sponser_id)->first();
+            $ventsofsponser = $sponser->Vents()->get();
 
-        //Directing to the edit route with forwarding the data arrays.
-        return View::make('Cpanel.sponser-edit')->with([
-            'sponser' => $sponser, 
-            'vents' => $vents,
-            'ventsofsponser' => $ventsofsponser
-        ]);
+            //Directing to the edit route with forwarding the data arrays.
+            return View::make('Cpanel.sponser-edit')->with([
+                'sponser' => $sponser, 
+                'vents' => $vents,
+                'ventsofsponser' => $ventsofsponser
+                ]);
+        }
+        else
+          return Redirect::to('cpanel');
     }
 
     public function update($sponser_id)
     {
-        //Validation.
-        $validation = Validator::make(Input::all(), [
-            'name' => 'required',
-            'slogan' => 'required',
-            'information' => 'required'
-        ]);
+        if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+        {
+            //Validation.
+            $validation = Validator::make(Input::all(), [
+                'name' => 'required',
+                'slogan' => 'required',
+                'information' => 'required'
+            ]);
 
         if($validation->fails())
         {
@@ -141,25 +168,34 @@ class CpanelSponserController extends BaseController
 
         //Directing to the index route.
         return Redirect::route('cpanel.sponsors.index');
+       }
+       else
+          return Redirect::to('cpanel');
     }
 
     public function destroy($sponser_id)
     {
-        $sponser = Sponser::find($sponser_id);
+      if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+      {
+            $sponser = Sponser::find($sponser_id);
 
-        //Detaching..
-        $ventsofsponser = $sponser->Vents()->get();
-        foreach ($ventsofsponser as $ventofsponser) 
-        {
-            $sponser->Vents()->detach($ventofsponser->id);
-        }
+            //Detaching..
+            $ventsofsponser = $sponser->Vents()->get();
+            foreach ($ventsofsponser as $ventofsponser) 
+            {
+              $sponser->Vents()->detach($ventofsponser->id);
+            }
 
-        unlink(public_path() . $sponser->image_logo);
+            unlink(public_path() . $sponser->image_logo);
 
-        //Delete.
-        $sponser->delete();
+            //Delete.
+            $sponser->delete();
 
-        //Directing to the index root.
-        return Redirect::route('cpanel.sponsors.index');
+            //Directing to the index root.
+            return Redirect::route('cpanel.sponsors.index');
+       }
+    else
+        return Redirect::to('cpanel');
     }
 }

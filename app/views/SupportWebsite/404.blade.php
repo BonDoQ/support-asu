@@ -114,7 +114,7 @@
     </div>
     <div class="pe">
 
-      <p id="foot">© 2014 SUPPORT - All Rights Reserved</p>
+      <p id="foot">© {{date("Y")}} SUPPORT - All Rights Reserved</p>
       </div>
 
 

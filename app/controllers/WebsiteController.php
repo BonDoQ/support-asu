@@ -24,26 +24,23 @@
         'sender_subject'=>'required',
         'sender_message'=>'required',
 	));
-if($valid->fails())
-{
+    if($valid->fails())
+    {
 
 	return Redirect::route('home')->withErrors($valid)->withInput();
-}
-else
-{
- $email =new Email();
- $email->sender_name=Input::get('sender_name');
- $email->sender_email=Input::get('sender_email');
- $email->sender_subject=Input::get('sender_subject');
- $email->sender_message=Input::get('sender_message');
- $email->save();
-   if($email)
-   {
-     return Redirect::to('/home'); //successful message
-   }
-   else
+    }
+    else
     {
-	  return Redirect::to('/home'); //failed message
+    $email =new Email();
+    $email->sender_name=Input::get('sender_name');
+    $email->sender_email=Input::get('sender_email');
+    $email->sender_subject=Input::get('sender_subject');
+    $email->sender_message=Input::get('sender_message');
+    $email->save();
+    if($email)
+    {
+        
+       return Redirect::back()->with('success','Your Message has been arrived !'); //successful message
     }
  }
 }

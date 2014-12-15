@@ -48,8 +48,8 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
-	//return Response::make(View::make('SupportWebsite.404'), 404);
+	//Log::error($exception);
+	return Response::make(View::make('SupportWebsite.404'), 404);
 });
 App::missing(function($exception) {
     return Response::make(View::make('SupportWebsite.404'), 404);

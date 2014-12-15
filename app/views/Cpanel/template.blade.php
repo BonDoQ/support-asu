@@ -21,9 +21,9 @@
       @if(Request::is('cpanel/events')) Events
       @elseif(Request::is('cpanel/events/create')) Event Create
       @elseif(Request::is('cpanel/events/*')) Event Edit
-      @elseif(Request::is('cpanel/sponsers')) Sponsers
-      @elseif(Request::is('cpanel/sponsers/create')) Sponser Create
-      @elseif(Request::is('cpanel/sponsers/*')) Sponser Edit
+      @elseif(Request::is('cpanel/sponsors')) Sponsors
+      @elseif(Request::is('cpanel/sponsors/create')) Sponsor Create
+      @elseif(Request::is('cpanel/sponsors/*')) Sponsor Edit
       @elseif(Request::is('cpanel/sliders')) Sliders
       @elseif(Request::is('cpanel/sliders/create')) Slide Create
       @elseif(Request::is('cpanel/sliders/*')) Slide Edit
@@ -47,6 +47,8 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+              @if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
               <li {{{ (Request::is('cpanel/events') ? 'class=active' : '') }}} >
                 <a href="{{{ URL::to('cpanel/events')  }}}">Events</a>
               </li>
@@ -56,6 +58,7 @@
               <li {{{ (Request::is('cpanel/sliders') ? 'class=active' : '') }}} >
                 <a href="{{{ URL::to('cpanel/sliders')  }}}">Sliders</a>
               </li>
+              @endif
               <li {{{ (Request::is('cpanel/reg') ? 'class=active' : '') }}} >
                 <a href="#">Register</a>
               </li>
@@ -67,11 +70,14 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+             @if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
               <li class=" message-btn"><a href="{{{ URL::to('cpanel/messages')  }}}"><i class="glyphicon glyphicon-envelope"></i></a></li>
+             @endif
               <li class="dropdown user-option-btn">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-user"></i><i class="caret"></i></a>
                         <ul class="dropdown-menu">
-                          @if(Auth::user()->position=="president")
+                          @if(Auth::user()->position=="President"||Auth::user()->position=="Vice president")
                             <li><a href="{{{ URL::to('cpanel/create-account')  }}}">Create Account</a></li>
                           @endif
                             <li><a href="{{{ URL::to('cpanel/change')  }}}">Change Password</a></li>

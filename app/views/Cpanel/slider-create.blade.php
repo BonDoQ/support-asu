@@ -1,4 +1,4 @@
-@extends('cpanel.template')
+@extends('Cpanel.template')
 
 @section('content')
 
@@ -24,12 +24,6 @@
 	            	<label class="btn btn-primary" for="img-upload">Upload Slider</label>
                 
 	        		</div>
-    			</div>
-    			<div class="form-group">
-        		<label for="inputlink" class="control-label col-xs-2">Link:</label>
-	        		<div class="col-xs-10">
-	            	<input type="text" name="link"class="form-control" id="inputlink" placeholder="Link..." required>		
-              </div>
     			</div>
     			<div class="form-group">
         		<label for="short-des" class="control-label col-xs-2">Short Description:</label>

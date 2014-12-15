@@ -4,20 +4,35 @@
  {
  	public function index()
     {
-        //Getting data from the database.
-        $vents = Event::all();
+        if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+            {
+              //Getting data from the database.
+              $vents = Event::all();
 
-        //Directing to the index view.
-        return View::make('Cpanel.events', ['vents' => $vents]);
+              //Directing to the index view.
+                return View::make('Cpanel.events', ['vents' => $vents]);
+            }
+            else
+                return Redirect::to('cpanel');
     }
 
     public function create()
     {
-        return View::make('Cpanel.event-create');
+        if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+            {
+                 return View::make('Cpanel.event-create');
+            }
+        else
+                return Redirect::to('cpanel');
     }
 
     public function store()
     {
+        if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+            {
         $validation = Validator::make(Input::all(), [
             'name' => 'required',
             'slogan' => 'required',
@@ -59,17 +74,29 @@
             
         //Directing to the index route.
         return Redirect::route('cpanel.events.index');
+      }
+      else
+        return Redirect::to('cpanel');
     }
 
     public function edit($event_id)
     {
-        $vent = Event::whereid($event_id)->first();
+        if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+            {
+                $vent = Event::whereid($event_id)->first();
         
-        return View::make('Cpanel.event-edit', ['vent' => $vent]);
+                 return View::make('Cpanel.event-edit', ['vent' => $vent]);
+            }
+            else
+                return Redirect::to('cpanel');
     }
 
     public function update($event_id)
     {
+        if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+        {
         $validation = Validator::make(Input::all(), [
             'name' => 'required',
             'slogan' => 'required',
@@ -109,10 +136,15 @@
         $vent->save();
         //Directing to the index route.
         return Redirect::route('cpanel.events.index');
+        }
+        else
+             return Redirect::to('cpanel');
     }
 
     public function destroy($vent_id)
     {
+        if(Auth::user()->position=="president"||Auth::user()->position=="vice"||Auth::user()->position=="PR")
+            {
         //Finding the vent.
         $vent = Event::find($vent_id);
 
@@ -130,7 +162,11 @@
 
         //Directing to the index root.
         return Redirect::route('cpanel.events.index');
+          } 
+          else
+             return Redirect::to('cpanel');
     }
+
 }
 
  	

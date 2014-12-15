@@ -15,7 +15,7 @@ Route::get('/','WebsiteController@home');
 Route::get('/home','WebsiteController@home');
 Route::get('/events','WebsiteController@events');
 Route::get('/about','WebsiteController@about');
-Route::post('/contactus',array('uses'=>'WebsiteController@contactus','as'=>'contactus'));
+Route::post('/contactus','WebsiteController@contactus');
 Route::get('events','WebsiteController@events');
 Route::get('sponsors','WebsiteController@sponsors');
 Route::get('events/{event_id}', 'WebsiteController@subevent');
@@ -23,7 +23,7 @@ Route::get('events/{event_id}', 'WebsiteController@subevent');
 //useraccount
 
 Route::group(array('before'=>'guest'),function()
- {
+ {   
     Route::get('cpanel/login',array('uses' =>'CpanelUserAccount@getlogin','as'=>'getlogin'));
      Route::group(array('before'=>'csrf'), function()
      {

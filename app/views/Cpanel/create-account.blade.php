@@ -1,4 +1,4 @@
-@extends('cpanel.template')
+@extends('Cpanel.template')
 
 @section('content')
 
@@ -29,12 +29,18 @@
 
                 <div class="form-group col-sm-4 ">
 	                <select class="form-control col-sm-offset-7" name="position">
-						<option value="president"> president </option>
-						<option value="vice">vice president</option>
-						<option value="head Media" selected=""> Head Media </option>
-            <option value="head PR" selected=""> Head PR </option>
-            <option value="head logistics" selected=""> Head Logistics </option>
-            <option value="head HR" selected=""> Head HR </option>
+						<option value="President"> President </option>
+						<option value="Vice President"> Vice President </option>
+            <option value="IT Head"> IT Head </option>
+            <option value="Media Head" > Media Head </option>
+            <option value="PR Head" > PR Head </option>
+            <option value="logistics Head" > Logistics Head</option>
+            <option value="HR Head" > HR Head </option>
+            <option value="IT"> IT Member </option>
+						<option value="Media" > Media Member </option>
+            <option value="PR" > PR Member </option>
+            <option value="logistics" > Logistics Member </option>
+            <option value="HR" > HR Member </option>
 					</select>
     			</div>
     			<div class="form-group">

@@ -1,4 +1,4 @@
-@extends('cpanel.template')
+@extends('Cpanel.template')
 
 @section('content')
       
@@ -26,12 +26,6 @@
                 <div class="col-sm-2 "><img class="img-responsive" src="{{asset($slider->imgPath)}}"></div>
               </div>
           </div>
-    			<div class="form-group">
-        		<label for="inputlink" class="control-label col-xs-2">Link:</label>
-	        		<div class="col-xs-10">
-	            	<input type="text" name="link"class="form-control" id="inputlink" placeholder="Link..." value="{{$slider->link}}" required>		
-              </div>
-    			</div>
     			<div class="form-group">
         		<label for="short-des" class="control-label col-xs-2">Short Description:</label>
 	        		<div class="col-xs-10">

@@ -46,7 +46,7 @@
 
    public function getcreate($messages=null)
    {
-    if(Auth::user()->position=="president")
+    if(Auth::user()->position=="President"||Auth::user()->position=="Vice President")
     {
        if($messages!=null)
          return View::make('Cpanel.create-account',$messages);
@@ -59,12 +59,12 @@
 
     public function postcreate()
     {
-      if(Auth::user()->position=="president")
+      if(Auth::user()->position=="President"||Auth::user()->position=="Vice President")
        {
       $validate=Validator::make(Input::all(),array(
        'email'=>'required|email|unique:users',
        'username'=>'required|unique:users',
-       'password'=>'required|min:4',
+       'password'=>'required|min:6',
        'position'=>'required',
       ));
         if($validate->fails())
@@ -103,7 +103,7 @@
        {
          $validate=Validator::make(Input::all(),array(
           'email'=>'required|email|unique:users',
-          'password'=>'required|min:4',
+          'password'=>'required|min:6',
          ));
         if($validate->fails())
            return Redirect::action('getchange')->withErrors($validate->messages());
@@ -111,7 +111,7 @@
        else if(Input::get('email')==Auth::user()->email)
        {
          $validate=Validator::make(Input::all(),array(
-          'password'=>'required|min:4',
+          'password'=>'required|min:6',
          ));
         if($validate->fails())
            return Redirect::action('getchange')->withErrors($validate->messages());
@@ -122,9 +122,7 @@
           if((Input::get('email')) !=(Auth::user()->email))
           $user->email   = Input::get('email'); 
 
-          if($user->save())
-           return 'successfully changed';
-         else
-           return 'failed';
+          $user->save();
+           return Redirect::to('cpanel'); //flash message
      }
  }

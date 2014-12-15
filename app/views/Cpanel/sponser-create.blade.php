@@ -1,4 +1,4 @@
-@extends('cpanel.template')
+@extends('Cpanel.template')
 
 @section('content')
   
