@@ -1,4 +1,7 @@
 support-asu
 ===========
 
-A Student Activity Website in CIS ASU
+A Student Activity Website
+Computer and Information Science
+Ain Shams Univeristy 
+Cairo, Egypt
