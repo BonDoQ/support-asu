@@ -40,7 +40,7 @@
               if($auth)
               return View::make('Cpanel.welcome');  // should redirect to welcome page
             }
-          return Redirect::action('getlogin')->with('message','Make Sure that the Password or Username are Typed Correctly');
+          return Redirect::action('getlogin')->with('fail','Make Sure that the Password or Username are Typed Correctly');
 
    }
 
@@ -123,6 +123,6 @@
           $user->email   = Input::get('email'); 
 
           $user->save();
-           return Redirect::to('cpanel'); //flash message
+           return Redirect::to('cpanel')->withSuccess('Your profile has been Updated !'); //flash message
      }
  }

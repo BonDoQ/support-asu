@@ -51,21 +51,19 @@
                     <a href="#">Forgot password?</a>
                 </p>
             </div>
-        </div> 
-        @if(Session::has('message'))
-        <p >
-          {{Session::get('message')}}
-        </p>         
-        @endif
-    </div>
-
-
-
     
 	</div><!-- End Container-->
 	   
        <script src="{{URL::asset('assets/Cpanel/js/jquery.js')}}"></script>
+       <script src="{{asset('assets/Cpanel/js/notify.min.js')}}"></script>
     <script type="text/javascript" src="{{URL::asset('assets/Cpanel/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{URL::asset('assets/Cpanel/js/site.js')}}"></script>
+    <script type="text/javascript">
+     @if(Session::has('fail'))
+        fail_notif("{{Session::get('fail')}}");
+      @elseif(Session::has('warn'))
+        warn_notif("{{Session::get('warn')}}");
+      @endif
+    </script>
 </body>
 </html>
