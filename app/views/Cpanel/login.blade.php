@@ -55,7 +55,7 @@
 	</div><!-- End Container-->
 	   
        <script src="{{URL::asset('assets/Cpanel/js/jquery.js')}}"></script>
-       <script src="{{asset('assets/Cpanel/js/notify.min.js')}}"></script>
+       <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
     <script type="text/javascript" src="{{URL::asset('assets/Cpanel/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{URL::asset('assets/Cpanel/js/site.js')}}"></script>
     <script type="text/javascript">
