@@ -12,7 +12,7 @@
   <div class="row">
         <div class="panel panel-primary filterable">
             <div class="panel-heading">
-                <h3 class="panel-title">Users</h3>
+                <h3 class="panel-title">Messages</h3>
                 <div class="pull-right">
                     <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
                 </div>
@@ -38,8 +38,10 @@
                         <td>{{$email->sender_email}}</td>
                         <td>{{$email->sender_subject}}</td>
                         <td>{{$email->sent_at}}</td>
-                        <td><a href="#{{$email->id}}" data-toggle="modal"><div class="glyphicon glyphicon-eye-open"></div></a> | <a href="#ModalDelete{{$email->id}}" data-toggle="modal"><div class="glyphicon glyphicon-trash"></div> </a> | <a href="#ModalReplay{{$email->id}}" data-toggle="modal"><div class="glyphicon glyphicon-share-alt
-"></div></a></td>
+                        <td><a href="#{{$email->id}}" data-toggle="modal">
+                          <div class="glyphicon glyphicon-eye-open"></div></a> | 
+                          <a href="#ModalDelete{{$email->id}}" data-toggle="modal"><div class="glyphicon glyphicon-trash"></div> </a> | <a href="#ModalReplay{{$email->id}}" data-toggle="modal">
+                          <div class="glyphicon glyphicon-share-alt"></div></a></td>
                         <td>@if($email->replied_by!=null) {{$email->replied_by}} @else Not Replied Yet @endif</td>
                     </tr>
                     <?php ++$i; ?>
