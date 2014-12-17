@@ -8,7 +8,7 @@ class CpanelMessageController extends BaseController {
 	 if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
       {
-		$emails=email::all();
+		$emails=Email::all();
 		return View::make('Cpanel.messages',['emails' => $emails]);
 	  }
 	   else
@@ -22,7 +22,7 @@ class CpanelMessageController extends BaseController {
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
       {
 		  //Finding the vent.
-        $email = email::find($email_id);
+        $email = Email::find($email_id);
         //Deleting.
         $email->delete();
         //Directing to the index root.
@@ -37,7 +37,7 @@ class CpanelMessageController extends BaseController {
 	 if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
 	   {
-			$email = email::find($email_id);
+			$email = Email::find($email_id);
         	$data = array(
         	 'name'=>$email->sender_name, 
     		'replay'=> Input::get('admin_message')
