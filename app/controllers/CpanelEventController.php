@@ -150,6 +150,7 @@
 
         //Detaching..
         $sponsersofvent = $vent->Sponsers()->get();
+        if($sponsersofvent!=null)
         foreach ($sponsersofvent as $sponserofvent)
         {
             $vent->Sponsers()->detach($sponserofvent->id);
