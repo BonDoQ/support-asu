@@ -143,7 +143,8 @@
 
     public function destroy($vent_id)
     {
-        if(Auth::user()->position=="president"||Auth::user()->position=="vice"||Auth::user()->position=="PR")
+        if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
             {
         //Finding the vent.
         $vent = Event::find($vent_id);
