@@ -24,21 +24,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/socialicious.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/subevent.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/supportiens.css')}}">
-    @if(Request::is('events/*', 'reg'))
-    <style type="text/css">
-        body
-        {
-            padding-top: 60px;
-            background-color: #f5f5f5;
-        }
-        .com_logo
-        {
-            border-radius: 50px;
-            background-color: #282828;
-            width: 100px;
-        }
-    </style>
-    @endif
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -132,7 +117,36 @@
 
       </div><!-- /.navbar -->
 
-    
+     <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <?php $i =0; ?>
+        @if($sliders !=null)
+        @foreach ($sliders as $slider)
+        @if ($i == 0)
+          <div class="item active">
+        @else
+          <div class="item">
+        @endif
+          <img src="{{asset($slider->imgPath)}}" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>{{$slider->name}}</h1>
+              <p class="lead">{{$slider->description}}</p>
+              <a class="btn btn-large btn-primary" href="/events/{{$slider->name}}">Read more</a>
+            </div>
+          </div>
+        </div>
+        <?php $i = 1; ?>
+        @endforeach
+        @endif
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel -->
+
+    <!-- /.carousel -->
 
     @yield('content')
 

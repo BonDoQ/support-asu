@@ -3,7 +3,7 @@
  {
  	public function home()
  	{
-    $sliders=Slider::where('availibility','=',true)->get();
+         $sliders=Slider::where('availibility','=',true)->get();
  		return View::make('SupportWebsite.home',['sliders' => $sliders]);
  	}
 
