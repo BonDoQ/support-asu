@@ -155,7 +155,7 @@
             $vent->Sponsers()->detach($sponserofvent->id);
         }
 
-        unlink(public_path() . $vent->image_logo);
+        //unlink(public_path() . $vent->image_logo);
 
         //Deleting.
         $vent->delete();
