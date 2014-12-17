@@ -187,7 +187,7 @@ class CpanelSponserController extends BaseController
               $sponser->Vents()->detach($ventofsponser->id);
             }
 
-            unlink(public_path() . $sponser->image_logo);
+            //unlink(public_path() . $sponser->image_logo);
 
             //Delete.
             $sponser->delete();
