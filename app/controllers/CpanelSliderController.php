@@ -84,7 +84,7 @@
 		 	$slider->availibility=false;
 		    if(Input::hasFile('image'))
 		    {
-		      unlink(public_path() . $slider->imaPath);
+		      //unlink(public_path() . $slider->imaPath);
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
 		      Input::file('image')->move('images/sliders',$name);
 		      $slider->imgPath='images/sliders/' . $name;
@@ -116,7 +116,7 @@
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
        {
           $deletedrow = Slider::find($id);
-          unlink(public_path() . $deletedrow->imaPath);
+          //unlink(public_path() . $deletedrow->imaPath);
           $deletedrow->delete();
 		      if($deletedrow)
 		    	   return Redirect::to('cpanel/sliders');
