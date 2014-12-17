@@ -13,7 +13,11 @@
 
 App::before(function($request)
 {
-	//
+	if( ! Request::secure())
+    {
+        return Redirect::secure(Request::path());
+    }
+    
 });
 
 
@@ -86,5 +90,13 @@ Route::filter('csrf', function()
 	if (Session::token() != Input::get('_token'))
 	{
 		throw new Illuminate\Session\TokenMismatchException;
+	}
+});
+
+Route::filter('ssl', function()
+{
+	if (!Request::secure())
+	{
+		return Request::secure(Request::getRequestUri());
 	}
 });
