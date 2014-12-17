@@ -22,7 +22,7 @@
                 <form class="omb_loginForm" action="" autocomplete="off" method="POST" action="{{URL::route('postlogin')}}">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" name="username" placeholder="email address" required>
+                        <input type="text" class="form-control" name="username" placeholder="Email address or Username" required>
                     </div>
                     <span class="help-block"></span>
                                         
