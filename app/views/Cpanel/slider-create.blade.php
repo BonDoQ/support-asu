@@ -14,7 +14,7 @@
                 <div class="form-group">
                     <label for="inputEmail" class="control-label col-xs-2">Event Slider :</label>
                     <div class="">
-                    <input type="checkbox" name="EventSlider" name="download-version" checked data-size="large" data-on-text="On" data-off-text="Off" >
+                    <input type="checkbox" name="EventSlider" name="download-version" checked data-size="large" data-on-text="Yes" data-off-text="No" >
                     </div>
                 </div>
     			<div class="form-group">
