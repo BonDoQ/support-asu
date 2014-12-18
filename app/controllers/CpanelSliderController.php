@@ -31,7 +31,6 @@
     	$validate=Validator::make(Input::all(),array(
        'name'=>'required',
        'image'=>'required',
-       'description'=>'required',
       ));
 		 if($validate->fails())
 		 	return "failed !";
@@ -45,7 +44,10 @@
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
 		      Input::file('image')->move('images/sliders',$name);
 		      $slider->imgPath='images/sliders/' . $name;
-		 	    $slider->description=Input::get('description');
+          if(Input::get('description')==null)
+		 	        $slider->description=null;
+          else
+            $slider->description=Input::get('description');
 		  	  if(Input::get('availibility')=='on')
 		 	       $slider->availibility=true;
 		      else
@@ -72,7 +74,6 @@
       {
     	$validate=Validator::make(Input::all(),array(
        'name'=>'required',
-       'description'=>'required',
       ));
 		 if($validate->fails())
 		 	return Redirect::to('cpanel/sliders/$id')->withErrors($validate->messages());
@@ -81,8 +82,12 @@
 		 	  $slider = Slider::find($id);
 		 	  $slider->name=Input::get('name');
 		 	  $slider->updated_by=Auth::user()->username;
-		 	  $slider->description=Input::get('description');
         
+          if(Input::get('description')==null)
+              $slider->description=null;
+          else
+            $slider->description=Input::get('description');
+
 		 	  if(Input::get('availibility')=='on')
 		 	   $slider->availibility=true;
 		    else
@@ -94,7 +99,7 @@
              $slider->eventslider=false;
 		    if(Input::hasFile('image'))
 		    {
-		      unlink(public_path() . $slider->imaPath);
+		      //unlink(public_path() . $slider->imaPath);
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
 		      Input::file('image')->move('images/sliders',$name);
 		      $slider->imgPath='images/sliders/' . $name;
@@ -126,7 +131,7 @@
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
        {
           $deletedrow = Slider::find($id);
-          unlink(public_path() . $deletedrow->imaPath);
+          //unlink(public_path() . $deletedrow->imaPath);
           $deletedrow->delete();
 		      if($deletedrow)
 		    	   return Redirect::to('cpanel/sliders');

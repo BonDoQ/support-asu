@@ -35,7 +35,7 @@
     			<div class="form-group">
         		<label for="short-des" class="control-label col-xs-2">Short Description:</label>
 	        		<div class="col-xs-10">
-	            	<textarea class="form-control" name="description" id="short-des" required>{{$slider->description }} </textarea>
+	            	<textarea class="form-control" name="description" id="short-des">{{$slider->description }} </textarea>
             	</div>
     			</div>
           {{ Form::token() }}

@@ -36,4 +36,8 @@ class Slider extends Eloquent implements UserInterface, RemindableInterface {
     {
     	return $this->eventslider;
     }
+    public function IsDescriptionNull()
+    {
+    	return $this->description;
+    }
 }
