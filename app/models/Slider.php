@@ -32,4 +32,8 @@ class Slider extends Eloquent implements UserInterface, RemindableInterface {
 
     	return $this->availibility;
     }
+    public function IsEventSlider()
+    {
+    	return $this->eventslider;
+    }
 }

@@ -11,6 +11,12 @@
             		<input type="checkbox" name="availibility" id="Available" name="download-version" checked data-size="large" data-on-text="On" data-off-text="Off" >
         			</div>
     			</div>
+                <div class="form-group">
+                    <label for="inputEmail" class="control-label col-xs-2">Event Slider :</label>
+                    <div class="">
+                    <input type="checkbox" name="EventSlider" name="download-version" checked data-size="large" data-on-text="On" data-off-text="Off" >
+                    </div>
+                </div>
     			<div class="form-group">
                 <label for="inputlink"  class="control-label col-xs-2">Name :</label>
                     <div class="col-xs-10">

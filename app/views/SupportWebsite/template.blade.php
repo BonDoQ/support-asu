@@ -134,7 +134,9 @@
             <div class="carousel-caption">
               <h1>{{$slider->name}}</h1>
               <p class="lead">{{$slider->description}}</p>
+              @if($slider->IsEventSlider())
               <a class="btn btn-large btn-primary" href="/events/{{$slider->name}}">Read more</a>
+              @endif
             </div>
           </div>
         </div>
