@@ -52,7 +52,7 @@
 		 	       $slider->availibility=true;
 		      else
 		 	       $slider->availibility=false;
-          if(Input::get('EventSlider')=='yes')
+          if(Input::get('EventSlider')=='on')
              $slider->eventslider=true;
           else
              $slider->eventslider=false;
@@ -93,7 +93,7 @@
 		    else
 		    	$slider->availibility=false;
 
-        if(Input::get('EventSlider')=='yes')
+        if(Input::get('EventSlider')=='on')
              $slider->eventslider=true;
           else
              $slider->eventslider=false;
