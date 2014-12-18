@@ -133,7 +133,9 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>{{$slider->name}}</h1>
+              @if($slider->IsDescriptionNull()!=null)
               <p class="lead">{{$slider->description}}</p>
+              @endif
               @if($slider->IsEventSlider())
               <a class="btn btn-large btn-primary" href="/events/{{$slider->name}}">Read more</a>
               @endif
@@ -202,7 +204,7 @@
     <script src="{{asset('assets/SupportWebsite/js/jquery.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
-    <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
+    <script src="{{asset('assets/SupportWebsite/js/notify.min.js')}}"></script>
     <script>
       !function ($) {
         $(function(){

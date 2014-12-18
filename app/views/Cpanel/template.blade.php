@@ -1,228 +1,156 @@
 <!DOCTYPE html>
-<html lang="en" encoding="utf-8">
-  <head>
+<html>
+<head>
+    <!-- Styles -->
+
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap-theme.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap-switch.css')}}"> 
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/switch-highlight.css')}}"> 
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">  
+
+    <!-- Scripts -->
+
+
+    <!-- == -->
+    <meta charset="UTF-8">
     <title>
-    SUPPORT | 
-    @if(Request::is('home', '/')) Home
-    @elseif(Request::is('sponsors')) Sponsors
-    @elseif(Request::is('events')) Events
-    @elseif(Request::is('about')) About Us
-    @elseif(Request::is('events/*')) {{$thisvent->name}}
-    @endif
-      </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> 
-
-    <!-- Le styles -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/bootstrap.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/bootstrap-theme.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/bounce.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/site.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/socialicious.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/subevent.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/supportiens.css')}}">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="{{asset('assets/SupportWebsite/ico/favicon.ico')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('assets/SupportWebsite/ico/apple-touch-icon-144-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('assets/SupportWebsite/ico/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('assets/SupportWebsite/ico/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{asset('assets/SupportWebsite/ico/apple-touch-icon-57-precomposed.png')}}">
-  </head>
-
-  <body id="page-top">
-
-    <!-- NAVBAR
-    ================================================== -->
-    <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-          <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
-          <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="navbar-header" href="{{{ URL::to('/')  }}}"><img src="{{asset('assets/SupportWebsite/img/support_logo.png')}}"></a>
-          <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+      Admin's Panel | 
+      @if(Request::is('cpanel/events')) Events
+      @elseif(Request::is('cpanel/events/create')) Event Create
+      @elseif(Request::is('cpanel/events/*')) Event Edit
+      @elseif(Request::is('cpanel/sponsors')) Sponsors
+      @elseif(Request::is('cpanel/sponsors/create')) Sponsor Create
+      @elseif(Request::is('cpanel/sponsors/*')) Sponsor Edit
+      @elseif(Request::is('cpanel/sliders')) Sliders
+      @elseif(Request::is('cpanel/sliders/create')) Slide Create
+      @elseif(Request::is('cpanel/sliders/*')) Slide Edit
+      @elseif(Request::is('cpanel/messages')) Messages
+      @elseif(Request::is('cpanel')) Profile
+      @endif
+    </title>
+</head>
+<body>
+    <div class="container">
+            <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{{ URL::to('cpanel/')  }}}">Admin Panel</a>
+          </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li {{{ (Request::is('home', '/') ? 'class=active' : '') }}} >
-                <a href="{{{ URL::to('/home')  }}}">Home</a>
+              @if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+              <li {{{ (Request::is('cpanel/events') ? 'class=active' : '') }}} >
+                <a href="{{{ URL::to('cpanel/events')  }}}">Events</a>
               </li>
-              <li {{{ (Request::is('events','events/*') ? 'class=active' : '') }}} >
-                <a href="{{{ URL::to('/events')  }}}">Events</a>
+              <li {{{ (Request::is('cpanel/sponsors') ? 'class=active' : '') }}} >
+                <a href="{{{ URL::to('cpanel/sponsors')  }}}">Sponsors</a>
               </li>
-              <!--<li><a href="galary.html">Galary</a></li>-->
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Supportians <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">2013</a></li>
-                  <li><a href="#">2012</a></li>
-                  <li><a href="#">2011</a></li>
-                  <li><a href="#">2010</a></li>
-                  <li><a href="#">2009</a></li>
-                </ul>
+              <li {{{ (Request::is('cpanel/sliders') ? 'class=active' : '') }}} >
+                <a href="{{{ URL::to('cpanel/sliders')  }}}">Sliders</a>
               </li>
-              <!--<li><a href="#about">Gallary</a></li>-->
-              <li {{{ (Request::is('sponsors') ? 'class=active' : '') }}} >
-                <a href="{{{ URL::to('/sponsors')  }}}">Sponsors</a>
+              @endif
+              <li {{{ (Request::is('cpanel/reg') ? 'class=active' : '') }}} >
+                <a href="#">Register</a>
               </li>
-              <li {{{ (Request::is('about') ? 'class=active' : '') }}} >
-                <a href="{{{ URL::to('/about')  }}}">About us</a>
+              <li {{{ (Request::is('cpanel/supportians') ? 'class=active' : '') }}} >
+                <a href="#">Supportians</a>
               </li>
-              <li>
-                <a href="#myModal" data-toggle="modal">Contact us</a>
+              <li {{{ (Request::is('cpanel/post') ? 'class=active' : '') }}} >
+                <a href="#">Post</a>
               </li>
-              <li {{{ (Request::is('reg') ? 'class=active' : '') }}} >
-                <a href="#">
-                  <span style="color:#f8b619;">Registration</span>
-                </a>
-              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+             @if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
+              <li class=" message-btn"><a href="{{{ URL::to('cpanel/messages')  }}}"><i class="glyphicon glyphicon-envelope"></i></a></li>
+             @endif
+              <li class="dropdown user-option-btn">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-user"></i><i class="caret"></i></a>
+                        <ul class="dropdown-menu">
+                          @if(Auth::user()->position=="President"||Auth::user()->position=="Vice president")
+                            <li><a href="{{{ URL::to('cpanel/create-account')  }}}">Create Account</a></li>
+                          @endif
+                            <li><a href="{{{ URL::to('cpanel/change')  }}}">Change Password</a></li>
+                            <li><a href="{{{ URL::to('cpanel/')  }}}">Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{{ URL::to('cpanel/logout')  }}}">Logout</a></li>
+                        </ul>   
+                    </li>
             </ul>
           </div><!--/.nav-collapse -->
-        </div><!-- /.navbar-inner -->
-
-        <!--modal-->
-        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <center><h3 id="myModalLabel">Contact Us</h3></center>
-              </div>
-               <form class="form-horizontal" method="POST" action="/contactus">
-              <div class="modal-body" {{$errors->has('sender_name') ? 'has->error': ''}}>
-               <input type="text" class="form-control" placeholder="Full Name" name="sender_name" required >
-                <input type="email" class="form-control" placeholder="Email address" name="sender_email" required>
-                <input type="text" class="form-control" placeholder="Subject" name="sender_subject" required>
-                <textarea class="form-control" placeholder="Message" name="sender_message" required></textarea>
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-branded">submit</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--end of modal-->
-
-      </div><!-- /.navbar -->
-
-     <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
-        <?php $i =0; ?>
-        @if($sliders !=null)
-        @foreach ($sliders as $slider)
-        @if ($i == 0)
-          <div class="item active">
-        @else
-          <div class="item">
-        @endif
-          <img src="{{asset($slider->imgPath)}}" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>{{$slider->name}}</h1>
-              @if($slider->IsDescriptionNull()!=null)
-              <p class="lead">{{$slider->description}}</p>
-              @endif
-              @if($slider->IsEventSlider())
-              <a class="btn btn-large btn-primary" href="/events/{{$slider->name}}">Read more</a>
-              @endif
-            </div>
-          </div>
-        </div>
-        <?php $i = 1; ?>
-        @endforeach
-        @endif
+        </div><!--/.container-fluid -->
       </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
 
-    <!-- /.carousel -->
+      @yield('content')
 
-    @yield('content')
 
-    <!-- FOOTER -->
-            <footer>
-
-      <div id="footer">
-        <div class="container-fluid">
-          <div class="col-sm-4" id="posts">
-            <!--blockquote>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
-            </blockquote>
-            <blockquote>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
-            </blockquote>
-            <blockquote>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
-            </blockquote-->
-          </div>
-
-         
-
-          
-
-          <div class="col-sm-5 social-container">
-            <ul class="col-sm-12">
-              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
-              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
-              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>
-              <a href="#"><li class="social col-sm-6"><i class="icon-googleplus"></i></li></a>
-              <a href="#"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
-              <a href="#"><li class="social col-sm-6"><i class="icon-pinterest"></i></li></a>
-            </ul>
-          </div>
-
-      </div>
     </div>
-        <p id="foot">© {{date("Y")}} SUPPORT - All Rights Reserved</p>
-      </footer>
 
+    <script type="text/javascript" src="{{asset('assets/Cpanel/js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/Cpanel/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/Cpanel/js/site.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/Cpanel/js/bootstrap-switch.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/Cpanel/js/switch.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/Cpanel/js/switch-highlight.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/Cpanel/text-editor/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/Cpanel/js/description-field.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/Cpanel/js/filter.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/Cpanel/js/validationpassword.js')}}"></script>
+    <script type="text/javascript">tinymce.init({selector:'.event-description'});</script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+              $('.filterable .btn-filter').click(function(){
+                  var $panel = $(this).parents('.filterable'),
+                  $filters = $panel.find('.filters input'),
+                  $tbody = $panel.find('.table tbody');
+                  if ($filters.prop('disabled') == true) {
+                      $filters.prop('disabled', false);
+                      $filters.first().focus();
+                  } else {
+                      $filters.val('').prop('disabled', true);
+                      $tbody.find('.no-result').remove();
+                      $tbody.find('tr').show();
+                  }
+              });
 
-    <a id="scroll-top" href="#page-top"><h1>^</h1></a>
-
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{asset('assets/SupportWebsite/js/jquery.js')}}"></script>
-    <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
-    <script src="{{asset('assets/SupportWebsite/js/notify.min.js')}}"></script>
-    <script>
-      !function ($) {
-        $(function(){
-          // carousel demo
-          $('#myCarousel').carousel()
-        })
-      }(window.jQuery)
+              $('.filterable .filters input').keyup(function(e){
+                  /* Ignore tab key */
+                  var code = e.keyCode || e.which;
+                  if (code == '9') return;
+                  /* Useful DOM data and selectors */
+                  var $input = $(this),
+                  inputContent = $input.val().toLowerCase(),
+                  $panel = $input.parents('.filterable'),
+                  column = $panel.find('.filters th').index($input.parents('th')),
+                  $table = $panel.find('.table'),
+                  $rows = $table.find('tbody tr');
+                  /* Dirtiest filter function ever ;) */
+                  var $filteredRows = $rows.filter(function(){
+                      var value = $(this).find('td').eq(column).text().toLowerCase();
+                      return value.indexOf(inputContent) === -1;
+                  });
+                  /* Clean previous no-result if exist */
+                  $table.find('tbody .no-result').remove();
+                  /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+                  $rows.show();
+                  $filteredRows.hide();
+                  /* Prepend no-result row if all rows are filtered */
+                  if ($filteredRows.length === $rows.length) {
+                      $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+                  }
+              });
+          });
     </script>
-      <script type="text/javascript">
-      @if(Session::has('success'))
-        success_notif("{{Session::get('success')}}");
-      @elseif(Session::has('fail'))
-        fail_notif("{{Session::get('fail')}}");
-      @elseif(Session::has('warn'))
-        warn_notif("{{Session::get('warn')}}");
-      @endif
-    </script>
-    <!--<script type="text/javascript" src="{{asset('assets/SupportWebsite/js/jquery.ufvalidator-1.0.7.js')}}"></script>-->
-    <!--<script type="text/javascript" src="{{asset('assets/SupportWebsite/js/reg.js')}}"></script>-->
-  </body>
+
+</body>
 </html>
