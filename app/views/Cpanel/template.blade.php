@@ -106,6 +106,7 @@
     <script type="text/javascript" src="{{asset('assets/Cpanel/js/description-field.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/Cpanel/js/filter.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/Cpanel/js/validationpassword.js')}}"></script>
+    <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
     <script type="text/javascript">tinymce.init({selector:'.event-description'});</script>
     <script type="text/javascript">
       $(document).ready(function(){
@@ -151,6 +152,15 @@
               });
           });
     </script>
-
+    </script>
+      <script type="text/javascript">
+      @if(Session::has('success'))
+        success_notif("{{Session::get('success')}}");
+      @elseif(Session::has('fail'))
+        fail_notif("{{Session::get('fail')}}");
+      @elseif(Session::has('warn'))
+        warn_notif("{{Session::get('warn')}}");
+      @endif
+    </script>
 </body>
 </html>

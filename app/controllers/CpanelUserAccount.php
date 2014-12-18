@@ -79,7 +79,7 @@
       }
       if($user->save())
 
-        return Redirect::route('getcreate');
+        return Redirect::route('getcreate')->with('success',$user->username.' has been Created Successfully');
 
       else
         return 'an error occured during save into database';
@@ -123,6 +123,6 @@
           $user->email   = Input::get('email'); 
 
           $user->save();
-           return Redirect::to('cpanel')->withSuccess('Your profile has been Updated !'); //flash message
+           return Redirect::to('cpanel')->with("success",'Your profile has been Updated Successfully'); //flash message
      }
  }

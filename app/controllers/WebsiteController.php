@@ -40,7 +40,7 @@
     if($email)
     {
         
-       return Redirect::back()->with('success','Your Message has been arrived !'); //successful message
+       return Redirect::back()->with('success','Your Message has been Sent Successfully'); //successful message
     }
  }
 }
