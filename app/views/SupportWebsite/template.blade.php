@@ -204,7 +204,7 @@
     <script src="{{asset('assets/SupportWebsite/js/jquery.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
-    <script src="{{asset('assets/SupportWebsite/js/notify.min.js')}}"></script>
+    <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
     <script>
       !function ($) {
         $(function(){
