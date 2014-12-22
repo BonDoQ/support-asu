@@ -51,7 +51,7 @@ public function register()
     public function submit()
     {
       $validation = Validator::make(Input::all(), [
-            'name' => 'required',
+            'name' => 'required|alpha',
             'email' => 'required',
             'mobile' => 'required',
             'university' => 'required',
