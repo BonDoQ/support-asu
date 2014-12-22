@@ -2,13 +2,7 @@
 <html lang="en" encoding="utf-8">
   <head>
     <title>
-    SUPPORT | 
-    @if(Request::is('home', '/')) Home
-    @elseif(Request::is('sponsors')) Sponsors
-    @elseif(Request::is('events')) Events
-    @elseif(Request::is('about')) About Us
-    @elseif(Request::is('events/*')) {{$thisvent->name}}
-    @endif
+    SUPPORT | Registration
       </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
