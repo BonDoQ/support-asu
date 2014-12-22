@@ -22,12 +22,12 @@
         body
         {
             padding-top: 60px;
-            background-color: #f5f5f5;
+           /* background-color: #f5f5f5;*/
         }
         .com_logo
         {
             border-radius: 50px;
-            background-color: #282828;
+            /*background-color: #282828*/
             width: 100px;
         }
     </style>
@@ -50,7 +50,7 @@
     <!-- NAVBAR
     ================================================== -->
     <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar navbar-inverse navbar-fixed-top" id="bar" role="navigation">
         <div class="container">
           <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
           <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -69,7 +69,7 @@
                 <a href="{{{ URL::to('/events')  }}}">Events</a>
               </li>
               <!--<li><a href="galary.html">Galary</a></li>-->
-              <li class="dropdown">
+              <!--li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Supportians <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">2013</a></li>
@@ -78,7 +78,7 @@
                   <li><a href="#">2010</a></li>
                   <li><a href="#">2009</a></li>
                 </ul>
-              </li>
+              </li-->
               <!--<li><a href="#about">Gallary</a></li>-->
               <li>
                 <a href="{{{ URL::to('/sponsors')  }}}">Sponsors</a>
@@ -90,7 +90,7 @@
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
               <li>
-                <a href="#">
+                <a href="/registration">
                   <span style="color:#f8b619;">Registration</span>
                 </a>
               </li>
@@ -196,7 +196,7 @@
               <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
               <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>
               <a href="#"><li class="social col-sm-6"><i class="icon-googleplus"></i></li></a>
-              <a href="#"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
+              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
               <a href="#"><li class="social col-sm-6"><i class="icon-pinterest"></i></li></a>
             </ul>
           </div>
@@ -216,7 +216,8 @@
     <script src="{{asset('assets/SupportWebsite/js/jquery.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
-    <script src="{{asset('assets/SupportWebsite/js/notify.min.js')}}"></script>
+    <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/SupportWebsite/js/snowfall-jquery-min.js')}}"></script>
     <script>
       !function ($) {
         $(function(){
@@ -224,6 +225,10 @@
           $('#myCarousel').carousel()
         })
       }(window.jQuery)
+
+      $(document).ready(function() {
+   $('#bar').snowfall({flakeCount : 80, maxSpeed : 3});
+     });
     </script>
       <script type="text/javascript">
       @if(Session::has('success'))

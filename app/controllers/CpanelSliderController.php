@@ -82,7 +82,7 @@
 		 	  $slider = Slider::find($id);
 		 	  $slider->name=Input::get('name');
 		 	  $slider->updated_by=Auth::user()->username;
-        
+
           if(Input::get('description')==null)
               $slider->description=null;
           else
@@ -105,7 +105,6 @@
 		      $slider->imgPath='images/sliders/' . $name;
 		    }
 		 }
-
 		 if($slider->save())
         	return Redirect::to('cpanel/sliders');
         else

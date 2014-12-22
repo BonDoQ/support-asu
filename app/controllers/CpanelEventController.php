@@ -145,13 +145,12 @@
     {
         if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
-            {
+        {
         //Finding the vent.
         $vent = Event::find($vent_id);
 
         //Detaching..
         $sponsersofvent = $vent->Sponsers()->get();
-        if($sponsersofvent!=null)
         foreach ($sponsersofvent as $sponserofvent)
         {
             $vent->Sponsers()->detach($sponserofvent->id);

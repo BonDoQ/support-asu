@@ -8,6 +8,7 @@
     @elseif(Request::is('events')) Events
     @elseif(Request::is('about')) About Us
     @elseif(Request::is('events/*')) {{$thisvent->name}}
+     @elseif(Request::is('registration')) Registration
     @endif
       </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/subevent.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/supportiens.css')}}">
 
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -39,11 +41,10 @@
   </head>
 
   <body id="page-top">
-
     <!-- NAVBAR
     ================================================== -->
     <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar navbar-inverse navbar-fixed-top" id="bar" role="navigation">
         <div class="container">
           <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
           <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -62,7 +63,7 @@
                 <a href="{{{ URL::to('/events')  }}}">Events</a>
               </li>
               <!--<li><a href="galary.html">Galary</a></li>-->
-              <li class="dropdown">
+              <!--li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Supportians <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">2013</a></li>
@@ -70,7 +71,7 @@
                   <li><a href="#">2011</a></li>
                   <li><a href="#">2010</a></li>
                   <li><a href="#">2009</a></li>
-                </ul>
+                </ul-->
               </li>
               <!--<li><a href="#about">Gallary</a></li>-->
               <li {{{ (Request::is('sponsors') ? 'class=active' : '') }}} >
@@ -82,8 +83,8 @@
               <li>
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
-              <li {{{ (Request::is('reg') ? 'class=active' : '') }}} >
-                <a href="#">
+              <li >
+                <a href="/registration">
                   <span style="color:#f8b619;">Registration</span>
                 </a>
               </li>
@@ -107,7 +108,7 @@
                 <textarea class="form-control" placeholder="Message" name="sender_message" required></textarea>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-branded">submit</button>
+                <button class="btn btn-branded" >submit</button>
                 </form>
               </div>
             </div>
@@ -122,7 +123,6 @@
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <?php $i =0; ?>
-        @if($sliders !=null)
         @foreach ($sliders as $slider)
         @if ($i == 0)
           <div class="item active">
@@ -144,14 +144,12 @@
         </div>
         <?php $i = 1; ?>
         @endforeach
-        @endif
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
 
     <!-- /.carousel -->
-
     @yield('content')
 
     <!-- FOOTER -->
@@ -176,15 +174,13 @@
 
          
 
-          
-
-          <div class="col-sm-5 social-container">
+          <div class="col-sm-5">
             <ul class="col-sm-12">
               <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
               <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
               <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>
               <a href="#"><li class="social col-sm-6"><i class="icon-googleplus"></i></li></a>
-              <a href="#"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
+              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
               <a href="#"><li class="social col-sm-6"><i class="icon-pinterest"></i></li></a>
             </ul>
           </div>
@@ -205,6 +201,7 @@
     <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/SupportWebsite/js/snowfall-jquery-min.js')}}"></script>
     <script>
       !function ($) {
         $(function(){
@@ -212,6 +209,10 @@
           $('#myCarousel').carousel()
         })
       }(window.jQuery)
+
+$(document).ready(function() {
+   $('#bar').snowfall({flakeCount : 80, maxSpeed : 3});
+     });
     </script>
       <script type="text/javascript">
       @if(Session::has('success'))
@@ -222,6 +223,7 @@
         warn_notif("{{Session::get('warn')}}");
       @endif
     </script>
+    
     <!--<script type="text/javascript" src="{{asset('assets/SupportWebsite/js/jquery.ufvalidator-1.0.7.js')}}"></script>-->
     <!--<script type="text/javascript" src="{{asset('assets/SupportWebsite/js/reg.js')}}"></script>-->
   </body>

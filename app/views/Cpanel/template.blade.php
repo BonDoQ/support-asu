@@ -29,6 +29,7 @@
       @elseif(Request::is('cpanel/sliders/*')) Slide Edit
       @elseif(Request::is('cpanel/messages')) Messages
       @elseif(Request::is('cpanel')) Profile
+      @elseif(Request::is('cpanel/applicants')) Applicants
       @endif
     </title>
 </head>
@@ -59,8 +60,11 @@
                 <a href="{{{ URL::to('cpanel/sliders')  }}}">Sliders</a>
               </li>
               @endif
-              <li {{{ (Request::is('cpanel/reg') ? 'class=active' : '') }}} >
-                <a href="#">Register</a>
+              @if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
+            ||Auth::user()->position=="HR Member"||Auth::user()->position=="HR Head")
+              <li {{{ (Request::is('cpanel/applicants') ? 'class=active' : '') }}} >
+                <a href="{{{ URL::to('cpanel/applicants')  }}}">Applicants</a>
+              @endif
               </li>
               <li {{{ (Request::is('cpanel/supportians') ? 'class=active' : '') }}} >
                 <a href="#">Supportians</a>

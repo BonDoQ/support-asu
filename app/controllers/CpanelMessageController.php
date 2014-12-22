@@ -27,7 +27,7 @@ class CpanelMessageController extends BaseController {
         $email->delete();
         //Directing to the index root.
         return Redirect::route('cpanel.messages.index');
-     }
+      }
          else
                 return Redirect::to('cpanel');
 	}

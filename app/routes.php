@@ -19,6 +19,10 @@ Route::post('/contactus','WebsiteController@contactus');
 Route::get('events','WebsiteController@events');
 Route::get('sponsors','WebsiteController@sponsors');
 Route::get('events/{event_id}', 'WebsiteController@subevent');
+Route::get('registration','WebsiteController@register');
+Route::post('/submit',array('uses'=>'WebsiteController@submit','as'=>'submit'));
+Route::get('/get_days', 'CpanelRegController@get_days');
+Route::get('/get_time/{day}', 'CpanelRegController@get_time');
                   //Cpanel Routes
 //useraccount
 
@@ -40,6 +44,7 @@ Route::group(array('before'=>'auth'),function()
     Route::resource('cpanel/sponsors', 'CpanelSponserController');
     Route::resource('cpanel/events','CpanelEventController');
     Route::resource('cpanel/messages', 'CpanelMessageController');
+    Route::resource('cpanel/applicants', 'CpanelRegController');
     Route::post('cpanel/messages/reply/{email_id}', 'CpanelMessageController@reply');
     Route::get('cpanel/change',array('uses' =>'CpanelUserAccount@GetChange','as'=>'getchange'));
     Route::post('cpanel/change',array('uses' =>'CpanelUserAccount@PostChange','as'=>'postchange'));

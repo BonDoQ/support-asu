@@ -44,6 +44,59 @@
     }
  }
 }
+public function register()
+    {        
+        return View::make('SupportWebsite.register');
+    }
+    public function submit()
+    {
+      $validation = Validator::make(Input::all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'university' => 'required',
+            'faculty' => 'required',
+            'workshop' => 'required',
+            'day' => 'required',
+            'time' => 'required'
+        ]);
+
+      if ($validation->fails()
+          || strchr(Input::get('university'), "Choose")
+          || strchr(Input::get('faculty'), "Choose")
+          || strchr(Input::get('workshop'), "Choose")
+          || strchr(Input::get('day'), "Choose")
+          || strchr(Input::get('time'), "Choose")
+        ) {
+        return Redirect::back()->withInput()->with('fail', 'Make Sure You Filled All Fields');
+      }
+      else
+      {
+        $register = new Register();
+        $register->name = Input::get('name');
+        $register->email = Input::get('email');
+        $register->mobile = Input::get('mobile');
+        $register->university = Input::get('university');
+        $register->college = Input::get('faculty');
+        $register->workshop = Input::get('workshop');
+        $register->day = Input::get('day');
+        $register->time = Input::get('time');
+        $register->comments = Input::get('comments');
+
+        if(!CpanelRegController::add($register->day, $register->time))
+        {
+            return Redirect::back()->withInput()->with('fail', 'There is a Problem, Please Try Again.');
+        }
+
+        if ($register->save()) {
+          return Redirect::to('/home')->with('success', 'Your Application has been Sent Successfully, Thank You!');
+        }
+        else
+        {
+          return Redirect::back()->withInput()->with('fail', 'There is a problem in Saving your Data, Please Try Again.');
+        }
+      }
+    }
 public function events()
     {
         //Getting data from the database.

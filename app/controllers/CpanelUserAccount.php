@@ -123,6 +123,6 @@
           $user->email   = Input::get('email'); 
 
           $user->save();
-           return Redirect::to('cpanel')->with("success",'Your profile has been Updated Successfully'); //flash message
+           return Redirect::to('cpanel')->with("success",'Your Profile has been Updated Successfully'); //flash message
      }
  }
