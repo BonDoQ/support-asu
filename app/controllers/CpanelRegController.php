@@ -46,7 +46,8 @@ class CpanelRegController extends BaseController {
         {
 		  //Finding the vent.
         $app = Register::find($app_id);
-
+			if (!CpanelRegController::remove($app->day, $app->time)) 
+        		return Redirect::back()->with('fail', 'Applican was not removed due to a problem.');
 	        if($app->delete())
 	        {
 	        	return Redirect::back()->with('warn', 'Applicant was Deleted Successfully.');
