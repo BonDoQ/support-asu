@@ -131,9 +131,9 @@
         <hr/>
         <div id="errorDiv1" class="error-div"></div>
 
-        <input type="text" pattern="[A-Za-z]" required class="form-control req-min req-full-name" minlength="3" maxlength="60" placeholder="Full Name" name="name" value="{{Input::old('name')}}">
+        <input type="text"  required class="form-control req-min req-full-name" minlength="3" maxlength="60" placeholder="Full Name" name="name" value="{{Input::old('name')}}">
         <input type="email" required class="form-control req-min req-email" minlength="3" maxlength="40" placeholder="Email address" name="email" value="{{Input::old('email')}}">
-        <input type="tel" pattern="[0-9]" required class="form-control req-numeric req-min" minlength="3" maxlength="14" placeholder="Mobile" name="mobile" value="{{Input::old('mobile')}}">
+        <input type="tel"  required class="form-control req-numeric req-min" minlength="3" maxlength="14" placeholder="Mobile" name="mobile" value="{{Input::old('mobile')}}">
         <select class="form-control" name="university">
           <option>-Choose University-</option>
           <option>Ain Shams</option>
