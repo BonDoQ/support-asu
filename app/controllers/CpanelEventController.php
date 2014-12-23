@@ -35,7 +35,6 @@
             {
         $validation = Validator::make(Input::all(), [
             'name' => 'required',
-            'slogan' => 'required',
             'short_description'=>'required',
             'date'=>'required'
         ]);
@@ -49,7 +48,8 @@
         if(Input::get('availibility')=='on') $vent->availibility = true;
         else $vent->availibility = false;
         $vent->name=Input::get('name');
-        $vent->slogan=Input::get('slogan');
+         if(Input::get('slogan')!=null)
+           $vent->slogan=Input::get('slogan');
         $vent->updated_by=Auth::user()->username;
         $vent->short_description=Input::get('short_description');
         $vent->description=Input::get('description');
@@ -99,7 +99,6 @@
         {
         $validation = Validator::make(Input::all(), [
             'name' => 'required',
-            'slogan' => 'required',
             'short_description'=>'required',
             'date'=>'required'
         ]);
@@ -114,7 +113,10 @@
         if(Input::get('availibility')=='on') $vent->availibility = true;
         else $vent->availibility = false;
         $vent->name=Input::get('name');
-        $vent->slogan=Input::get('slogan');
+        if(Input::get('slogan')!=null)
+           $vent->slogan=Input::get('slogan');
+        else
+           $vent->slogan=null;
         $vent->updated_by=Auth::user()->username;
         $vent->short_description=Input::get('short_description');
         $vent->description=Input::get('description');
