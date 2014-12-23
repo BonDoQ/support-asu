@@ -23,7 +23,7 @@
           <div class="form-group">
             <label for="inputslogan" class="control-label col-xs-2">Event Slogan :</label>
               <div class="col-xs-10">
-                <input type="text" class="form-control" name="slogan" id="inputslogan" placeholder="Type the Evet Slogan" value="{{$vent->slogan}}" required>
+                <input type="text" class="form-control" name="slogan" id="inputslogan" placeholder="Type the Evet Slogan" value="{{$vent->slogan}}" >
               </div>
           </div>
           <div class="form-group">
