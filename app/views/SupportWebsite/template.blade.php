@@ -83,11 +83,6 @@
               <li>
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
-              <li >
-                <a href="/registration">
-                  <span style="color:#f8b619;">Registration</span>
-                </a>
-              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!-- /.navbar-inner -->
@@ -201,7 +196,6 @@
     <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/SupportWebsite/js/snowfall-jquery-min.js')}}"></script>
     <script>
       !function ($) {
         $(function(){
@@ -209,10 +203,6 @@
           $('#myCarousel').carousel()
         })
       }(window.jQuery)
-
-$(document).ready(function() {
-   $('#bar').snowfall({flakeCount : 80, maxSpeed : 3});
-     });
     </script>
       <script type="text/javascript">
       @if(Session::has('success'))

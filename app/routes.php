@@ -19,7 +19,6 @@ Route::post('/contactus','WebsiteController@contactus');
 Route::get('events','WebsiteController@events');
 Route::get('sponsors','WebsiteController@sponsors');
 Route::get('events/{event_id}', 'WebsiteController@subevent');
-Route::get('registration','WebsiteController@register');
 Route::post('/submit',array('uses'=>'WebsiteController@submit','as'=>'submit'));
 Route::get('/get_days', 'CpanelRegController@get_days');
 Route::get('/get_time/{day}', 'CpanelRegController@get_time');
