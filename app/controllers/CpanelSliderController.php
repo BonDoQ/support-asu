@@ -114,10 +114,10 @@
      var_dump($list);
      $list = File::directories('../../images');
      var_dump($list);
-		 if($slider->save())
+		 /*if($slider->save())
         	return Redirect::to('cpanel/sliders');
         else
-        	return "an fatel error has been occured";
+        	return "an fatel error has been occured";*/
       }
       else
         return Redirect::to('cpanel');
