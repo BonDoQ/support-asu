@@ -58,12 +58,12 @@
         $vent->ve_year = $date->format('Y');
 
         //Getting and uploading logo file.
-        $img_path = '/images/events/';
+        $img_path = '../../images/events/';
         if(Input::hasFile('image_logo'))
         {
             $file = Input::file('image_logo');
             $file_name = $vent->name . '-' . time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path() . $img_path, $file_name);
+            $file->move($img_path, $file_name);
             $vent->image_logo = $img_path . $file_name;
         } else
         {
@@ -127,11 +127,11 @@
         //Getting and uploading logo file.
         if(Input::hasFile('image_logo'))
         {
-            //unlink(public_path() . $vent->image_logo);
+            unlink($vent->image_logo);
             $file = Input::file('image_logo');
-            $img_path = '/images/events/';
+            $img_path = '../../images/events/';
             $file_name = $vent->name . '-' . time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path() . $img_path, $file_name);
+            $file->move($img_path, $file_name);
             $vent->image_logo = $img_path . $file_name;
         }
 
@@ -158,7 +158,7 @@
             $vent->Sponsers()->detach($sponserofvent->id);
         }
 
-        //unlink(public_path() . $vent->image_logo);
+        unlink($vent->image_logo);
 
         //Deleting.
         $vent->delete();

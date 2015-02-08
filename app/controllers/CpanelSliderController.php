@@ -42,8 +42,8 @@
             $slider->updated_by=Auth::user()->username;
             
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
-		      Input::file('image')->move('images/sliders',$name);
-		      $slider->imgPath='images/sliders/' . $name;
+		      Input::file('image')->move('../../images/sliders',$name);
+		      $slider->imgPath='../../images/sliders/' . $name;
           if(Input::get('description')==null)
 		 	        $slider->description=null;
           else
@@ -88,10 +88,12 @@
           else
             $slider->description=Input::get('description');
           //directories
+          /*
           File::makeDirectory('../../images/events',$mode=0777,true,true);
           File::makeDirectory('../../images/sliders',$mode=0777,true,true);
           File::makeDirectory('../../images/sponsors',$mode=0777,true,true);
           File::makeDirectory('../../SupportApps',$mode=0777,true,true);
+          */
 		 	  if(Input::get('availibility')=='on')
 		 	   $slider->availibility=true;
 		    else
@@ -103,10 +105,10 @@
              $slider->eventslider=false;
 		    if(Input::hasFile('image'))
 		    {
-		      //unlink(public_path() . $slider->imaPath);
+		      unlink($slider->imaPath);
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
-		      Input::file('image')->move('images/sliders',$name);
-		      $slider->imgPath='images/sliders/' . $name;
+		      Input::file('image')->move('../../images/sliders',$name);
+		      $slider->imgPath='../../images/sliders/' . $name;
 		    }
 		 }
 		 if($slider->save())
@@ -134,7 +136,7 @@
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
        {
           $deletedrow = Slider::find($id);
-          //unlink(public_path() . $deletedrow->imaPath);
+          unlink($deletedrow->imaPath);
           $deletedrow->delete();
 		      if($deletedrow)
 		    	   return Redirect::to('cpanel/sliders');
