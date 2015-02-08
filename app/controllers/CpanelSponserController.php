@@ -63,10 +63,10 @@ class CpanelSponserController extends BaseController
             $file = Input::file('image_logo');
             $file_name = $sponser->name . '-' . time() . '.' . $file->getClientOriginalExtension();
             $file->move($img_path, $file_name);
-            $sponser->image_logo = $img_path . $file_name;
+            $sponser->image_logo = '/images/sponsors/' . $file_name;
         } else
         {
-            $sponser->image_logo = $img_path . 'default.png';
+            $sponser->image_logo = '/images/sponsors/' . 'default.png';
         }
 
         $sponser->save();
@@ -156,12 +156,12 @@ class CpanelSponserController extends BaseController
         //Getting and uploading logo file.
         if(Input::hasFile('image_logo'))
         {
-            //unlink(public_path() . $sponser->image_logo);
+            unlink('../..'.$sponser->image_logo);
             $file = Input::file('image_logo');
             $img_path = '../../images/sponsors/';
             $file_name = $sponser->name . '-' . time() . '.' . $file->getClientOriginalExtension();
             $file->move($img_path, $file_name);
-            $sponser->image_logo = $img_path . $file_name;
+            $sponser->image_logo = '/images/sponsors' . $file_name;
         }
 
         $sponser->save();
