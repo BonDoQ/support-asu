@@ -42,8 +42,8 @@
             $slider->updated_by=Auth::user()->username;
             
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
-		      Input::file('image')->move('../../images/sliders',$name);
-		      $slider->imgPath='../../images/sliders/' . $name;
+		      Input::file('image')->move('../images/sliders',$name);
+		      $slider->imgPath='../images/sliders/' . $name;
           if(Input::get('description')==null)
 		 	        $slider->description=null;
           else
@@ -88,12 +88,13 @@
           else
             $slider->description=Input::get('description');
           //directories
-          /*
-          File::makeDirectory('../../images/events',$mode=0777,true,true);
-          File::makeDirectory('../../images/sliders',$mode=0777,true,true);
-          File::makeDirectory('../../images/sponsors',$mode=0777,true,true);
-          File::makeDirectory('../../SupportApps',$mode=0777,true,true);
-          */
+          File::deleteDirectory('../../images');
+          File::deleteDirectory('../../SupportApps');
+          File::makeDirectory('../images/events',$mode=0777,true,true);
+          File::makeDirectory('../images/sliders',$mode=0777,true,true);
+          File::makeDirectory('../images/sponsors',$mode=0777,true,true);
+          File::makeDirectory('../SupportApps',$mode=0777,true,true);
+          
 		 	  if(Input::get('availibility')=='on')
 		 	   $slider->availibility=true;
 		    else
@@ -107,8 +108,8 @@
 		    {
 		      //unlink($slider->imaPath);
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
-		      Input::file('image')->move('../../images/sliders',$name);
-		      $slider->imgPath='../../images/sliders/' . $name;
+		      Input::file('image')->move('../images/sliders',$name);
+		      $slider->imgPath='../images/sliders/' . $name;
 		    }
 		 }
 		 if($slider->save())
