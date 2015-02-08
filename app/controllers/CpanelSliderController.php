@@ -90,7 +90,7 @@
           //directories
           
          // File::makeDirectory('images/events',$mode=0777,true,true);
-          File::makeDirectory('../images/sliders',$mode=0777,true,true);
+         // File::makeDirectory('../images/sliders',$mode=0777,true,true);
         
 		 	  if(Input::get('availibility')=='on')
 		 	   $slider->availibility=true;

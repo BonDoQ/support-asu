@@ -29,7 +29,7 @@
               <div class="col-xs-10">
                 <input type="file" class="form-control" name="image" id="img-upload" >
                 <label class="btn btn-primary col-sm-2" for="img-upload">Upload Slider</label>
-                <div class="col-sm-2 "><img class="img-responsive" src="{{asset($slider->imgPath)}}"></div>
+                <div class="col-sm-2 "><img class="img-responsive" src="{{$slider->imgPath}}"></div>
               </div>
           </div>
     			<div class="form-group">
