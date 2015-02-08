@@ -124,7 +124,7 @@
         @else
           <div class="item">
         @endif
-          <img src="{{asset($slider->imgPath)}}" alt="">
+          <img src="{{$slider->imgPath}}" alt="">
           <div class="container">
             <div class="carousel-caption">
               <h1>{{$slider->name}}</h1>

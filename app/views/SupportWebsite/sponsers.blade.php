@@ -17,7 +17,7 @@
         <li class="col-sm-3 holder2">
             <div class="avatar2">
              <a href="#Modal{{$sponser->id}}" data-toggle="modal">
-            <img src="{{asset($sponser->image_logo)}}" class="fixed-size-250x250 img-responsive user2 no_padding"/>
+            <img src="{{$sponser->image_logo}}" class="fixed-size-250x250 img-responsive user2 no_padding"/>
              </a>
             </div>
         </li>

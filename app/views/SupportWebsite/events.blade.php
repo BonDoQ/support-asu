@@ -17,7 +17,7 @@
         <li class="col-sm-3">
           <div class="img-polaroid">
           <figure>
-            <img class="fixed-size-250x250 img-responsive col-sm-12 no_padding" src="{{asset($vent->image_logo)}}">
+            <img class="fixed-size-250x250 img-responsive col-sm-12 no_padding" src="{{vent->image_logo}}">
             <figcaption>
               <h3>{{$vent->name}}</h3>
               <p>{{$vent->short_description}}</p>

@@ -142,7 +142,7 @@
             <div class="holder featurette-image pull-left ">
               <div class="avatar">
                <a>
-                <img src="{{asset($thisvent->image_logo)}}" class="fixed-size-250x250 user event-logo"/>
+                <img src="{{$thisvent->image_logo}}" class="fixed-size-250x250 user event-logo"/>
                </a>
               </div>
             </div>
