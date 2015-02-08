@@ -22,7 +22,27 @@ Route::get('events/{event_id}', 'WebsiteController@subevent');
 Route::post('/submit',array('uses'=>'WebsiteController@submit','as'=>'submit'));
 Route::get('/get_days', 'CpanelRegController@get_days');
 Route::get('/get_time/{day}', 'CpanelRegController@get_time');
-                  //Cpanel Routes
+Route::get('images/sliders/{image}', function($image = null)
+{
+    $path = '../../images/sliders/'.$image;
+    if (file_exists($path)) { 
+         return Response::download($path);;
+    }
+});
+Route::get('images/events/{image}', function($image = null)
+{
+    $path = '../../images/events/'.$image;
+    if (file_exists($path)) { 
+         return Response::download($path);;
+    }
+});
+Route::get('images/sponsors/{image}', function($image = null)
+{
+    $path = '../../images/sponsors/'.$image;
+    if (file_exists($path)) { 
+         return Response::download($path);;
+    }
+});               //Cpanel Routes
 //useraccount
 
 Route::group(array('before'=>'guest'),function()

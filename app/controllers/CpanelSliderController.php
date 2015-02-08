@@ -42,8 +42,8 @@
             $slider->updated_by=Auth::user()->username;
             
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
-		      Input::file('image')->move('../images/sliders',$name);
-		      $slider->imgPath='../images/sliders/' . $name;
+		      Input::file('image')->move('../../images/sliders',$name);
+		      $slider->imgPath='/images/sliders/' . $name;
           if(Input::get('description')==null)
 		 	        $slider->description=null;
           else
@@ -106,22 +106,15 @@
 		      //unlink($slider->imaPath);
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
 		      Input::file('image')->move('../../images/sliders',$name);
-		      $slider->imgPath='../../images/sliders/' . $name;
+		      $slider->imgPath='/images/sliders/' . $name;
 		    }
-        $slider->save();
+      
 		 }
-      if (  File::exists('../../images/sliders') )
-           {
-            $files = File::allFiles('../../images/sliders');
-            var_dump($files);
-           }
-           else
-            return 'nothing';
 
-		/* if($slider->save())
+		 if($slider->save())
         	return Redirect::to('cpanel/sliders');
         else
-        	return "an fatel error has been occured";*/
+        	return "an fatel error has been occured";
       }
       else
         return Redirect::to('cpanel');
