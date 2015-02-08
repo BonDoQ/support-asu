@@ -105,7 +105,7 @@
              $slider->eventslider=false;
 		    if(Input::hasFile('image'))
 		    {
-		      unlink($slider->imaPath);
+		      //unlink($slider->imaPath);
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
 		      Input::file('image')->move('../../images/sliders',$name);
 		      $slider->imgPath='../../images/sliders/' . $name;

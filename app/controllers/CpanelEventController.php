@@ -127,7 +127,7 @@
         //Getting and uploading logo file.
         if(Input::hasFile('image_logo'))
         {
-            unlink($vent->image_logo);
+            //unlink($vent->image_logo);
             $file = Input::file('image_logo');
             $img_path = '../../images/events/';
             $file_name = $vent->name . '-' . time() . '.' . $file->getClientOriginalExtension();
