@@ -89,12 +89,10 @@
             $slider->description=Input::get('description');
           //directories
           /*
-          File::deleteDirectory('../../images');
-          File::deleteDirectory('../../SupportApps');
-          File::makeDirectory('../images/events',$mode=0777,true,true);
-          File::makeDirectory('../images/sliders',$mode=0777,true,true);
-          File::makeDirectory('../images/sponsors',$mode=0777,true,true);
-          File::makeDirectory('../SupportApps',$mode=0777,true,true);
+          File::makeDirectory('images/events',$mode=0777,true,true);
+          File::makeDirectory('images/sliders',$mode=0777,true,true);
+          File::makeDirectory('images/sponsors',$mode=0777,true,true);
+          File::makeDirectory('SupportApps',$mode=0777,true,true);
           */
 		 	  if(Input::get('availibility')=='on')
 		 	   $slider->availibility=true;
@@ -118,6 +116,8 @@
             $files = File::allFiles('../images/sliders');
             var_dump($files);
            }
+           else
+            return 'nothing';
 		/* if($slider->save())
         	return Redirect::to('cpanel/sliders');
         else
