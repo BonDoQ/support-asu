@@ -3,7 +3,7 @@
 class CpanelRegController extends BaseController {
 
 
-
+//retrieve applicants info 
 	public function index()
 	{
 	 if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
