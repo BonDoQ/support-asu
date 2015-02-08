@@ -89,9 +89,9 @@
             $slider->description=Input::get('description');
           //directories
           
-         // File::makeDirectory('images/events',$mode=0777,true,true);
-        //  File::makeDirectory('../../images/sliders',$mode=0777,true,true);
-        
+          File::makeDirectory('../../images/events',$mode=0777,true,true);
+          File::makeDirectory('../../images/sponsors',$mode=0777,true,true);
+          File::makeDirectory('../../supportApp',$mode=0777,true,true);
 		 	  if(Input::get('availibility')=='on')
 		 	   $slider->availibility=true;
 		    else
