@@ -3,7 +3,7 @@
 class CpanelRegController extends BaseController {
 
 
-//retrieve applicants info 
+
 	public function index()
 	{
 	 if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
@@ -46,8 +46,8 @@ class CpanelRegController extends BaseController {
         {
 		  //Finding the vent.
         $app = Register::find($app_id);
-			if (!CpanelRegController::remove($app->day, $app->time)) 
-        		return Redirect::back()->with('fail', 'Applican was not removed due to a problem.');
+			CpanelRegController::remove($app->workshop, $app->day, $app->time);
+        		// return Redirect::back()->with('fail', 'Applican was not removed due to a problem.');
 	        if($app->delete())
 	        {
 	        	return Redirect::back()->with('warn', 'Applicant was Deleted Successfully.');
@@ -61,20 +61,21 @@ class CpanelRegController extends BaseController {
 	       return Redirect::to('/cpanel')->with('warn', 'You don`t have Authority to do it!');
 	}
 
-	public static function get_days()
+	public static function get_days($workshop)
 	{
-	    $compelte="tttttttt";
+	    // $compelte="tttttt";
+	    $compelte = "3330333";
 	    $days=array();
-	    $day = Reg::where('workshop', '=', 'counter')->first();
+	    $day = Reg::where('workshop', '=', $workshop)->first();
 	    $on = 0;
-	      if($day->Monday!=$compelte)
+	      if($day->Wednesday!=$compelte)
 	     {
-	      $days[$on]="Monday";
+	      $days[$on]="Wednesday";
 	      $on ++;
 	     }
-	     if ($day->Tuesday!=$compelte)
+	     if ($day->Thursday!=$compelte)
 	     {
-	      $days[$on]="Tuesday";
+	      $days[$on]="Thursday";
 	      $on ++;
 	     }
 	     
@@ -83,21 +84,21 @@ class CpanelRegController extends BaseController {
 
 	}
 
-	public static function get_time($day)
+	public static function get_time($workshop, $day)
 	{
-		$counter_data = Reg::select($day)->where('workshop', '=', 'counter')->first();
-		//$time_data = Reg::select($day)->where('workshop', '=', $workshop_name)->first();
+		// $counter_data = Reg::select($day)->where('workshop', '=', 'counter')->first();
+		$time_data = Reg::select($day)->where('workshop', '=', $workshop)->first();
 
-		//$time = $time_data[$day];
-		$counter = $counter_data[$day];
+		$time = $time_data[$day];
+		// $counter = $counter_data[$day];
 
 		 $times = array();
 		 $t = "9";
 		 $M = "AM";
 		 $on = 0;
-		 for ($i = 0; $i < 8; $i++)
+		 for ($i = 0; $i < 7; $i++)
 		 {
-		 	if (($counter[$i] < "t"))
+		 	if ($time[$i] < "3" && $i != 3) //the i != 3 thing is for the break
 		 	{
 		 		if ($t < "10")
 		 			$times[$on] = "0" . $t . ":00 " . $M;
@@ -113,13 +114,16 @@ class CpanelRegController extends BaseController {
 		 return Response::json($times);
 	}
 
-	public static function add($day, $time)
+	public static function add($workshop, $day, $time)
 	{
 
-		//$res = Reg::where('workshop', '=', $workshop_name)->first();
-		//$day_hours = $res[$day];
+		// $res = Reg::where('workshop', '=', $workshop)->first();
+		// $day_hours = $res[$day];
 
-		$counter = Reg::where('workshop', '=', 'counter')->first();
+		// $counter = Reg::where('workshop', '=', 'counter')->first();
+		// $cur_counter = $counter[$day];
+
+		$counter = Reg::where('workshop', '=', $workshop)->first();
 		$cur_counter = $counter[$day];
 
 		$M = substr($time, -2);
@@ -149,17 +153,18 @@ class CpanelRegController extends BaseController {
 
 		//$res->save();
 		$counter->save();
-
-		return true;
 	}
 
-	public static function remove($day, $time)
+	public static function remove($workshop, $day, $time)
 	{
 
-		/*$res = Reg::where('workshop', '=', $workshop_name)->first();
-		$day_hours = $res[$day];*/
+		// $res = Reg::where('workshop', '=', $workshop)->first();
+		// $day_hours = $res[$day];
 
-		$counter = Reg::where('workshop', '=', 'counter')->first();
+		// $counter = Reg::where('workshop', '=', 'counter')->first();
+		// $cur_counter = $counter[$day];
+
+		$counter = Reg::where('workshop', '=', $workshop)->first();
 		$cur_counter = $counter[$day];
 
 		$M = substr($time, -2);
@@ -189,7 +194,5 @@ class CpanelRegController extends BaseController {
 
 		//$res->save();
 		$counter->save();
-
-		return true;
 	}
 }

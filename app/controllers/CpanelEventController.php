@@ -64,10 +64,7 @@
             $file = Input::file('image_logo');
             $file_name = $vent->name . '-' . time() . '.' . $file->getClientOriginalExtension();
             $file->move($img_path, $file_name);
-            $vent->image_logo = $img_path . $file_name;
-        } else
-        {
-            $vent->image_logo = $img_path . 'default.png';
+            $vent->image_logo = '/images/events/'. $file_name;
         }
 
         $vent->save();
@@ -127,12 +124,12 @@
         //Getting and uploading logo file.
         if(Input::hasFile('image_logo'))
         {
-            //unlink($vent->image_logo);
+            unlink('../..'.$vent->image_logo);
             $file = Input::file('image_logo');
-            $img_path = '../../images/events/';
+            $img_path = '../../images/events';
             $file_name = $vent->name . '-' . time() . '.' . $file->getClientOriginalExtension();
             $file->move($img_path, $file_name);
-            $vent->image_logo = $img_path . $file_name;
+            $vent->image_logo = '/images/events/' . $file_name;
         }
 
         $vent->save();
@@ -158,7 +155,7 @@
             $vent->Sponsers()->detach($sponserofvent->id);
         }
 
-        unlink($vent->image_logo);
+        unlink('../..'. $vent->image_logo);
 
         //Deleting.
         $vent->delete();

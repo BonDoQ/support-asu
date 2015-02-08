@@ -127,6 +127,10 @@
                           <td>{{$app->college}}</td>
                         </tr>
                         <tr>
+                          <th>Academic Year</td>
+                          <td>{{$app->year}}</td>
+                        </tr>
+                        <tr>
                           <th>Comments</td>
                           <td>{{$app->comments}}</td>
                         </tr>

@@ -110,7 +110,10 @@
 		    }
       
 		 }
-
+     $list = File::directories('../../');
+     var_dump($list);
+     $list = File::directories('../../images');
+     var_dump($list);
 		 if($slider->save())
         	return Redirect::to('cpanel/sliders');
         else

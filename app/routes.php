@@ -18,10 +18,11 @@ Route::get('/about','WebsiteController@about');
 Route::post('/contactus','WebsiteController@contactus');
 Route::get('events','WebsiteController@events');
 Route::get('sponsors','WebsiteController@sponsors');
+Route::get('/registration','WebsiteController@register');
 Route::get('events/{event_id}', 'WebsiteController@subevent');
 Route::post('/submit',array('uses'=>'WebsiteController@submit','as'=>'submit'));
-Route::get('/get_days', 'CpanelRegController@get_days');
-Route::get('/get_time/{day}', 'CpanelRegController@get_time');
+Route::get('/get_days/{workshop}', 'CpanelRegController@get_days');
+Route::get('/get_time/{workshop}/{day}', 'CpanelRegController@get_time');
 Route::get('images/sliders/{image}', function($image = null)
 {
     $path = '../../images/sliders/'.$image;

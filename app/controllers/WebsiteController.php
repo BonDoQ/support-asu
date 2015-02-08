@@ -56,6 +56,7 @@ public function register()
             'mobile' => 'required',
             'university' => 'required',
             'faculty' => 'required',
+            'year' => 'required',
             'workshop' => 'required',
             'day' => 'required',
             'time' => 'required'
@@ -78,15 +79,16 @@ public function register()
         $register->mobile = Input::get('mobile');
         $register->university = Input::get('university');
         $register->college = Input::get('faculty');
+        $register->year = Input::get('year');
         $register->workshop = Input::get('workshop');
         $register->day = Input::get('day');
         $register->time = Input::get('time');
         $register->comments = Input::get('comments');
 
-        if(!CpanelRegController::add($register->day, $register->time))
-        {
-            return Redirect::back()->withInput()->with('fail', 'There is a Problem, Please Try Again.');
-        }
+        CpanelRegController::add($register->workshop, $register->day, $register->time);
+        // {
+        //     return Redirect::back()->withInput()->with('fail', 'There is a Problem, Please Try Again.');
+        // }
 
         if ($register->save()) {
           return Redirect::to('/home')->with('success', 'Your Application has been Sent Successfully, Thank You!');

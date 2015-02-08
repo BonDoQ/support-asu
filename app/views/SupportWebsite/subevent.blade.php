@@ -89,6 +89,11 @@
               <li>
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
+              <li {{{ (Request::is('registration') ? 'class=active' : '') }}}>
+                <a href="{{{ URL::to('/registration')  }}}">
+                  <span style="color:#f8b619;">Registration</span>
+                </a>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!-- /.navbar-inner -->

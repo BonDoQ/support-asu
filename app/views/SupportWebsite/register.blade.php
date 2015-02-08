@@ -148,13 +148,16 @@
           <option>Engineering</option>
           <option>Other</option>
         </select>
+        <select class="form-control" name="year" >
+          <option>-Academic Year-</option>
+          <option>1st</option>
+          <option>2nd</option>
+          <option>3rd</option>
+          <option>4th</option>
         <select class="form-control" name="workshop" onchange="show_days(this.value)">
-          <option>-Choose Workshop-</option>
-          <option>Mobile package</option>
-          <option>Web Designing</option>
-          <option>Web Development</option>
-          <option>Testing</option>
-          <option>Neo4j (Research Lab)</option>
+          <option>-Choose Committee-</option>
+          <option>IT- Web Committee</option>
+          <option>IT- Game Committee</option>
         </select>
         <!--- time -->
 
@@ -178,7 +181,9 @@
         </div><!--/span-->
         <!--description body-->
         <div class="col-sm-6" id="event_des_body">
-         
+          <h1 class="form-signin-heading">Become one of us..</h1>
+         <img src="{{ URL::asset('assets/SupportWebsite/img/join-graphic.png')}}">
+
             
         </div><!--/span-->
     </div><!--/.fluid-container-->
@@ -187,14 +192,20 @@
     
     function show_days(workshop) 
     {
-      
+      window.workshop = workshop; 
       if (workshop=="-Choose Workshop-") {
         document.getElementById("day").innerHTML="";
         document.getElementById("time").innerHTML="";
         var div = document.getElementById("day_div");
         var div2 = document.getElementById("time_div");
-        $(div).fadeOut("fast");
-        $(div2).fadeOut("fast");
+        // $(div).fadeOut("fast");
+        // $(div2).fadeOut("fast");
+        if (div.style.display != "none") {
+          $(div).slideToggle("fast");
+        }
+        if (div2.style.display != "none") {
+          $(div2).slideToggle("fast");
+        }
         document.getElementById("send").className = "btn btn-primary disabled";
         return;
       } 
@@ -211,13 +222,13 @@
           var list_com = "<option>-Choose Day-</option>";
           var i;
           for (i=0; i<parsed_days.length; i++) {
-            if(parsed_days[i]=="Monday")
+            if(parsed_days[i]=="Wednesday")
             {
-               list_com = list_com + "<option value=Monday>" + parsed_days[i] +", Jaunuary 26, 2015"+ "</option>";
+               list_com = list_com + "<option value=Wednesday>" + parsed_days[i] +", February 11, 2015"+ "</option>";
             }
             else
               {
-               list_com = list_com + "<option value=Tuesday>" + parsed_days[i] +", Jaunuary 27, 2015"+ "</option>";
+               list_com = list_com + "<option value=Thursday>" + parsed_days[i] +", February 12, 2015"+ "</option>";
                
               }
           }
@@ -227,10 +238,13 @@
             $(div).slideToggle("fast");
           }
           var div2 = document.getElementById("time_div");
-          $(div2).fadeOut("fast");
+          // $(div2).fadeOut("fast");
+          if (div2.style.display != "none") {
+            $(div2).slideToggle("fast");
+          }
         }
       }
-      xmlhttp.open("GET", "/get_days", true);
+      xmlhttp.open("GET", "/get_days/"+workshop, true);
       xmlhttp.send();
     }
 
@@ -240,7 +254,10 @@
       if (day=="-Choose Day-") {
         document.getElementById("time").innerHTML="";
         var div2 = document.getElementById("time_div");
-        $(div2).fadeOut("fast");
+        // $(div2).fadeOut("fast");
+        if (div2.style.display != "none") {
+          $(div2).slideToggle("fast");
+        }
         document.getElementById("send").className = "btn btn-primary disabled";
         return;
       } 
@@ -267,7 +284,7 @@
           document.getElementById("send").className = "btn btn-primary";
         }
       }
-      xmlhttp.open("GET", "/get_time/"+day, true);
+      xmlhttp.open("GET", "/get_time/"+window.workshop+"/"+day, true);
       xmlhttp.send();
     }
     </script>
@@ -321,7 +338,6 @@
     <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/SupportWebsite/js/snowfall-jquery-min.js')}}"></script>
     <script>
       !function ($) {
         $(function(){
