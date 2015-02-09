@@ -153,6 +153,7 @@ class CpanelSponserController extends BaseController
         //Getting and uploading logo file.
         if(Input::hasFile('image_logo'))
         {
+          if(file_exists('../..'. $sponser->image_logo))
             unlink('../..'.$sponser->image_logo);
             $file = Input::file('image_logo');
             $img_path = '../../images/sponsors';
@@ -183,7 +184,7 @@ class CpanelSponserController extends BaseController
             {
               $sponser->Vents()->detach($ventofsponser->id);
             }
-
+         if(file_exists('../..'. $sponser->image_logo))
             unlink('../..' . $sponser->image_logo);
 
             //Delete.

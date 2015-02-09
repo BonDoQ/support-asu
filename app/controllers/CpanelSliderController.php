@@ -103,6 +103,7 @@
              $slider->eventslider=false;
 		    if(Input::hasFile('image'))
 		    {
+          if(file_exists('../..'. $slider->imgPath))
 		      unlink('../..'.$slider->imgPath);
 		      $name=$slider->name . '-' . time() . '.' .Input::file('image')->getClientOriginalName();
 		      Input::file('image')->move('../../images/sliders',$name);
@@ -139,6 +140,7 @@
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
        {
           $deletedrow = Slider::find($id);
+        if(file_exists('../..'. $deletedrow->imaPath))
           unlink('../..'. $deletedrow->imaPath);
           $deletedrow->delete();
 		      if($deletedrow)
