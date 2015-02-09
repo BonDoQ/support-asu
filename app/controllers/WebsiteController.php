@@ -102,7 +102,7 @@ public function register()
 public function events()
     {
         //Getting data from the database.
-         $vents = Event::where('availibility','=',true)->get();
+         $vents = Event::where('ve_year','=',$year)->orderBy('date','DESC')->where('availibility','=',true)->get();
 
          $sliders=Slider::where('availibility','=',true)->get();       
         return View::make('SupportWebsite.events', ['vents' => $vents],['sliders' => $sliders]);
