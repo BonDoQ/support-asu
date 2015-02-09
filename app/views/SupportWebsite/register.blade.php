@@ -155,10 +155,12 @@
           <option>3rd</option>
           <option>4th</option>
         </select>
-        <select class="form-control" name="workshop" onchange="commit(this.value)">
+        <select class="form-control" name="workshop" onchange="show_tracks(this.value)">
           <option>-Choose Committee-</option>
           <option>IT- Web Committee</option>
           <option>IT- Game Committee</option>
+          <option>Fund Raising</option>
+          <option>Media</option>
         </select>
         <!--- time -->
       <!--- tracks -->
@@ -197,7 +199,7 @@
     </div><!--/.fluid-container-->
 
     <script type="text/javascript">
-    function commit(workshop)
+    function show_tracks(workshop)
     { 
       var div1 = document.getElementById("trackid");
       if(workshop=="IT- Game Committee")
@@ -363,10 +365,6 @@
           $('#myCarousel').carousel()
         })
       }(window.jQuery)
-
-$(document).ready(function() {
-   $('#bar').snowfall({flakeCount : 80, maxSpeed : 3});
-     });
     </script>
       <script type="text/javascript">
       @if(Session::has('success'))
