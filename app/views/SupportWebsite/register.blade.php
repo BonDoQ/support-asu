@@ -154,6 +154,7 @@
           <option>2nd</option>
           <option>3rd</option>
           <option>4th</option>
+        </select>
         <select class="form-control" name="workshop" onchange="show_days(this.value)">
           <option>-Choose Committee-</option>
           <option>IT- Web Committee</option>

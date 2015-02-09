@@ -89,9 +89,9 @@
             $slider->description=Input::get('description');
           //directories
           
-          File::makeDirectory('../../images/events',$mode=0777,true,true);
+          /*File::makeDirectory('../../images/events',$mode=0777,true,true);
           File::makeDirectory('../../images/sponsors',$mode=0777,true,true);
-          File::makeDirectory('../../supportApp',$mode=0777,true,true);
+          File::makeDirectory('../../supportApp',$mode=0777,true,true);*/
 		 	  if(Input::get('availibility')=='on')
 		 	   $slider->availibility=true;
 		    else
@@ -110,14 +110,14 @@
 		    }
       
 		 }
-     $list = File::directories('../../');
+     /*$list = File::directories('../../');
      var_dump($list);
      $list = File::directories('../../images');
-     var_dump($list);
-		 /*if($slider->save())
+     var_dump($list);*/
+		 if($slider->save())
         	return Redirect::to('cpanel/sliders');
         else
-        	return "an fatel error has been occured";*/
+        	return "an fatel error has been occured";
       }
       else
         return Redirect::to('cpanel');
