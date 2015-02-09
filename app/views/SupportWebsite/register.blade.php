@@ -155,13 +155,20 @@
           <option>3rd</option>
           <option>4th</option>
         </select>
-        <select class="form-control" name="workshop" onchange="show_days(this.value)">
+        <select class="form-control" name="workshop" onchange="commit(this.value)">
           <option>-Choose Committee-</option>
           <option>IT- Web Committee</option>
           <option>IT- Game Committee</option>
         </select>
         <!--- time -->
-
+      <!--- tracks -->
+      <div id="trackid" style="display:none">
+        <select class="form-control" name="track">
+          <option>-Choose Track-</option>
+          <option>Art Team</option>
+          <option>Development Team</option>
+        </select>
+      </div>
         <div id="day_div" style="display:none">
           <hr />
           <p>Choose interview time:</p>
@@ -190,7 +197,19 @@
     </div><!--/.fluid-container-->
 
     <script type="text/javascript">
-    
+    function commit(workshop)
+    { 
+      var div1 = document.getElementById("trackid");
+      if(workshop=="IT- Game Committee")
+      {
+        if (div1.style.display != "none") 
+            $(div1).slideToggle("fast");
+      }
+      else
+        div1.style.display = "none";
+
+      show_days(workshop);
+    }
     function show_days(workshop) 
     {
       window.workshop = workshop; 
@@ -248,8 +267,6 @@
       xmlhttp.open("GET", "/get_days/"+workshop, true);
       xmlhttp.send();
     }
-
-
     function show_times(day) 
     {
       if (day=="-Choose Day-") {
