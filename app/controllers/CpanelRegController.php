@@ -18,12 +18,12 @@ class CpanelRegController extends BaseController {
 	public function DownloadApllicantsData()
 	{
 		$data=Register::all();
-        $output = implode(",", array('Name', 'Email','Mobile','University','College','Academic Year', 'Workshop', 'Track','Link(Media Commitee)','Comments'));
+        $output = implode(",", array('Name', 'Email','Mobile','University','College','Academic Year', 'Workshop','Interview Time', 'Track','Link(Media Commitee)','Comments'));
         $output.="\n";
    		 foreach ($data as $row)
     	 {
         	$output.=implode(",", array($row->name, $row->email,$row->mobile ,$row->university,
-              $row->college,$row->year,$row->workshop , $row->track,$row->track,$row->comments));
+              $row->college,$row->year,$row->workshop , $row->track,$row->time,$row->link,$row->comments));
         	$output.="\n";
          }
         // headers used to make the file "downloadable", we set them manually
