@@ -18,7 +18,7 @@ class CpanelRegController extends BaseController {
 	public function DownloadApllicantsData()
 	{
 		$data=Register::all();
-        $output = implode(",", array('Name', 'Email','Mobile','University','College','Academic Year', 'Workshop','Interview Time', 'Track','Link(Media Commitee)','Comments'));
+        $output = implode(",", array('Name', 'Email','Mobile','University','College','Academic Year', 'Workshop', 'Track','Interview Time','Link(Media Commitee)','Comments'));
         $output.="\n";
    		 foreach ($data as $row)
     	 {
