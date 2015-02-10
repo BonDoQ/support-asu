@@ -47,7 +47,7 @@
                         <td style="white-space: nowrap;">{{ Str::limit($app->name, 20) }}</td>
                         <td>{{$app->workshop}}</td>
                         <td>{{$app->track}}</td>
-                        <td>{{$app->link}}</td>
+                        <td>{{ Str::limit($app->link, 15)}}</td>
                         <td>{{substr($app->day, 0, 3)}} {{$app->time}}</td>
                         <td>{{$app->registered_at}}</td>
                         <td><a href="#{{$app->id}}" data-toggle="modal"><div class="glyphicon glyphicon-file"></div></a> | <a href="#ModalDelete{{$app->id}}" data-toggle="modal"><div class="glyphicon glyphicon-trash"></div> </a></td>
