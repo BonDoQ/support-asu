@@ -82,7 +82,10 @@ public function register()
         $register->college = Input::get('faculty');
         $register->year = Input::get('year');
         $register->workshop = Input::get('workshop');
-        $register->track = Input::get('track');
+        if(Input::get('track')=='-Choose Track-')
+         $register->track =null;
+        else
+         $register->track = Input::get('track');
         $register->link = Input::get('link');
         $register->day = Input::get('day');
         $register->time = Input::get('time');
