@@ -19,8 +19,8 @@
           <figure>
             <img class="fixed-size-250x250 img-responsive col-sm-12 no_padding" src="{{$vent->image_logo}}">
             <figcaption>
-              <h3>{{$vent->name}}</h3>
-              <p>{{$vent->short_description}}</p>
+              <h3>{{Str::limit($vent->name,11)}}</h3>
+              <p>{{Str::limit($vent->short_description,40)}}</p>
               <a class="btn btn-branded" href="events/{{$vent->name}}">Read more</a>
             </figcaption>
           </figure></div>
