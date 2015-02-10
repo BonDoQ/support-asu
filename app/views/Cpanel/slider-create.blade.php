@@ -20,7 +20,7 @@
     			<div class="form-group">
                 <label for="inputlink"  class="control-label col-xs-2">Name :</label>
                     <div class="col-xs-10">
-                    <input type="text" name="name" class="form-control" id="inputlink" placeholder= "name" required >
+                    <input type="text" name="name" class="form-control" id="inputlink" placeholder= "name">
                     </div>
                 </div>
                 <div class="form-group">

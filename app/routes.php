@@ -64,6 +64,7 @@ Route::group(array('before'=>'auth'),function()
     Route::resource('cpanel/sponsors', 'CpanelSponserController');
     Route::resource('cpanel/events','CpanelEventController');
     Route::resource('cpanel/messages', 'CpanelMessageController');
+    Route::get('cpanel/applicants/download', 'CpanelRegController@DownloadApllicantsData');
     Route::resource('cpanel/applicants', 'CpanelRegController');
     Route::post('cpanel/messages/reply/{email_id}', 'CpanelMessageController@reply');
     Route::get('cpanel/change',array('uses' =>'CpanelUserAccount@GetChange','as'=>'getchange'));

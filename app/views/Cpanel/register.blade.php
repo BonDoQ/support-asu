@@ -3,6 +3,8 @@
 @section('content')
 
   <!-- Events Panel -->
+<div class="col-sm-12">
+<a href="applicants/download"><div class="btn btn-success col-sm-3 col-sm-offset-9">Download .csv File</div></a>
 
 <div class="col-sm-12">
   <div class="row">

@@ -15,6 +15,26 @@ class CpanelRegController extends BaseController {
 	    else
 	    	return Redirect::to('/cpanel');
 	}
+	public function DownloadApllicantsData()
+	{
+		$data=Register::all();
+        $output = implode(",", array('Name', 'Email','Mobile','University','College','Academic Year', 'Workshop', 'Track','Link(Media Commitee)','Comments'));
+        $output.="\n";
+   		 foreach ($data as $row)
+    	 {
+        	$output.=implode(",", array($row->name, $row->email,$row->mobile ,$row->university,
+              $row->college,$row->year,$row->workshop , $row->track,$row->track,$row->comments));
+        	$output.="\n";
+         }
+        // headers used to make the file "downloadable", we set them manually
+        // since we can't use Laravel's Response::download() function
+       $headers = array(
+          'Content-Type' => 'text/csv',
+          'Content-Disposition' => 'attachment; filename="Applicants Data.csv" ',
+         );
+      return Response::make($output, 200, $headers);
+	}
+	
 
 	public function update($app_id)
 	{

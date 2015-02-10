@@ -29,7 +29,6 @@
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
       {
     	$validate=Validator::make(Input::all(),array(
-       'name'=>'required',
        'image'=>'required',
       ));
 		 if($validate->fails())
@@ -72,13 +71,7 @@
      if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
             ||Auth::user()->position=="PR Head"||Auth::user()->position=="PR Member")
       {
-    	$validate=Validator::make(Input::all(),array(
-       'name'=>'required',
-      ));
-		 if($validate->fails())
-		 	return Redirect::to('cpanel/sliders/$id')->withErrors($validate->messages());
-		 else
-		 {
+		 
 		 	  $slider = Slider::find($id);
 		 	  $slider->name=Input::get('name');
 		 	  $slider->updated_by=Auth::user()->username;
@@ -110,7 +103,6 @@
 		      $slider->imgPath='/images/sliders/' . $name;
 		    }
       
-		 }
      /*$list = File::directories('../../');
      var_dump($list);
      $list = File::directories('../../images');
