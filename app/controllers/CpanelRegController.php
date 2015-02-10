@@ -23,7 +23,7 @@ class CpanelRegController extends BaseController {
    		 foreach ($data as $row)
     	 {
         	$output.=implode(",", array($row->name, $row->email,$row->mobile ,$row->university,
-              $row->college,$row->year,$row->workshop , $row->track,substr($time->day,3).$row->time,$row->link,$row->comments));
+              $row->college,$row->year,$row->workshop , $row->track,substr($time->day,0,3)." ".$row->time,$row->link,$row->comments));
         	$output.="\n";
          }
         // headers used to make the file "downloadable", we set them manually
