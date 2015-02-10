@@ -28,6 +28,8 @@
                         <th><input type="text" class="form-control" placeholder="#" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Name" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Workshop" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Track" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Link" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Date" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Registered at" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Options" disabled></th>
@@ -42,6 +44,8 @@
                         <td>{{$i}}</td>
                         <td style="white-space: nowrap;">{{$app->name}}</td>
                         <td>{{$app->workshop}}</td>
+                        <td>{{$app->track}}</td>
+                        <td>{{$app->link}}</td>
                         <td>{{substr($app->day, 0, 3)}} {{$app->time}}</td>
                         <td>{{$app->registered_at}}</td>
                         <td><a href="#{{$app->id}}" data-toggle="modal"><div class="glyphicon glyphicon-file"></div></a> | <a href="#ModalDelete{{$app->id}}" data-toggle="modal"><div class="glyphicon glyphicon-trash"></div> </a></td>
@@ -118,6 +122,18 @@
                           <th>Workshop</td>
                           <td>{{$app->workshop}}</td>
                         </tr>
+                        @if($app->workshop=="IT- Game Committee")
+                        <tr>
+                          <th>Track</td>
+                          <td>{{$app->track}}</td>
+                        </tr>
+                        @endif
+                        @if($app->workshop=="Media")
+                        <tr>
+                          <th>Link</td>
+                          <td>{{$app->link}}</td>
+                        </tr>
+                        @endif
                         <tr>
                           <th>University</td>
                           <td>{{$app->university}}</td>

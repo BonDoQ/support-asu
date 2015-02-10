@@ -64,7 +64,7 @@ class CpanelRegController extends BaseController {
 	public static function get_days($workshop)
 	{
 	    // $compelte="tttttt";
-	    $compelte = "3330333";
+	    $compelte = "6660666";
 	    $days=array();
 	    $day = Reg::where('workshop', '=', $workshop)->first();
 	    $on = 0;

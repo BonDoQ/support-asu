@@ -157,19 +157,26 @@
         </select>
         <select class="form-control" name="workshop" onchange="show_tracks(this.value)">
           <option>-Choose Committee-</option>
+          <option>Fundraising</option>
           <option>IT- Web Committee</option>
           <option>IT- Game Committee</option>
-          <option>Fund Raising</option>
+          <option>Logistics</option>         
           <option>Media</option>
+          <option>Social Media</option>
         </select>
         <!--- time -->
       <!--- tracks -->
       <div id="trackid" style="display:none">
-        <select class="form-control" name="track">
+        <select id="trackidinput" class="form-control" name="track">
           <option>-Choose Track-</option>
           <option>Art Team</option>
           <option>Development Team</option>
         </select>
+      </div>
+      <div id="linkid" style="display:none">
+         <hr />
+         <p style="color: black;"><small>Paste a link of your behance profile or any work profile</small></p>
+         <input type="url" id="linkinputid"  class="form-control" minlength="3" placeholder="Link of your works" name="link">
       </div>
         <div id="day_div" style="display:none">
           <hr />
@@ -201,15 +208,35 @@
     <script type="text/javascript">
     function show_tracks(workshop)
     { 
-      var div1 = document.getElementById("trackid");
-      if(workshop=="IT- Game Committee")
+      var div;
+      if(workshop=="Media")
       {
-        if (div1.style.display != "none") 
-            $(div1).slideToggle("fast");
+        document.getElementById("trackid").style.display="none";
+        document.getElementById("trackidinput").value="-Choose Track-";
+        div= document.getElementById("linkid");
+        if (div.style.display == "none") 
+        {
+            $(div).slideToggle("fast");
+        }
+      }
+      else if(workshop=="IT- Game Committee")
+      {     
+             document.getElementById("linkinputid").value=null;
+           document.getElementById("linkid").style.display="none";
+         div = document.getElementById("trackid");
+        if (div.style.display == "none") 
+        {
+            $(div).slideToggle("fast");
+        }
       }
       else
-        div1.style.display = "none";
+      {
+        document.getElementById("trackid").style.display="none";
+        document.getElementById("trackidinput").value="-Choose Track-";
 
+          document.getElementById("linkinputid").value=null;
+          document.getElementById("linkid").style.display="none";
+      }
       show_days(workshop);
     }
     function show_days(workshop) 

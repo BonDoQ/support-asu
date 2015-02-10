@@ -68,6 +68,7 @@ public function register()
           || strchr(Input::get('workshop'), "Choose")
           || strchr(Input::get('day'), "Choose")
           || strchr(Input::get('time'), "Choose")
+          || (Input::get('workshop')== "IT- Game Committee" && strchr(Input::get('track'), "Choose"))
         ) {
         return Redirect::back()->withInput()->with('fail', 'Make Sure You Filled All Fields');
       }
@@ -81,6 +82,8 @@ public function register()
         $register->college = Input::get('faculty');
         $register->year = Input::get('year');
         $register->workshop = Input::get('workshop');
+        $register->track = Input::get('track');
+        $register->link = Input::get('link');
         $register->day = Input::get('day');
         $register->time = Input::get('time');
         $register->comments = Input::get('comments');
