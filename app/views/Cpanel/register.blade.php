@@ -44,7 +44,7 @@
                 @foreach($apps as $app)
                     <tr>
                         <td>{{$i}}</td>
-                        <td style="white-space: nowrap;">{{$app->name}}</td>
+                        <td style="white-space: nowrap;">{{ Str::limit($app->name, 25) }}</td>
                         <td>{{$app->workshop}}</td>
                         <td>{{$app->track}}</td>
                         <td>{{$app->link}}</td>
