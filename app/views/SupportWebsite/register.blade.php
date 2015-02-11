@@ -271,11 +271,7 @@
           var list_com = "<option>-Choose Day-</option>";
           var i;
           for (i=0; i<parsed_days.length; i++) {
-            if(parsed_days[i]=="Wednesday")
-            {
-               list_com = list_com + "<option value=Wednesday>" + parsed_days[i] +", February 11, 2015"+ "</option>";
-            }
-            else
+            if(parsed_days[i]=="Thursday")
               {
                list_com = list_com + "<option value=Thursday>" + parsed_days[i] +", February 12, 2015"+ "</option>";
                
