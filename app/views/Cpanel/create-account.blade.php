@@ -40,7 +40,7 @@
 						<option value="Media" > Media Member </option>
             <option value="PR" > PR Member </option>
             <option value="logistics" > Logistics Member </option>
-            <option value="HR" > HR Member </option>
+            <option value="HR Member" > HR Member </option>
 					</select>
     			</div>
     			<div class="form-group">
