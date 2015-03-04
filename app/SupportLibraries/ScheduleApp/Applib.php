@@ -154,7 +154,7 @@ $response = array();
         $response["message"] = "Required field(s) is missing";
      
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
 } 
 }
 function deleteNote(){
@@ -204,7 +204,7 @@ if (isset($_POST['userId'])) {
     $response["message"] = "Required field(s) is missing";
  
     // echoing JSON response
-    echo json_encode($response);
+    return json_encode($response);
 }
 
 }
@@ -286,7 +286,7 @@ $password = $_GET['password'];
     $response["message"] = "Required field(s) is missing";
  
     // echoing JSON response
-    echo json_encode($response);
+    return json_encode($response);
 }
 
 }
