@@ -64,7 +64,7 @@ if(isset($_GET['year'])){
     		$response["success"] = 1;
     		
     		// echoing JSON response
-    		echo json_encode($response);
+    		return json_encode($response);
     	} 
     	else
     	{
@@ -73,7 +73,7 @@ if(isset($_GET['year'])){
         $response["message"] = "No products found";
 
         // echo no users JSON
-        echo json_encode($response);
+        return json_encode($response);
     }
 }else{
     // required field is missing
@@ -81,7 +81,7 @@ if(isset($_GET['year'])){
     $response["message"] = "Required field(s) is missing";
  
     // echoing JSON response
-    echo json_encode($response);
+    return json_encode($response);
 }
 }
 
@@ -139,13 +139,13 @@ $response = array();
         // success
         $response["success"] = 1;
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
         
     } else {
         // no notes found
         $response["success"] = 0;
         $response["message"] = "No notes found";    
-        echo json_encode($response);
+        return json_encode($response);
         }
 }else{
      
@@ -189,14 +189,14 @@ if (isset($_POST['userId'])) {
         $response["message"] = "Note successfully deleted";
  
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
     } else {
         // no Note found
         $response["success"] = 0;
         $response["message"] = "No Notes found";
  
         // echo no users JSON
-        echo json_encode($response);
+        return json_encode($response);
     }
 } else {
     // required field is missing
@@ -268,7 +268,7 @@ $password = $_GET['password'];
             $response["message"] = "Loged in successfully.";
  
             // echoing JSON response
-            echo json_encode($response);
+            return json_encode($response);
         }
     }
     else{
@@ -277,7 +277,7 @@ $password = $_GET['password'];
         $response["message"] = "email or password are wrong.";
 
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
     }
 
 } else {
@@ -336,14 +336,14 @@ if (isset($_POST['userName']) && isset($_POST['year']) && isset($_POST['e_mail']
         $response["message"] = "User successfully created.";
  
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
     } else {
         // failed to insert row
         $response["success"] = 0;
         $response["message"] = "Oops! An error occurred.";
  
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
     }
 } else {
     // required field is missing
@@ -351,7 +351,7 @@ if (isset($_POST['userName']) && isset($_POST['year']) && isset($_POST['e_mail']
     $response["message"] = "Required field(s) is missing";
  
     // echoing JSON response
-    echo json_encode($response);
+    return json_encode($response);
 }
 }
 function update_user(){
@@ -900,14 +900,14 @@ if(isset($_GET['year'])){
         $response["success"] = 1;
      
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
     } else {
         // no instructors found
         $response["success"] = 0;
         $response["message"] = "No instructors found";
      
         // echo no users JSON
-        echo json_encode($response);
+        return json_encode($response);
     }
 }else{
 
@@ -916,7 +916,7 @@ if(isset($_GET['year'])){
     $response["message"] = "Required field(s) is missing";
  
     // echoing JSON response
-    echo json_encode($response);
+    return json_encode($response);
 }
 }
 function getAllPlaces(){
@@ -965,14 +965,14 @@ if (mysql_num_rows($result) > 0) {
     $response["success"] = 1;
  
     // echoing JSON response
-    echo json_encode($response);
+    return json_encode($response);
 } else {
     // no places found
     $response["success"] = 0;
     $response["message"] = "No instructors found";
  
     // echo no users JSON
-    echo json_encode($response);
+    return json_encode($response);
 }
 }
 function getDBVersion(){
@@ -1020,13 +1020,13 @@ $response = array();
         // success
         $response["success"] = 1;
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
         
     } else {
         // no version found
         $response["success"] = 0;
         $response["message"] = "No versuib found";    
-        echo json_encode($response);
+        return json_encode($response);
         }
         }
 ?>
