@@ -10,11 +10,11 @@ function getAllSessions(){
     define('DB_USER', "supportUser"); // db user
     define('DB_PASSWORD', "supportPass123"); // db password (mention your db password here)
     define('DB_DATABASE', "support"); // database name
-   // define('DB_SERVER', "178.62.208.34"); // db server
+    //define('DB_SERVER', "178.62.208.34"); // db server
 
 
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
+        $con = mysql_connect('localhost', DB_USER, DB_PASSWORD) or die(mysql_error());
 
         // Selecing database
         $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
