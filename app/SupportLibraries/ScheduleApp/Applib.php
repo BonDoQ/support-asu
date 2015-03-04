@@ -97,10 +97,11 @@ function getAllNotes(){
 
 
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
 
 
 /*
@@ -218,11 +219,11 @@ function login(){
  
 
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
 
 
 /*the following code will check if the mail and password are correct or not, if correct, returns them*/
@@ -301,11 +302,11 @@ function registration(){
 
 
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+       $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
 /*
  * Following code will create a new User row
  * All User details are read from HTTP Post Request
@@ -384,11 +385,11 @@ function update_user(){
         // import database connection variables
 
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+       $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
         // returing connection cursor
         return $con;
     }
@@ -484,11 +485,11 @@ class DB_CONNECT {
     function connect() {
 
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
         // returing connection cursor
         return $con;
     }
@@ -563,11 +564,11 @@ function UploadUserSession(){
 
     
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+       $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
     
 /*
  * Following code will create a new UserSession for User 
@@ -622,11 +623,11 @@ function userDetails(){
     define('DB_SERVER', "178.62.208.34"); // db server
  
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
  
 /*the following code will update the username given the email and password*/
 
@@ -711,11 +712,11 @@ class DB_CONNECT {
     function connect() {
 
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
         // returing connection cursor
         return $con;
     }
@@ -784,11 +785,11 @@ function DownloadUserSession(){
     define('DB_SERVER', "178.62.208.34"); // db server
 
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
- 
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        } 
 /*
  * Following code will Download UserSession
  */
@@ -861,11 +862,11 @@ function getAllInstructors(){
 
     
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+       $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
 /*
  * Following code will list all the instructors
  */
@@ -929,11 +930,11 @@ function getAllPlaces(){
     define('DB_SERVER', "178.62.208.34"); // db server
 
         // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+       $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
  
 /*
  * Following code will list all the places
@@ -982,11 +983,11 @@ function getDBVersion(){
 
 
     // Connecting to mysql database
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-
-        // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
-
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
 /*
  * Following code will list all the notes
  */
