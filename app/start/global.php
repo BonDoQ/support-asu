@@ -17,7 +17,6 @@ ClassLoader::addDirectories(array(
 	app_path().'/controllers',
 	app_path().'/models',
 	app_path().'/database/seeds',
-
 ));
 
 /*
@@ -83,3 +82,4 @@ App::missing(function($exception) {
 */
 
 require app_path().'/filters.php';
+require app_path().'/SupportLibraries/ScheduleApp/Applib.php';
