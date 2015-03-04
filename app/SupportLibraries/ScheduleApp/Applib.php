@@ -10,7 +10,7 @@ function getAllSessions(){
     define('DB_USER', "supportUser"); // db user
     define('DB_PASSWORD', "supportPass123"); // db password (mention your db password here)
     define('DB_DATABASE', "support"); // database name
-    define('DB_SERVER', "178.62.208.34"); // db server
+   // define('DB_SERVER', "178.62.208.34"); // db server
 
 
         // Connecting to mysql database
