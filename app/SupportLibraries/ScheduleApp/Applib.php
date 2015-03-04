@@ -10,14 +10,20 @@ function getAllSessions(){
     define('DB_USER', "supportUser"); // db user
     define('DB_PASSWORD', "supportPass123"); // db password (mention your db password here)
     define('DB_DATABASE', "support"); // database name
-    //define('DB_SERVER', "178.62.208.34"); // db server
+    define('DB_SERVER', "178.62.208.34"); // db server
 
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
 
+       // mysqli_query($con, 'CREATE TEMPORARY TABLE `table`');
         // Connecting to mysql database
-        $con = mysql_connect('localhost', DB_USER, DB_PASSWORD) or die(mysql_error());
+       // $con = mysql_connect('localhost', DB_USER, DB_PASSWORD) or die(mysql_error());
 
         // Selecing database
-        $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
+      //  $db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
 
 /*the follwing code will list all the sessions*/
 
