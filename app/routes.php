@@ -26,11 +26,11 @@ Route::post('/submit',array('uses'=>'WebsiteController@submit','as'=>'submit'));
 Route::get('/get_days/{workshop}', 'CpanelRegController@get_days');
 Route::get('/get_time/{workshop}/{day}', 'CpanelRegController@get_time');
 //App Links
-Route::get('XXXXXXXXXXXXXXXXXXXGetAllNotes{userId}','AppController@getAllNotes');
-Route::get('XXXXXXXXXXXXXXXXXXXGetAllSessions{year}','AppController@GetAllSessions');
+Route::get('XXXXXXXXXXXXXXXXXXXGetAllNotes/{userId}','AppController@getAllNotes');
+Route::get('XXXXXXXXXXXXXXXXXXXGetAllSessions/{year}','AppController@GetAllSessions');
 Route::get('/XXXXXXXXXXXXXXXXXXXLogin/{email}/{password}','AppController@Login');
-Route::get('XXXXXXXXXXXXXXXXXXXGetAllInstructors{year}','AppController@GetAllInstructors');
-Route::get('XXXXXXXXXXXXXXXXXXXgetAllPlaces{}','AppController@GetAllPlaces');
+Route::get('XXXXXXXXXXXXXXXXXXXGetAllInstructors/{year}','AppController@GetAllInstructors');
+Route::get('XXXXXXXXXXXXXXXXXXXgetAllPlaces','AppController@GetAllPlaces');
 //end of App links
 Route::get('images/sliders/{image}', function($image = null)
 {
