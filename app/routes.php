@@ -18,17 +18,19 @@ Route::get('/about','WebsiteController@about');
 Route::post('/contactus','WebsiteController@contactus');
 Route::get('events','WebsiteController@events');
 Route::get('sponsors','WebsiteController@sponsors');
+Route::get('/SchedualApp','WebsiteController@SchedualApp');
+
 //Route::get('/registration','WebsiteController@register');
 Route::get('events/{event_id}', 'WebsiteController@subevent');
 Route::post('/submit',array('uses'=>'WebsiteController@submit','as'=>'submit'));
 Route::get('/get_days/{workshop}', 'CpanelRegController@get_days');
 Route::get('/get_time/{workshop}/{day}', 'CpanelRegController@get_time');
 //App Links
-Route::get('XXXXXXXXXXXXXXXXXXXGetAllNotes','AppController@getAllNotes');
-Route::get('XXXXXXXXXXXXXXXXXXXGetAllSessions','AppController@GetAllSessions');
-Route::get('XXXXXXXXXXXXXXXXXXXLogin','AppController@Login');
-Route::get('XXXXXXXXXXXXXXXXXXXGetAllInstructors','AppController@GetAllInstructors');
-Route::get('XXXXXXXXXXXXXXXXXXXgetAllPlaces','AppController@GetAllPlaces');
+Route::get('XXXXXXXXXXXXXXXXXXXGetAllNotes{userId}','AppController@getAllNotes');
+Route::get('XXXXXXXXXXXXXXXXXXXGetAllSessions{year}','AppController@GetAllSessions');
+Route::get('/XXXXXXXXXXXXXXXXXXXLogin/{email}/{password}','AppController@Login');
+Route::get('XXXXXXXXXXXXXXXXXXXGetAllInstructors{year}','AppController@GetAllInstructors');
+Route::get('XXXXXXXXXXXXXXXXXXXgetAllPlaces{}','AppController@GetAllPlaces');
 //end of App links
 Route::get('images/sliders/{image}', function($image = null)
 {
