@@ -1,21 +1,21 @@
 <?php
 
 class AppController extends Controller {
-public function GetAllNotes()
+public function GetAllNotes($year)
 {
-	return getAllNotes();
+	return getAllNotes($year);
 }
-public function GetAllSessions()
+public function GetAllSessions($year)
 {
-	return getAllSessions();
+	return getAllSessions($year);
 }
-public function Login()
+public function Login($email,$password)
 {
-	return login();
+	return login($email,$password);
 }
-public function GetAllInstructors()
+public function GetAllInstructors($year)
 {
-	return getAllInstructors();
+	return getAllInstructors($year);
 }
 public function GetAllPlaces()
 {
