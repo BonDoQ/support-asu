@@ -1,7 +1,7 @@
 <?php
 
 
-function getAllSessions(){
+function getAllSessions($year){
 
 /*
  * All database connection variables
@@ -12,10 +12,17 @@ function getAllSessions(){
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
 
+        $response = array();
+        
         $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
         if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
         }
 
        // mysqli_query($con, 'CREATE TEMPORARY TABLE `table`');
@@ -28,22 +35,28 @@ function getAllSessions(){
 /*the follwing code will list all the sessions*/
 
 //array for JSON response
-$response = array();
+///$response = array();
 
-if(isset($_GET['year'])){
-
-    $year = $_GET['year'];
+if($year != null){
 
     // get all sessions from sessions table
-    $result = mysql_query("SELECT * FROM Session where year = '$year' ") or die(mysql_error());
+    ///$result = mysql_query("SELECT * FROM Session where year = '$year' ") or die(mysql_error());
+    
+    $str="SELECT * FROM Session where year = '$year'";
+    $result=$con->query($str);
 
+    
 
     // check for empty result
-    if (mysql_num_rows($result) > 0) {
+    if (mysqli_num_rows ($result)!=0) {
+        if ($result->num_rows > 0) {
+            
+            $result = $result->fetch_assoc();
+
         // looping through all results
         // sessions node
     	    $response["sessions"] = array();
-    	    while ($row = mysql_fetch_array($result)) {
+    	    while ($row = mysqli_fetch_array($result)) {
         		// temp user array
         		$session = array();
                 $session["sessionId"] = $row["sessionId"];
@@ -65,7 +78,8 @@ if(isset($_GET['year'])){
     		
     		// echoing JSON response
     		return json_encode($response);
-    	} 
+    	   }
+        } 
     	else
     	{
         // no products found
@@ -85,7 +99,7 @@ if(isset($_GET['year'])){
 }
 }
 
-function getAllNotes(){
+function getAllNotes($userId){
  /*
  * All database connection variables
  */
@@ -95,36 +109,41 @@ function getAllNotes(){
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
 
+ 
+// array for JSON response
 
-        // Connecting to mysql database
+        $response = array();
+        
         $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
         if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
         }
 
 
 /*
  * Following code will list all the notes
  */
- 
-// array for JSON response
-$response = array();
 
- if(isset($_GET["userId"])){
+ if($userId != null){
 
-    $userId = $_GET['userId'];
-     
     // get all notes from Notes table
-    $result = mysql_query("SELECT * FROM Note WHERE userId = '$userId'") or die(mysql_error());
+
+    $str="SELECT * FROM Note WHERE userId = '$userId'";
+    $result=$con->query($str);
      
     // check for empty result
-    if (mysql_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         // looping through all results
         // notes node
         $response["notes"] = array();
      
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             // temp user array
             $notes = array();
             $notes["id"] = $row["id"];
@@ -157,7 +176,8 @@ $response = array();
         return json_encode($response);
 } 
 }
-function deleteNote(){
+
+function deleteNote($userId){
 /*
  * All database connection variables
  */
@@ -167,23 +187,37 @@ function deleteNote(){
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
 
+// array for JSON response
+
+        $response = array();
+        
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
+        }
+
+
 /*
  * Following code will delete a Note from table
  * A Note is identified by user id (userId)
  */
  
-// array for JSON response
-$response = array();
  
 // check for required fields
-if (isset($_POST['userId'])) {
-    $userId = $_POST['userId'];
+if ($userId != null) {
  
     // mysql delete row with matched userId
-    $result = mysql_query("DELETE FROM Note WHERE userId = '$userId' ");
- 
+    $result=$con->query("DELETE FROM Note WHERE userId = '$userId'");
+
+
     // check if row deleted or not
-    if (mysql_affected_rows() > 0) {
+    if (mysqli_affected_rows() > 0) {
         // successfully updated
         $response["success"] = 1;
         $response["message"] = "Note successfully deleted";
@@ -208,7 +242,8 @@ if (isset($_POST['userId'])) {
 }
 
 }
-function login(){
+
+function login($e_mail,$password){
 /*
  * All database connection variables
  */
@@ -218,12 +253,20 @@ function login(){
     define('DB_SERVER', "178.62.208.34"); // db server
  
 
-        // Connecting to mysql database
+// array for JSON response
+        $response = array();
+        
         $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
         if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
         }
+
 
 
 /*the following code will check if the mail and password are correct or not, if correct, returns them*/
@@ -233,21 +276,23 @@ $response = array();
 
 // check for required fields
 
-if(isset($_GET['e_mail']) and isset($_GET['password'])){
-$e_mail = $_GET['e_mail'];
-$password = $_GET['password'];
+if($e_mail!=null && $password!=null){
 
-
+//var_dump($e_mail . " " .$password);
  // connecting to db
-    $db = new DB_CONNECT();
+   // $db = new DB_CONNECT();
 
     // mysql update row with matched e_mail and password
-    $result = mysql_query("SELECT userId , avatarNum , userName , e_mail , password , year FROM User WHERE e_mail = '$e_mail' AND password = '$password'");
+   // $result = mysql_query("SELECT userId , avatarNum , userName , e_mail , password , year FROM User WHERE e_mail = '$e_mail' AND password = '$password'");
+    $str="SELECT userId , avatarNum , userName , e_mail , password , year FROM User WHERE e_mail = '$e_mail' AND password = '$password' ";
+    $result=$con->query($str);
+ // var_dump($result);
   // check for empty result
-    if (!empty($result)) {
-        if (mysql_num_rows($result) > 0) {
+     //var_dump($result);
+    if (mysqli_num_rows ($result)!=0) {
+        if ($result->num_rows > 0) {
             
-            $result = mysql_fetch_array($result);
+            $result = $result->fetch_assoc();
 
             $user = array();
             $user["userId"] = $result["userId"];
@@ -256,7 +301,6 @@ $password = $_GET['password'];
             $user["e_mail"] = $result["e_mail"];
             $user["password"] = $result["password"];
             $user["year"] = $result["year"];
-
 
             // user node
             $response["user"] = array();
@@ -290,7 +334,8 @@ $password = $_GET['password'];
 }
 
 }
-function registration(){
+
+function registration($userName, $year, $e_mail, $password, $phone, $avatarNum){
 /*
  * All database connection variables
  */
@@ -316,19 +361,11 @@ function registration(){
 $response = array();
  
 // check for required fields
-if (isset($_POST['userName']) && isset($_POST['year']) && isset($_POST['e_mail']) && isset($_POST['password']) && isset($_POST['phone']) && isset($_POST['avatarNum'])) {
- 
-    $userName = $_POST['userName'];
-    $year = $_POST['year'];
-    $e_mail = $_POST['e_mail'];
-    $password = $_POST['password']; 
-    $phone = $_POST['phone'];
-    $avatarNum = $_POST['avatarNum'];
- 
+if ($userName!=null && $year!= null && $e_mail != null && $password != null && $phone != null && $avatarNum!= null) {
  
    // mysql inserting a new row
-    $result = mysql_query("INSERT INTO User(avatarNum , userName, year, e_mail , password , phone) VALUES('$avatarNum','$userName', '$year', '$e_mail' , '$password' , '$phone')");
- 
+     $result=$con->query("INSERT INTO User(avatarNum , userName, year, e_mail , password , phone) VALUES('$avatarNum','$userName', '$year', '$e_mail' , '$password' , '$phone')");
+
     // check if row inserted or not
     if ($result) {
         // successfully inserted into database
@@ -354,7 +391,8 @@ if (isset($_POST['userName']) && isset($_POST['year']) && isset($_POST['e_mail']
     return json_encode($response);
 }
 }
-function update_user(){
+
+function update_user($userId, $new_userName, $oldPassword, $newPassword){
 /*
  * All database connection variables
  */
@@ -363,67 +401,28 @@ function update_user(){
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
  
- //connect file
- class DB_CONNECT {
-
-    // constructor
-    function __construct() {
-        // connecting to database
-        $this->connect();
-    }
-
-    // destructor
-    function __destruct() {
-        // closing db connection
-        $this->close();
-    }
-
-    /**
-     * Function to connect with database
-     */
-    function connect() {
-        // import database connection variables
-
-        // Connecting to mysql database
-       $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
-        if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        }
-        // returing connection cursor
-        return $con;
-    }
-
-    /**
-     * Function to close db connection
-     */
-    function close() {
-        // closing db connection
-        mysql_close();
-    }
-
-}//end of connect file
-
-
-/*the following code will update the username given the email and password*/
-
 // array for JSON response
 $response = array();
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
 
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
+        }
+
+/*the following code will update the username given the email and password*/
 // check for required fields
 
-if(isset($_POST['userId']) && isset($_POST['userName']) && isset($_POST['oldPassword']) && isset($_POST['newPassword'])){
-
-    $userId = $_POST['userId'];
-    $new_userName = $_POST['userName'];
-    $oldPassword = $_POST['oldPassword'];
-    $newPassword = $_POST['newPassword'];
-
- // connecting to db
-    $db = new DB_CONNECT();
-
+if($userId != null && $new_userName != null && $oldPassword != null && $newPassword != null){
+    
     // mysql update row
-    $result = mysql_query("UPDATE User SET userName = '$new_userName', password = '$newPassword' WHERE userId = '$userId' And password = '$oldPassword'");
+     $result=$con->query("UPDATE User SET userName = '$new_userName', password = '$newPassword' WHERE userId = '$userId' And password = '$oldPassword'");
+   
+
     // check if row inserted or not
     if (mysql_affected_rows() !== 0) {
             // successfully updated
@@ -431,7 +430,7 @@ if(isset($_POST['userId']) && isset($_POST['userName']) && isset($_POST['oldPass
             $response["message"] = "user successfully updated.";
  
             // echoing JSON response
-            echo json_encode($response);
+            return json_encode($response);
     }
     else{
         //didn't update
@@ -439,7 +438,7 @@ if(isset($_POST['userId']) && isset($_POST['userName']) && isset($_POST['oldPass
         $response["message"] = "user unfotunately didn't updated.";
 
         // echoing JSON response
-        echo json_encode($response);
+        return  json_encode($response);
     }
 
 }
@@ -449,10 +448,13 @@ else {
     $response["message"] = "Required field(s) is missing";
  
     // echoing JSON response
-    echo json_encode($response);
+    return  json_encode($response);
 }
+
+
 }
-function uploadNote(){
+
+function uploadNote($content, $Time, $day, $userId, $Title){
 /*
  * All database connection variables
  */
@@ -462,71 +464,33 @@ function uploadNote(){
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
 
-/**
- * A class file to connect to database
- */
-class DB_CONNECT {
-
-    // constructor
-    function __construct() {
-        // connecting to database
-        $this->connect();
-    }
-
-    // destructor
-    function __destruct() {
-        // closing db connection
-        $this->close();
-    }
-
-    /**
-     * Function to connect with database
-     */
-    function connect() {
-
-        // Connecting to mysql database
+ 
+ // array for JSON response
+        $response = array();
+        
         $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
         if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
         }
-        // returing connection cursor
-        return $con;
-    }
-
-    /**
-     * Function to close db connection
-     */
-    function close() {
-        // closing db connection
-        mysql_close();
-    }
-
-}
 
 /*
  * Following code will create a new Note for User 
  */
- 
-// array for JSON response
-$response = array();
- 
+
 // check for required fields
-if (isset($_POST['content']) && isset($_POST['Time'])&& isset($_POST['day'])&& isset($_POST['userId'])&& isset($_POST['Title'])) {
- 
-    $content = $_POST['content'];
-    $Time = $_POST['Time'];
-    $day = $_POST['day'];
-    $userId = $_POST['userId'];
-    $Title = $_POST['Title'];
+if ($content != null&& $Time != null&& $day != null&& $userId != null&& $Title != null) {
     
- 
-    // connecting to db
-    $db = new DB_CONNECT();
- 
     // mysql inserting a new row
-    $result = mysql_query("INSERT INTO Note(content, Time, day, userId, Title) VALUES('$content', '$Time', '$day', '$userId', '$Title')");
- 
+
+     $result=$con->query("INSERT INTO Note(content, Time, day, userId, Title) VALUES('$content', '$Time', '$day', '$userId', '$Title')");
+
+
     // check if row inserted or not
     if ($result) {
         // successfully inserted into database
@@ -534,14 +498,14 @@ if (isset($_POST['content']) && isset($_POST['Time'])&& isset($_POST['day'])&& i
         $response["message"] = "Note successfully created.";
  
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
     } else {
         // failed to insert row
         $response["success"] = 0;
         $response["message"] = "Oops! An error occurred, failed to inser a row.";
  
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
     }
 } else {
     // required field is missing
@@ -549,10 +513,11 @@ if (isset($_POST['content']) && isset($_POST['Time'])&& isset($_POST['day'])&& i
     $response["message"] = "Required field(s) is missing";
  
     // echoing JSON response
-    echo json_encode($response);
+    return json_encode($response);
 }
 }
-function UploadUserSession(){
+
+function UploadUserSession($userId, $sessionId){
 /*
  * All database connection variables
  */
@@ -563,30 +528,31 @@ function UploadUserSession(){
     define('DB_SERVER', "178.62.208.34"); // db server
 
     
-        // Connecting to mysql database
-       $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+    // array for JSON response
+        $response = array();
+        
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
         if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
         }
-    
+
 /*
  * Following code will create a new UserSession for User 
  */
  
-// array for JSON response
-$response = array();
- 
 // check for required fields
-if (isset($_POST['userId']) && isset($_POST['sessionId'])) {
- 
-    $userId = $_POST['userId'];
-    $sessionId = $_POST['sessionId'];
- 
+if ($userId != null && $sessionId != null) {
     
     // mysql inserting a new row
-    $result = mysql_query("INSERT INTO User_Session(userId, sessionId) VALUES('$userId', '$sessionId')");
- 
+     $result=$con->query("INSERT INTO User_Session(userId, sessionId) VALUES('$userId', '$sessionId')");
+
+
     // check if row inserted or not
     if ($result) {
         // successfully inserted into database
@@ -594,14 +560,14 @@ if (isset($_POST['userId']) && isset($_POST['sessionId'])) {
         $response["message"] = "User_Session successfully created.";
  
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
     } else {
         // failed to insert row
         $response["success"] = 0;
         $response["message"] = "Oops! An error occurred.";
  
         // echoing JSON response
-        echo json_encode($response);
+        return json_encode($response);
     }
 } else {
     // required field is missing
@@ -609,11 +575,11 @@ if (isset($_POST['userId']) && isset($_POST['sessionId'])) {
     $response["message"] = "Required field(s) is missing";
  
     // echoing JSON response
-    echo json_encode($response);
+    return json_encode($response);
 }
 }
 
-function userDetails(){
+function userDetails($userId){
 /*
  * All database connection variables
  */
@@ -621,28 +587,36 @@ function userDetails(){
     define('DB_PASSWORD', "supportPass123"); // db password (mention your db password here)
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
- 
-        // Connecting to mysql database
+// array for JSON response
+$response = array();
         $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
         if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
         }
+
+
+ 
+        
  
 /*the following code will update the username given the email and password*/
 
-// array for JSON response
-$response = array();
 
 // check for required fields
 
-if(isset($_GET['userId'])){
-
-    $userId = $_GET['userId'];
+if($userId != null){
 
  
     // mysql update row with matched e_mail and password
-    $result = mysql_query("SELECT userName FROM User WHERE userId = '$userId'");
+    
+    $result=$con->query("SELECT userName FROM User WHERE userId = '$userId'");
+
+
 // check if row inserted or not
      if (!empty($result)) {
         if (mysql_num_rows($result) > 0) {
@@ -679,7 +653,8 @@ else {
     echo json_encode($response);
 }
 }
-function deleteUserSession(){
+
+function deleteUserSession($userId){
 /*
  * All database connection variables
  */
@@ -689,63 +664,29 @@ function deleteUserSession(){
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
 
-/**
- * A class file to connect to database
- */
-class DB_CONNECT {
-
-    // constructor
-    function __construct() {
-        // connecting to database
-        $this->connect();
-    }
-
-    // destructor
-    function __destruct() {
-        // closing db connection
-        $this->close();
-    }
-
-    /**
-     * Function to connect with database
-     */
-    function connect() {
-
-        // Connecting to mysql database
-        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
-        if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        }
-        // returing connection cursor
-        return $con;
-    }
-
-    /**
-     * Function to close db connection
-     */
-    function close() {
-        // closing db connection
-        mysql_close();
-    }
-
-}
-
 /*
  * Following code will delete a UserSessions from table
  * A UserSession is identified by user id (userId)
  */
  
 // array for JSON response
-$response = array();
+$response = array(); 
+ 
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
+        } 
+ 
  
 // check for required fields
-if (isset($_POST['userId'])) {
-    $userId = $_POST['userId'];
- 
-    // connecting to db
-    $db = new DB_CONNECT();
- 
+if ($userId != null) {
+    
     // mysql delete row with matched userId
     $result = mysql_query("DELETE FROM User_Session WHERE userId = '$userId' ");
  
@@ -774,6 +715,7 @@ if (isset($_POST['userId'])) {
     echo json_encode($response);
 }
 }
+
 function DownloadUserSession(){
 /*
  * All database connection variables
@@ -784,35 +726,40 @@ function DownloadUserSession(){
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
 
-        // Connecting to mysql database
-        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
-        if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        } 
-/*
- * Following code will Download UserSession
- */
  
 // array for JSON response
 $response = array();
  
-// check for post data
-if (isset($_GET["userId"])) {
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
 
-    $userId = $_GET['userId'];
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
  
+        return json_encode($response);
+        } 
+
+		/*
+ * Following code will Download UserSession
+ */
+ 
+// check for post data
+if ($userId !=null) {
+
     // get a UserSession from UserSession table
-    $result = mysql_query("SELECT * FROM User_Session WHERE userId = '$userId' ");
+    
+    $result=$con->query("SELECT * FROM User_Session WHERE userId = '$userId' ");
  
     if (!empty($result)) {
         // check for empty result
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
 
             // UserSession node
             $response["userSession"] = array();
  
-            while ($row = mysql_fetch_array($result)){
+            while ($row = mysqli_fetch_array($result)){
  
                 $UserSession = array();
                 $UserSession["userId"] = $row["userId"];
@@ -824,14 +771,14 @@ if (isset($_GET["userId"])) {
             $response["success"] = 1;
 
             // echoing JSON response
-            echo json_encode($response);
+            return json_encode($response);
         } else {
             // no UserSession found
             $response["success"] = 0;
             $response["message"] = "No UserSession found";
  
             // echo no users JSON
-            echo json_encode($response);
+            return json_encode($response);
         }
     } else {
         // no UserSession found
@@ -839,7 +786,7 @@ if (isset($_GET["userId"])) {
         $response["message"] = "No UserSession found";
  
         // echo no UserSessions JSON
-        echo json_encode($response);
+        return json_encode($response);
     }
 } else {
     // required field is missing
@@ -847,10 +794,11 @@ if (isset($_GET["userId"])) {
     $response["message"] = "Required field(s) is missing";
  
     // echoing JSON response
-    echo json_encode($response);
+    return json_encode($response);
 }
 }
-function getAllInstructors(){
+
+function getAllInstructors($year){
 /*
  * All database connection variables
  */
@@ -860,34 +808,36 @@ function getAllInstructors(){
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
 
-    
-        // Connecting to mysql database
-       $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
-        if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        }
 /*
  * Following code will list all the instructors
  */
  
 // array for JSON response
 $response = array();
- 
 
-if(isset($_GET['year'])){
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+        if (mysqli_connect_errno()) {
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
+        } 
+
+if($year != null){
     
-     $year = $_GET['year'];
-    // get all instructors from instructor table
-    $result = mysql_query("SELECT i.instructorId , i.name FROM Instructor i inner Join Instructor_year y on i.instructorId=y.instructorId where y.year = '$year' ") or die(mysql_error());
+     // get all instructors from instructor table
+    $result=$con->query("SELECT i.instructorId , i.name FROM Instructor i inner Join Instructor_year y on i.instructorId=y.instructorId where y.year = '$year' ");
      
     // check for empty result
-    if (mysql_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         // looping through all results
         // instructors node
         $response["instructors"] = array();
      
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             // temp user array
             $instructor = array();
             $instructor["instructorId"] = $row["instructorId"];
@@ -919,6 +869,7 @@ if(isset($_GET['year'])){
     return json_encode($response);
 }
 }
+
 function getAllPlaces(){
 /*
  * All database connection variables
@@ -929,30 +880,35 @@ function getAllPlaces(){
     define('DB_DATABASE', "support"); // database name
     define('DB_SERVER', "178.62.208.34"); // db server
 
-        // Connecting to mysql database
-       $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+ 
+// array for JSON response
+$response = array();
+
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
         if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        }
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
+        } 
  
 /*
  * Following code will list all the places
  */
- 
-// array for JSON response
-$response = array();
-// get all places from Session_Place table
-$result = mysql_query("SELECT *FROM Session_Place") or die(mysql_error());
+ // get all places from Session_Place table
+    $result=$con->query("SELECT * FROM Session_Place");
  
  
 // check for empty result
-if (mysql_num_rows($result) > 0) {
+if (mysqli_num_rows($result) > 0) {
     // looping through all results
     // places node
     $response["places"] = array();
  
-    while ($row = mysql_fetch_array($result)) {
+    while ($row = mysqli_fetch_array($result)) {
         // temp user array
         $place = array();
         $place["placeId"] = $row["placeId"];
@@ -975,6 +931,7 @@ if (mysql_num_rows($result) > 0) {
     return json_encode($response);
 }
 }
+
 function getDBVersion(){
     define('DB_USER', "supportUser"); // db user
     define('DB_PASSWORD', "supportPass123"); // db password (mention your db password here)
@@ -982,34 +939,42 @@ function getDBVersion(){
     define('DB_SERVER', "178.62.208.34"); // db server
 
 
-    // Connecting to mysql database
+	
+	
+// array for JSON response
+$response = array();
+
         $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
         if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        }
+            ///printf("Connect failed: %s\n", mysqli_connect_error());
+           ///exit();
+
+        $response["success"] = 0;
+        $response["message"] = "Connection failed: " +  mysqli_connect_error();
+ 
+        return json_encode($response);
+        } 
+ 
+ 
 /*
  * Following code will list all the notes
  */
- 
-// array for JSON response
-$response = array();
- 
+
  
  ///////////if(isset($_GET["userId"])){
 
     //////////////$userId = $_GET['userId'];
      
     // get all version from DB_Version table
-    $result = mysql_query("SELECT version FROM DB_Version") or die(mysql_error());
+    $result=$con->query("SELECT version FROM DB_Version");
      
     // check for empty result
-    if (mysql_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         // looping through all results
         
         $response["versions"] = array();
      
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             // temp user array
             $version = array();
             $version["version"] = $row["version"];
