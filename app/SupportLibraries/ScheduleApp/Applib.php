@@ -51,7 +51,7 @@ if($year != null){
     if (mysqli_num_rows ($result)!=0) {
         if ($result->num_rows > 0) {
             
-            $result = $result->fetch_assoc();
+            //$result = $result->fetch_assoc();
 
         // looping through all results
         // sessions node
