@@ -25,9 +25,9 @@ public function getDBVersion()
 {
 	return getDBVersion();
 }
-public function DownloadUserSession()
+public function DownloadUserSession($userId)
 {
-	return downloadUserSession();
+	return downloadUserSession($userId);
 }
 public function Registration($userName, $year, $e_mail, $password, $phone, $avatarNum)
 {

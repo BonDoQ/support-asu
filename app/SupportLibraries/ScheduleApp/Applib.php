@@ -715,7 +715,7 @@ if ($userId != null) {
 }
 }
 
-function downloadUserSession(){
+function downloadUserSession($userId){
 /*
  * All database connection variables
  */
