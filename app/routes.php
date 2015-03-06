@@ -31,6 +31,15 @@ Route::get('XXXXXXXXXXXXXXXXXXXGetAllSessions/{year}','AppController@GetAllSessi
 Route::get('/XXXXXXXXXXXXXXXXXXXLogin/{email}/{password}','AppController@Login');
 Route::get('XXXXXXXXXXXXXXXXXXXGetAllInstructors/{year}','AppController@GetAllInstructors');
 Route::get('XXXXXXXXXXXXXXXXXXXgetAllPlaces','AppController@GetAllPlaces');
+Route::get('XXXXXXXXXXXXXXXXXXXRegistration/{userName}/{year}/{e_mail}/{password}/{phone}/{avatarNum}','AppController@Registration');
+Route::get('XXXXXXXXXXXXXXXXXXXDeleteNote/{userid}','AppController@DeleteNote');
+Route::get('XXXXXXXXXXXXXXXXXXXUpdateUser/{userId}/{new_userName}/{oldPassword}/{newPassword}','AppController@UpdateUser');
+Route::get('XXXXXXXXXXXXXXXXXXXUploadNote/{content}/{Time}/{day}/{userId}/{Title}','AppController@UploadNote');
+Route::get('XXXXXXXXXXXXXXXXXXXUploadUserSession/{userid}/{sessionid}','AppController@UploadUserSession');
+Route::get('XXXXXXXXXXXXXXXXXXXUserDetails/{usrid}','AppController@UserDetails');
+Route::get('XXXXXXXXXXXXXXXXXXXDeleteUserSession/{userid}','AppController@DeleteUserSession');
+Route::get('XXXXXXXXXXXXXXXXXXXDownloadUserSession','AppController@DownloadUserSession');
+Route::get('XXXXXXXXXXXXXXXXXXXGetDBVersion','AppController@GetDBVersion');
 //end of App links
 Route::get('images/sliders/{image}', function($image = null)
 {

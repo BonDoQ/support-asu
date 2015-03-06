@@ -51,7 +51,7 @@ if($year != null){
     if (mysqli_num_rows ($result)!=0) {
         if ($result->num_rows > 0) {
             
-            //$result = $result->fetch_assoc();
+           // $result = $result->fetch_assoc();
 
         // looping through all results
         // sessions node
@@ -517,7 +517,7 @@ if ($content != null&& $Time != null&& $day != null&& $userId != null&& $Title !
 }
 }
 
-function UploadUserSession($userId, $sessionId){
+function uploadUserSession($userId, $sessionId){
 /*
  * All database connection variables
  */
@@ -618,10 +618,9 @@ if($userId != null){
 
 
 // check if row inserted or not
-     if (!empty($result)) {
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
 
-            $result = mysql_fetch_array($result);
+            $result = mysqli_fetch_array($result);
             // user node
             $response["userName"] = $result["userName"];
  
@@ -633,7 +632,7 @@ if($userId != null){
             echo json_encode($response);
 
     }
-}
+
     else{
         //didn't update
         $response["success"] = 0;
@@ -716,7 +715,7 @@ if ($userId != null) {
 }
 }
 
-function DownloadUserSession(){
+function downloadUserSession(){
 /*
  * All database connection variables
  */
