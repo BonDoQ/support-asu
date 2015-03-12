@@ -707,7 +707,7 @@ footer
 {
   width: 100%;
   background-color: #6d6d6d;
-  margin-top: 30px;
+  /*margin-top: 30px;*/
 }
 #foot
 {
@@ -718,7 +718,7 @@ footer
 }
 #footer
 {
-  padding: 20px;
+  /*padding: 20px;*/
   background-color: #f7f7f7;
   color: #202020;
 }

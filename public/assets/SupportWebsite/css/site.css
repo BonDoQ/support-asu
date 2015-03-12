@@ -26,3 +26,10 @@
 .mail-btn:hover{background: #f8b619;}
 .fb-btn:hover i,.t-btn:hover i,.y-btn:hover i,.b-btn:hover i,.g-btn:hover i,.mail-btn:hover i{color: white !important;}
 
+.social-networks{
+	padding: 0;
+	margin-left: -30px;
+}
+.social-networks ul{
+	padding: 0;
+}

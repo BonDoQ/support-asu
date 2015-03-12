@@ -24,7 +24,7 @@
           <div class="form-group">
             <label for="inputslogan" class="control-label col-xs-2">Slogan :</label>
               <div class="col-xs-10">
-                <input type="text" class="form-control" id="inputslogan" placeholder="Type the Sponser Slogan" name="slogan" value="{{$sponser->slogan}}" required>
+                <input type="text" class="form-control" id="inputslogan" placeholder="Type the Sponser Slogan" name="slogan" value="{{$sponser->slogan}}" >
               </div>
           </div>
           <div class="form-group">
