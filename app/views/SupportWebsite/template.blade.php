@@ -179,8 +179,8 @@
 
          
 
-          <div class="col-sm-5 social-networks">
-            <ul class="col-sm-4">
+          <div class="col-sm-4 social-networks">
+            <ul class="col-sm-12">
               <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
               <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
               <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>
