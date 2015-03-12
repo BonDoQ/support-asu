@@ -16,6 +16,10 @@
  	{
  		return View::make('SupportWebsite.home');
  	}
+  public function SchedualApp()
+  {
+    return View::make('SupportWebsite.apppage');
+  }
  	public function contactus()
      {
       $valid = Validator::make(Input::all(),array(
