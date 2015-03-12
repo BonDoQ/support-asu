@@ -93,30 +93,7 @@
         </div><!-- /.navbar-inner -->
 
         <!--modal-->
-        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <center><h3 id="myModalLabel">Contact Us</h3></center>
-              </div>
-               <form class="form-horizontal" method="POST" action="/contactus"  id="contactusid">
-                <div class="modal-body" {{$errors->has('sender_name') ? 'has->error': ''}}>
-                <input type="text" class="form-control" placeholder="Full Name" id="sender_name" required >
-                <input type="email" class="form-control" placeholder="Email address" id="sender_email" required>
-                <input type="text" class="form-control" placeholder="Subject" id="sender_subject" required>
-                <textarea class="form-control" placeholder="Message" id="sender_message" required></textarea>
-                <hr />
-                <!--div class="g-recaptcha" data-sitekey="6LcvEQITAAAAAMly2I0JTuq3THwvG_uvbwYwP4l2"></div-->
-                </div>
-                <div class="modal-footer">
-                <button class="btn btn-branded" type="submit" >submit</button>
-              </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--end of modal-->
+        
 
       </div><!-- /.navbar -->
 
@@ -133,7 +110,8 @@
                              <div class="para1">
                                    <h1>Support Schedual App</h1>
                              </div>
-                             <a class="btn btn-lg " href="http://download685.mediafire.com/8n5rmq54dzeg/344hot0u15w4vfl/ScheduleSystem-v1.0.0.apk">DOWNLOAD <span class="glyphicon glyphicon-Download"></span></a>
+                             <a class="btn btn-lg " href="https://drcdma-ch3301.files.1drv.com/y2mgZP_jVv4AeWkJpZTSYYdM4kf1tFZ3dZbjjs7lA9EribK-2GBIfWqomE5QIwOQR-PwMtSn8j9Biu-YzIjWdVvhlZoFWbS0o5VxK1iEpxCmErslcDXTX9PYuleH-TtzwA_/ScheduleSystem-v1.0.0.apk?download&psid=1
+                             " target="_blank">DOWNLOAD <span class="glyphicon glyphicon-Download"></span></a>
                        </div>
            </div>
 </div>
@@ -218,7 +196,30 @@
 </div>
 
 
-
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <center><h3 id="myModalLabel">Contact Us</h3></center>
+              </div>
+               <form class="form-horizontal" method="POST" action="/contactus"  id="contactusid">
+                <div class="modal-body" {{$errors->has('sender_name') ? 'has->error': ''}}>
+                <input type="text" class="form-control" placeholder="Full Name" id="sender_name" required >
+                <input type="email" class="form-control" placeholder="Email address" id="sender_email" required>
+                <input type="text" class="form-control" placeholder="Subject" id="sender_subject" required>
+                <textarea class="form-control" placeholder="Message" id="sender_message" required></textarea>
+                <hr />
+                <!--div class="g-recaptcha" data-sitekey="6LcvEQITAAAAAMly2I0JTuq3THwvG_uvbwYwP4l2"></div-->
+                </div>
+                <div class="modal-footer">
+                <button class="btn btn-branded" type="submit" >submit</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of modal-->
 
 <div class="row">
       <div class="group2">

@@ -176,7 +176,7 @@
 
       <div id="footer">
         <div class="container-fluid">
-          <div class="col-sm-4" id="posts">
+          <div class="col-sm-5" id="posts">
             <!--blockquote>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
               <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
@@ -195,14 +195,13 @@
 
           
 
-          <div class="col-sm-4 social-networks">
+             <div class="col-sm-4 social-networks">
             <ul class="col-sm-12">
               <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
               <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
-              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>
-              <!-- <a href="#"><li class="social col-sm-6"><i class="icon-googleplus"></i></li></a> -->
+              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>             
               <a href="https://www.behance.net/supportasu"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
-              <!-- <a href="#"><li class="social col-sm-6"><i class="icon-pinterest"></i></li></a> -->
+              
             </ul>
           </div>
 
