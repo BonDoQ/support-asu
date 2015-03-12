@@ -230,9 +230,8 @@
                   </div>
                    <h2 class="text-center col-sm-12">Description</h2>
                    <span class="col-sm-12 text-center">
-                     We have now published our new Andrid application "SUPPORT schedual app" through which you can organize your day at the college easily. <br>
-                     Hurry up and check it out. 
-
+                     We have now published our new Android application "SUPPORT's schedule app" through which you can organize your day at the college easily. 
+Hurry up and check it out.
                    </span>
            </div>
 
@@ -244,10 +243,10 @@
                    <h2 class="text-center col-sm-12">Features</h2>
                    <span class="col-sm-12 features">
                      <ul>
-                       <li>manage your scheduale as you need</li>
-                       <li>make notes in time slotes of each leacture or section</li>
-                       <li>good view to your scheduale</li>
-                       <li>found others years and groups schedules</li>
+                       <li>Manage your schedule the way that suits you.</li>
+                       <li>Add notes in slots of each lecture or section.</li>
+                       <li>Enjoy your schedule in an organized fancy way.</li>
+                       <li>Check others years and groups schedules.</li>
                      </ul>
                    </span>
            </div>
@@ -259,7 +258,7 @@
         </div>
                    <h2 class="text-center col-sm-12">How to install</h2>
                    <span class="col-sm-12 text-center">
-                     Download the APK to your mobile device and install it, if the mobile alert your that it can't be install due to security just enter settings --> security and choose unknown sources
+                     Download the APK to your mobile device and install it, if the mobile alerts you that it can't be installed due to security just  go to Settings --> Security, choose unknown sources and install the application.
                    </span>
            </div>
       </div>
