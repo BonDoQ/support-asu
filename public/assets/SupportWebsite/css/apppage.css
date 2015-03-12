@@ -1,0 +1,92 @@
+
+body{
+/*        background: url(city.png);*/
+       /* background-size: cover ;*/
+        background-repeat: no-repeat;
+        background-color: gray;
+}
+a{
+  color: black;
+}
+.apppage
+{
+  padding-top:50px;
+}
+.btu{
+    /*float:right;
+    margin-right:10px;*/
+    margin-top:120px;
+}
+.para1,h1{
+        font-size:60px;
+}
+.btn{
+background-color:#f8b619;
+}
+.img{
+padding:20px;
+height: 70%;
+}
+.img2{
+  
+  margin-top:70px;
+  border: 0.5px solid;
+  /*border-radius: 225px;*/
+
+}
+.group{
+   
+   margin-left:60px;
+}
+.screenshot{
+          border: 0.5px solid;
+          border-radius: 10px;
+          opacity:1;
+}
+h2{
+     font-family:"Gulim";
+       color:black;
+     /*margin-top:70px;*/
+     float:center;
+     /*margin-left:380px;*/
+}
+.logos{     
+     border: 1px inset;
+     padding:10px;
+     background-color:#f8b619;
+     width: 100%;
+}
+.group2{
+ /*margin-left:170px;*/
+ margin-top:60px;
+}
+p{
+ text-align:left;
+ /*margin-top:10px;*/
+ /*margin-left:70px;*/
+ color:black;
+ font-family:"Gulim";
+}
+.part2{
+  background-color: white ;
+  background-size:cover;
+   border-style : none;
+  /*margin-top:40px;*/
+  
+  /*width:1325px;*/
+}
+.href1{
+   opacity:1;
+}
+.container-fluid{
+ margin: 0 auto;
+}
+span
+{
+  color:black;
+}
+.features ul
+{
+  list-style: square;
+}
+/**/
