@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Schedual App</title>
+<title>Schedule App</title>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,7 +80,7 @@
               </li>
               <li>
                 <a href="{{{ URL::to('/SchedualApp')  }}}">
-                  <span style="color:#f8b619;">Schedual App</span>
+                  <span style="color:#f8b619;">Schedule App</span>
                 </a>
               </li>
               <!--li {{{ (Request::is('registration') ? 'class=active' : '') }}}>
@@ -108,7 +108,7 @@
            <div class=" col-md-7 col-xs-12">
                        <div class="btu">
                              <div class="para1">
-                                   <h1>Support Schedual App</h1>
+                                   <h1>Support Schedule App</h1>
                              </div>
                              <a class="btn btn-lg " href="http://download1405.mediafire.com/wanayc3txlrg/344hot0u15w4vfl/ScheduleSystem-v1.0.0.apk"
                               target="_blank">DOWNLOAD <span class="glyphicon glyphicon-Download"></span></a>

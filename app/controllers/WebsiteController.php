@@ -16,7 +16,7 @@
  	{
  		return View::make('SupportWebsite.home');
  	}
-  public function SchedualApp()
+  public function ScheduleApp()
   {
     return View::make('SupportWebsite.apppage');
   }
