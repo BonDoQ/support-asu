@@ -84,7 +84,7 @@
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
               <li>
-                <a href="{{{ URL::to('/SchedualApp')  }}}">
+                <a href="{{{ URL::to('/ScheduleApp')  }}}">
                   <span style="color:#f8b619;">Schedule App</span>
                 </a>
               </li>
