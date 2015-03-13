@@ -110,8 +110,8 @@
                              <div class="para1">
                                    <h1>Support Schedual App</h1>
                              </div>
-                             <a class="btn btn-lg " href="https://drcdma-ch3301.files.1drv.com/y2mgZP_jVv4AeWkJpZTSYYdM4kf1tFZ3dZbjjs7lA9EribK-2GBIfWqomE5QIwOQR-PwMtSn8j9Biu-YzIjWdVvhlZoFWbS0o5VxK1iEpxCmErslcDXTX9PYuleH-TtzwA_/ScheduleSystem-v1.0.0.apk?download&psid=1
-                             " target="_blank">DOWNLOAD <span class="glyphicon glyphicon-Download"></span></a>
+                             <a class="btn btn-lg " href="http://download1405.mediafire.com/wanayc3txlrg/344hot0u15w4vfl/ScheduleSystem-v1.0.0.apk"
+                              target="_blank">DOWNLOAD <span class="glyphicon glyphicon-Download"></span></a>
                        </div>
            </div>
 </div>
