@@ -195,7 +195,7 @@
 
           
 
-             <div class="col-sm-4 social-networks">
+             <div class="col-sm-4 social-networks2">
             <ul class="col-sm-12">
               <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
               <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
