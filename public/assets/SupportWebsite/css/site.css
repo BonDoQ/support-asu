@@ -28,10 +28,11 @@
 
 .social-networks{
 	padding: 0;
-	margin-left: 88px;
+	margin-left: 85px;
 }
 .social-networks2{
 	padding: 0;
+        margin-left: -30px;
 }
 .social-networks ul{
 	padding: 0;
