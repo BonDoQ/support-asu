@@ -89,11 +89,11 @@
               <li>
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
-              <li>
+              <!--li>
                 <a href="{{{ URL::to('/ScheduleApp')  }}}">
                   <span style="color:#f8b619;">Schedule App</span>
                 </a>
-              </li>
+              </li-->
               <!--li {{{ (Request::is('registration') ? 'class=active' : '') }}}>
                 <a href="{{{ URL::to('/registration')  }}}">
                   <span style="color:#f8b619;">Registration</span>
