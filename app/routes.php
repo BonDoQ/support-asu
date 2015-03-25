@@ -18,7 +18,7 @@ Route::get('/about','WebsiteController@about');
 Route::post('/contactus','WebsiteController@contactus');
 Route::get('events','WebsiteController@events');
 Route::get('sponsors','WebsiteController@sponsors');
-//Route::get('/ScheduleApp','WebsiteController@ScheduleApp');
+Route::get('/ScheduleApp','WebsiteController@ScheduleApp');
 
 //Route::get('/registration','WebsiteController@register');
 Route::get('events/{event_id}', 'WebsiteController@subevent');
