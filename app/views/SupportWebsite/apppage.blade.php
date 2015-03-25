@@ -210,8 +210,6 @@
                 <input type="email" class="form-control" placeholder="Email address" name="sender_email" required>
                 <input type="text" class="form-control" placeholder="Subject" name="sender_subject" required>
                 <textarea class="form-control" placeholder="Message" name="sender_message" required></textarea>
-                <hr />
-                <div class="g-recaptcha" data-sitekey="6LcvEQITAAAAAMly2I0JTuq3THwvG_uvbwYwP4l2"></div>
               </div>
               <div class="modal-footer">
                 <button class="btn btn-branded">submit</button>
@@ -289,10 +287,10 @@ Hurry up and check it out.
 
           <div class=" social-networks2">
             <ul class="">
-              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
-              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
-              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>             
-              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
+              <a href="https://www.facebook.com/support.fcis" target="_blank"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
+              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ" target="_blank"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
+              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6" target="_blank"><i class="icon-twitter"></i></li></a>             
+              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6" target="_blank"><i class="icon-behance"></i></li></a>
               
             </ul>
           </div>

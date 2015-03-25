@@ -183,10 +183,10 @@
 
           <div class=" social-networks2">
             <ul class="">
-              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6 col-xs-3"><i class="icon-facebook"></i></li></a>
-              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6 col-xs-3"><i class="icon-youtube"></i></li></a>
-              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6 col-xs-3"><i class="icon-twitter"></i></li></a>             
-              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6 col-xs-3"><i class="icon-behance"></i></li></a>
+              <a href="https://www.facebook.com/support.fcis" target="_blank"><li class="social col-sm-6 col-xs-3"><i class="icon-facebook"></i></li></a>
+              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ" target="_blank"><li class="social col-sm-6 col-xs-3"><i class="icon-youtube"></i></li></a>
+              <a href="https://www.twitter.com/supportasu" target="_blank"><li class="social col-sm-6 col-xs-3"><i class="icon-twitter"></i></li></a>             
+              <a href="https://www.behance.net/supportasu" target="_blank"><li class="social col-sm-6 col-xs-3"><i class="icon-behance"></i></li></a>
               
             </ul>
           </div>

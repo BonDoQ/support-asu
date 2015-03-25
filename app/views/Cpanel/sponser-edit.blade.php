@@ -16,6 +16,14 @@
               </div>
           </div>
           <div class="form-group">
+              <label for="inputEmail" class="control-label col-xs-2">Is main? :</label>
+              <div>
+                <input type="checkbox" name="main"
+                @if($sponser->main == true) {{'checked'}}  @endif
+                data-size="large" data-on-text="Yes" data-off-text="No">
+              </div>
+          </div>
+          <div class="form-group">
               <label for="inputEmail" class="control-label col-xs-2">Name :</label>
               <div class="col-xs-10">
                 <input type="text" class="form-control" id="inputEmail" placeholder="Type the Sponser Name" name="name" value="{{$sponser->name}}" required>
