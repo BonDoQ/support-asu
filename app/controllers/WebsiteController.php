@@ -20,8 +20,19 @@
   {
     return View::make('SupportWebsite.apppage');
   }
+  
  	public function contactus()
      {
+     $secret   = '6LcvEQITAAAAALomfCLMsWcFDzxeanqhb4_BTQW7'; 
+      $response = Input::get('g-recaptcha-response');
+      $url      = 'https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$response;
+      $jsonObj  = file_get_contents($url);
+      $json     = json_decode($jsonObj, true);
+
+       if ($json['success']==false) {
+        return Redirect::back ()->with('fail','Please Verify that you are not a Robot !');
+    }
+
       $valid = Validator::make(Input::all(),array(
         'sender_name'=>'required',
         'sender_email'=>'required|email',
@@ -30,8 +41,8 @@
 	));
     if($valid->fails())
     {
-
-	return Redirect::route('home')->withErrors($valid)->withInput();
+      // return 'invalid';
+	     return Redirect::back()->withErrors($valid)->withInput();
     }
     else
     {
@@ -43,9 +54,13 @@
     $email->save();
     if($email)
     {
-        
+      /*$r=array("Saved");
+       return Response::json($r);*/
        return Redirect::back()->with('success','Your Message has been Sent Successfully'); //successful message
     }
+    else
+      return Redirect::back()->with('fail','Oops, Somthing Went Wrong !');
+      //return 'unsaved';
  }
 }
 public function register()
@@ -122,7 +137,8 @@ public function events()
     public function sponsors()
     {
         //Getting data from the database.
-        $sponsers = Sponser::where('availibility','=',true)->get();
+        //$mainsponsers = Sponser::where('availibility','=',true)->where('main','=',false)->get();//get all main sponsors
+        $sponsers = Sponser::where('availibility','=',true)->get();  // get normal sponsors
         $sliders=Slider::where('availibility','=',true)->get();
         //Directing to the index view.
         return View::make('SupportWebsite.sponsers', ['sponsers' => $sponsers],['sliders' => $sliders]);

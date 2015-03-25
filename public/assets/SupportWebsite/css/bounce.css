@@ -10,6 +10,7 @@
   background-color: #f8b619;
   box-shadow: 0 0 0 5px #f8b619;
   border-radius: 50%;
+  max-width: 100%;
 }
 .holder .avatar img.user:hover {
   cursor: pointer;
@@ -144,3 +145,8 @@
     opacity: 1;
   }
 }
+ img.spon11{ box-shadow: 0 0 0 5px #3a3a3c ; margin-left:10px; } img.spon11:hover{
+  cursor: pointer;
+  -moz-animation: bounceOut .4s linear;
+  -webkit-animation: bounceOut .4s linear;
+} p{font-size:15px;}  .sponcont{ margin-top:10px; } 

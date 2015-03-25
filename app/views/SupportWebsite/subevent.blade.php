@@ -89,11 +89,11 @@
               <li>
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
-              <!--li>
+              <li>
                 <a href="{{{ URL::to('/ScheduleApp')  }}}">
                   <span style="color:#f8b619;">Schedule App</span>
                 </a>
-              </li-->
+              </li>
               <!--li {{{ (Request::is('registration') ? 'class=active' : '') }}}>
                 <a href="{{{ URL::to('/registration')  }}}">
                   <span style="color:#f8b619;">Registration</span>
@@ -172,11 +172,10 @@
 </div>
 
  <!-- FOOTER -->
-            <footer>
-
+   <footer>
       <div id="footer">
         <div class="container-fluid">
-          <div class="col-sm-5" id="posts">
+          <div class="col-sm-5 col-xs-5" id="posts">
             <!--blockquote>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
               <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
@@ -193,22 +192,20 @@
 
          
 
-          
-
-             <div class="col-sm-4 social-networks2">
-            <ul class="col-sm-12">
-              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
-              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
-              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>             
-              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
+          <div class=" social-networks2">
+            <ul class="">
+              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6 col-xs-3"><i class="icon-facebook"></i></li></a>
+              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6 col-xs-3"><i class="icon-youtube"></i></li></a>
+              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6 col-xs-3"><i class="icon-twitter"></i></li></a>             
+              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6 col-xs-3"><i class="icon-behance"></i></li></a>
               
             </ul>
           </div>
 
-      </div>
-    </div>
+        </div>
+       </div>
         <p id="foot">© {{date("Y")}} SUPPORT - All Rights Reserved</p>
-      </footer>
+     </footer>
 
 
     <a id="scroll-top" href="#page-top"><h1>^</h1></a>

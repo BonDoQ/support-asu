@@ -101,16 +101,16 @@
 
 <div class = "row">
 
-           <div class="col-md-5 col-xs-5" >
+           <div class="col-md-5 col-xs-12" >
               <img class="img img-circle img-responsive" src="{{asset('assets/SupportWebsite/img/main.jpg')}}">
             </div>
 
-           <div class=" col-md-7 col-xs-12">
+           <div class=" col-md-7 col-xs-12 margin-down-10">
                        <div class="btu">
-                             <div class="para1">
+                             <div class="para1 text-center">
                                    <h1>Support Schedule App</h1>
                              </div>
-                             <a class="btn btn-lg " href="http://download1405.mediafire.com/wanayc3txlrg/344hot0u15w4vfl/ScheduleSystem-v1.0.0.apk"
+                             <a class="btn btn-lg col-xs-12 col-sm-6 col-sm-offset-3" href="http://download1405.mediafire.com/wanayc3txlrg/344hot0u15w4vfl/ScheduleSystem-v1.0.0.apk"
                               target="_blank">DOWNLOAD <span class="glyphicon glyphicon-Download"></span></a>
                        </div>
            </div>
@@ -127,7 +127,7 @@
 
 <div class="row">
   <div class="group">
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-6 margin-down-10">
           <div class="scsh1">
             <a class="href1" data-toggle="modal" data-target=".bs-example-modal-lg1">
               <img class="screenshot img-responsive" src="{{asset('assets/SupportWebsite/img/scr1.jpg')}}" >
@@ -135,7 +135,7 @@
           </div>
         </div>
 
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-6 margin-down-10">
                 <div class="scsh1">
                      <a class="href1" data-toggle="modal" data-target=".bs-example-modal-lg2">
                      <img class="screenshot img-responsive" src="{{asset('assets/SupportWebsite/img/scr2.jpg')}}" >
@@ -145,7 +145,7 @@
         </div>
 
         
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-6 margin-down-10">
 
                 <div class="scsh1">
                      <a class="href1" data-toggle="modal" data-target=".bs-example-modal-lg3">
@@ -156,7 +156,7 @@
         </div>
 
 
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-6 margin-down-10">
 
                 <div class="scsh1">
                      <a class="href1" data-toggle="modal" data-target=".bs-example-modal-lg4">
@@ -168,28 +168,28 @@
   <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true">
     <div class="modal-dialog modal-lg1">
       <div class="modal-content">
-        <img src="{{asset('assets/SupportWebsite/img/scr1.jpg')}}">
+        <img src="{{asset('assets/SupportWebsite/img/scr1.jpg')}}" class="col-xs-12">
       </div>
     </div>
   </div>
    <div class="modal fade bs-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <img src="{{asset('assets/SupportWebsite/img/scr2.jpg')}}">
+        <img src="{{asset('assets/SupportWebsite/img/scr2.jpg')}}" class="col-xs-12">
       </div>
     </div>
   </div>
    <div class="modal fade bs-example-modal-lg3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <img src="{{asset('assets/SupportWebsite/img/scr3.jpg')}}">
+        <img src="{{asset('assets/SupportWebsite/img/scr3.jpg')}}" class="col-xs-12">
       </div>
     </div>
   </div>
    <div class="modal fade bs-example-modal-lg4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true">
     <div class="modal-dialog modal-lg4">
       <div class="modal-content">
-        <img src="{{asset('assets/SupportWebsite/img/scr4.jpg')}}">
+        <img src="{{asset('assets/SupportWebsite/img/scr4.jpg')}}" class="col-xs-12">
       </div>
     </div>
   </div>
@@ -223,26 +223,26 @@
 <div class="row">
       <div class="group2">
             
-           <div class="col-md-4 col-sm-12 col-xs-12" >
+           <div class="col-md-4 col-sm-12 col-xs-12 margin-down-10" >
         
-                  <div class=" col-md-6 col-md-offset-3">
+                  <div class=" col-md-6 col-md-offset-3 col-lg-offset-4">
                    <img class="logos img-responsive img-circle" src="{{asset('assets/SupportWebsite/img/description.png')}}">
                   </div>
                    <h2 class="text-center col-sm-12">Description</h2>
-                   <span class="col-sm-12 text-center">
+                   <span class="col-sm-12 text-center display-inline-block" >
                      We have now published our new Android application "SUPPORT's schedule app" through which you can organize your day at the college easily. 
 Hurry up and check it out.
                    </span>
            </div>
 
-           <div class="col-md-4 col-sm-12 col-xs-12" >
-        <div class=" col-md-6 col-md-offset-3">
+           <div class="col-md-4 col-sm-12 col-xs-12 margin-down-10" >
+        <div class=" col-md-6 col-md-offset-3 col-lg-offset-4">
           
                    <img class="logos img-responsive img-circle" src="{{asset('assets/SupportWebsite/img/search-icon-transparent-background.gif')}}">
         </div>
                    <h2 class="text-center col-sm-12">Features</h2>
-                   <span class="col-sm-12 features">
-                     <ul>
+                   <span class="col-sm-12 features display-inline-block text-center">
+                     <ul class="display-inline-block ">
                        <li>Manage your schedule the way that suits you.</li>
                        <li>Add notes in slots of each lecture or section.</li>
                        <li>Enjoy your schedule in an organized fancy way.</li>
@@ -252,12 +252,12 @@ Hurry up and check it out.
            </div>
 
 
-           <div class="col-md-4 col-sm-12 col-xs-12" >
-        <div class="col-md-6 col-md-offset-3">
+           <div class="col-md-4 col-sm-12 col-xs-12 margin-down-10" >
+        <div class="col-md-6 col-md-offset-3 col-lg-offset-4">
           <img class="logos img-responsive img-circle" src="{{asset('assets/SupportWebsite/img/18392.png')}}" >
         </div>
                    <h2 class="text-center col-sm-12">How to install</h2>
-                   <span class="col-sm-12 text-center">
+                   <span class="col-sm-12 text-center display-inline-block">
                      Download the APK to your mobile device and install it, if the mobile alerts you that it can't be installed due to security just  go to Settings --> Security, choose unknown sources and install the application.
                    </span>
            </div>
@@ -268,7 +268,7 @@ Hurry up and check it out.
     <footer>
       <div id="footer">
         <div class="container-fluid">
-          <div class="col-sm-5" id="posts">
+          <div class="col-sm-5 col-xs-5" id="posts">
             <!--blockquote>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
               <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
@@ -285,8 +285,8 @@ Hurry up and check it out.
 
          
 
-          <div class="col-sm-4 social-networks2">
-            <ul class="col-sm-12">
+          <div class=" social-networks2">
+            <ul class="">
               <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
               <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
               <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>             

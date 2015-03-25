@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/socialicious.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/subevent.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/supportiens.css')}}">
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -83,11 +83,11 @@
               <li>
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
-              <!--li>
+              <li>
                 <a href="{{{ URL::to('/ScheduleApp')  }}}">
                   <span style="color:#f8b619;">Schedule App</span>
                 </a>
-              </li-->
+              </li>
               <!--li {{{ (Request::is('registration') ? 'class=active' : '') }}}>
                 <a href="{{{ URL::to('/registration')  }}}">
                   <span style="color:#f8b619;">Registration</span>
@@ -111,6 +111,7 @@
                 <input type="email" class="form-control" placeholder="Email address" name="sender_email" required>
                 <input type="text" class="form-control" placeholder="Subject" name="sender_subject" required>
                 <textarea class="form-control" placeholder="Message" name="sender_message" required></textarea>
+                <div class="g-recaptcha" data-sitekey="6LcvEQITAAAAAMly2I0JTuq3THwvG_uvbwYwP4l2"></div>
               </div>
               <div class="modal-footer">
                 <button class="btn btn-branded" >submit</button>
@@ -158,11 +159,11 @@
     @yield('content')
 
     <!-- FOOTER -->
-            <footer>
-
+           
+    <footer>
       <div id="footer">
         <div class="container-fluid">
-          <div class="col-sm-4" id="posts">
+          <div class="col-sm-5 col-xs-5" id="posts">
             <!--blockquote>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
               <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
@@ -179,21 +180,20 @@
 
          
 
-          <div class="col-sm-4 social-networks">
-            <ul class="col-sm-12">
-              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
-              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
-              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>
-              <!-- <a href="#"><li class="social col-sm-6"><i class="icon-googleplus"></i></li></a> -->
-              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
-              <!-- <a href="#"><li class="social col-sm-6"><i class="icon-pinterest"></i></li></a> -->
+          <div class=" social-networks2">
+            <ul class="">
+              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6 col-xs-3"><i class="icon-facebook"></i></li></a>
+              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6 col-xs-3"><i class="icon-youtube"></i></li></a>
+              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6 col-xs-3"><i class="icon-twitter"></i></li></a>             
+              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6 col-xs-3"><i class="icon-behance"></i></li></a>
+              
             </ul>
           </div>
 
-      </div>
-    </div>
+        </div>
+       </div>
         <p id="foot">© {{date("Y")}} SUPPORT - All Rights Reserved</p>
-      </footer>
+     </footer>
 
 
     <a id="scroll-top" href="#page-top"><h1>^</h1></a>

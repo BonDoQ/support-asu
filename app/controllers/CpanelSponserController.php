@@ -50,6 +50,8 @@ class CpanelSponserController extends BaseController
         $sponser = new Sponser();
         if(Input::get('availibility')=='on') $sponser->availibility = true;
         else $sponser->availibility = false;
+        if(Input::get('main')=='on') $sponser->main = true;
+        else $sponser->main = false;
         $sponser->name = Input::get('name');
         $sponser->updated_by=Auth::user()->username;
         $sponser->slogan = Input::get('slogan');
@@ -143,6 +145,8 @@ class CpanelSponserController extends BaseController
         //Getting data.
         if(Input::get('availibility')=='on') $sponser->availibility = true;
         else $sponser->availibility = false;
+        if(Input::get('main')=='on') $sponser->main = true;
+        else $sponser->main = false;
         $sponser->name = Input::get('name');
         $sponser->updated_by=Auth::user()->username;
         $sponser->slogan = Input::get('slogan');

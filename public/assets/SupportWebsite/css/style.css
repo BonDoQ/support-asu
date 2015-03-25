@@ -290,6 +290,7 @@
   {
     list-style: none;
   }
+
     }
 
 
@@ -300,8 +301,8 @@
       }
 
       .carousel {
-        margin-left: -20px;
-        margin-right: -20px;
+       /* margin-left: -20px;
+        margin-right: -20px;*/
       }
       .carousel .container {
 
@@ -342,7 +343,86 @@
   }
     }
 
+@media (max-width: 320px){
 
+  .container{width: 80%;}
+  .carousel-caption{width: 110%;margin-bottom: 90px;margin-left:-20px;}
+.carousel-caption h1.lead{font-size: 15px;}
+.carousel-caption p.lead 
+{font-size: 15px;font-weight: bold; width: 150%;margin-left:-40px; }
+.carousel-caption .btn{width: 95px; font-size: 15px; height: 35px; }
+ul li{ margin-left: 40px; }
+ul li div{ width: 190px; height: 250px;}
+.imgcont figcaption{font-size: 12px;}
+.btn-branded {margin-bottom: -5px;}
+#footer ul a{float: left; }
+#scroll-top{margin: -100px 0px 0px 0px;}
+}
+@media (max-width: 360px){
+
+  .container{width: 80%;}
+  .carousel-caption{width: 110%;margin-bottom: 90px;margin-left:-20px;}
+.carousel-caption h1.lead{font-size: 15px;}
+.carousel-caption p.lead 
+{font-size: 15px;font-weight: bold; width: 150%;margin-left:-40px; }
+.carousel-caption .btn{width: 95px; font-size: 15px; height: 35px; }
+ul li{ margin-left: 50px; }
+ul li div{ width: 190px; height: 250px;}
+.imgcont figcaption{font-size: 12px;}
+.btn-branded {margin-bottom: -5px;}
+#footer ul{ margin-left:-50px;}
+#footer ul a{ float: left;}
+/*#scroll-top{margin: -100px 0px 0px 0px;}*/
+}
+
+@media (max-width: 768px){
+/*  .navbar-nav { margin-left: 30px;margin-top: 7px;}
+.navbar-nav li{margin-left: 10px;}*/
+  .carousel-caption{margin-left: 90px;}
+ul li{ margin-left: 50px; }
+ul li div{ width: 190px; height: 250px;}
+.imgcont figcaption{font-size: 12px;}
+.btn-branded {margin-bottom: -5px;}
+/*#footer ul{ margin-left:-50px;}
+#footer ul a{ float: left;}*/
+#scroll-top{margin: -100px 0px 0px 0px;}
+}
+@media (max-width: 800px){
+  .navbar-nav { margin-left: 30px;margin-top: 7px;}
+.navbar-nav li{margin-left: 10px;}
+  .carousel-caption{margin-left: 90px;}
+ul li{ margin-left: 50px; }
+ul li div{ width: 190px; height: 250px;}
+.imgcont figcaption{font-size: 12px;}
+.btn-branded {margin-bottom: -5px;}
+#footer ul{ margin-left:-50px;}
+#footer ul a{ float: left;}
+#scroll-top{margin: -100px 0px 0px 0px;}
+}
+@media (max-width: 980px){
+  .navbar-nav { margin-left: 30px;margin-top: 7px;}
+.navbar-nav li{margin-left: 10px;}
+  .carousel-caption{margin-left: 90px;}
+ul li{ margin-left: 50px; }
+ul li div{ width: 190px; height: 250px;}
+.imgcont figcaption{font-size: 12px;}
+.btn-branded {margin-bottom: -5px;}
+#footer ul{  margin-left:-50px;}
+#footer ul a{ float: left;}
+#scroll-top{margin: -100px 0px 0px 0px;}
+}
+@media (max-width: 1280px){
+  .navbar-nav { margin-left: 100px;margin-top: 0px;}
+.navbar-nav li{margin-left: 10px;}
+  .carousel-caption{margin-left: 300px;}
+ul li{ margin-left: 80px; }
+ul li div{ width: 190px; height: 250px;}
+.imgcont figcaption{font-size: 12px;}
+.btn-branded {margin-bottom: -5px;}
+#footer ul{  margin-left:-50px;}
+#footer ul a{ float: left;}
+#scroll-top{margin: -100px 0px 0px 0px;}
+}
 /* ====================================================================== */
 /* ===========================  Side NavMenu  =========================== */
 /* ====================================================================== */
@@ -826,4 +906,46 @@ border-left: 5px solid #3a3a3c;
 {
   height: 90px;
   width: 90px;
+}
+/*================updates===============*/
+@media(max-width: 992px) and (min-width: 768px){
+  .navbar-header{
+    width: 100%;
+  }
+  .navbar-header img{
+  	margin-left: auto;
+  margin-right: auto;
+  display: inherit;
+  }
+  .navbar-collapse {
+    width: 100%;
+  }
+  ul.navbar-nav{
+    margin-left: 0 !important;
+  }
+}
+.margin-down-10
+{
+	margin-bottom: 10px !important;
+}
+.display-inline-block
+{
+	display: inline-block !important;
+}
+.social-networks2 ul{
+	  width: auto;
+  margin-left: -30px;
+  margin-right: auto;
+  display: inline-block;
+  padding: 0;
+}
+@media(max-width: 768px){
+	.social-networks2{width: 100%;margin-left: 0 !important;}
+	.social-networks2 ul,#footer ul{  
+		display: inline-block;
+  		margin-left: 25%;
+  		margin-right: auto;
+  		padding: 0;
+  	}
+  	.social-networks2 ul li i{font-size: 16pt;}
 }

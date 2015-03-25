@@ -5,15 +5,45 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
+    
 
     <div class="container marketing">
 
       <!-- START THE FEATURETTES -->
+       
+    
+    <?php $i =0; ?>
+    
+@foreach($sponsers as $sponser)
+@if($sponser->Ismain())
+@if($i==0)
+<hr class="featurette-divider">
+@endif
+<div class="col-lg-4 col-md-4 col-sm-12">
+      <img src="{{$sponser->image_logo}}" class="spon11 img-responsive fixed-size-250x250 "/>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-12">
+    <div class="pa">
+      
+      <h2>TITLE</h2>
+      <p>paragraph paragraph paragraph paragraph paragraph paragraph paragraph<br>paragraph  paragraph paragraph</p>
+    </div>
+    </div>
 
-      <hr class="featurette-divider">
+ <?php $i = 1; ?>
+ @endif
+@endforeach
+
+
+     
+
+
       <div class="col-sm-12">
+
+       <hr class="featurette-divider">
       <ul class="sponcont cs-style-3">
         @foreach($sponsers as $sponser)
+        @if(!$sponser->Ismain())
         <li class="col-sm-3 holder2">
             <div class="avatar2">
              <a href="#Modal{{$sponser->id}}" data-toggle="modal">
@@ -21,6 +51,7 @@
              </a>
             </div>
         </li>
+        @endif
         @endforeach
       </ul>
       </div>

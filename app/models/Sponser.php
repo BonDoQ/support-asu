@@ -22,6 +22,10 @@ class Sponser extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->belongsToMany('Event');
 	}
+	public function Ismain()
+	{
+		return $this->main;
+	}
     public function timestamp()
     {
         $this->updated_at = time();
