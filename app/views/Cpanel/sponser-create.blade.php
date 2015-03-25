@@ -15,7 +15,7 @@
           <div class="form-group">
               <label for="inputEmail" class="control-label col-xs-2">Is Main ? :</label>
               <div>
-                <input type="checkbox"  name="main" checked data-size="large" data-off-text="No" data-on-text="Yes" >
+                <input type="checkbox"  name="main"  data-size="large" data-off-text="No" data-on-text="Yes" >
               </div>
           </div>
           <div class="form-group">
