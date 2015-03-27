@@ -118,6 +118,7 @@
                 <input type="email" class="form-control" placeholder="Email address" name="sender_email" required>
                 <input type="text" class="form-control" placeholder="Subject" name="sender_subject" required>
                 <textarea class="form-control" placeholder="Message" name="sender_message" required></textarea>
+                <div class="g-recaptcha" data-sitekey="6LcvEQITAAAAAMly2I0JTuq3THwvG_uvbwYwP4l2"></div>
               </div>
               <div class="modal-footer">
                 <button class="btn btn-branded">submit</button>
