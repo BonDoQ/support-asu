@@ -110,7 +110,7 @@
                              <div class="para1 text-center">
                                    <h1>Support Schedule App</h1>
                              </div>
-                             <a class="btn btn-lg col-xs-12 col-sm-6 col-sm-offset-3" href="http://download1405.mediafire.com/wanayc3txlrg/344hot0u15w4vfl/ScheduleSystem-v1.0.0.apk"
+                             <a class="btn btn-lg col-xs-12 col-sm-6 col-sm-offset-3" href="http://download719.mediafire.com/5ctscib455zg/344hot0u15w4vfl/ScheduleSystem-v1.0.0.apk"
                               target="_blank">DOWNLOAD <span class="glyphicon glyphicon-Download"></span></a>
                        </div>
            </div>
