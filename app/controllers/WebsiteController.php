@@ -73,24 +73,24 @@ public function register()
             'name' => 'required',
             'email' => 'required',
             'mobile' => 'required',
-            'university' => 'required',
-            'faculty' => 'required',
+            'birthday' => 'required',
+            'address' => 'required',
             'year' => 'required',
-            'workshop' => 'required',
-            'day' => 'required',
-            'time' => 'required'
         ]);
 
       if ($validation->fails()
-          || strchr(Input::get('university'), "Choose")
-          || strchr(Input::get('faculty'), "Choose")
-          || strchr(Input::get('workshop'), "Choose")
-          || strchr(Input::get('year'), "Academic")
+          || strchr(Input::get('oldposition'), "Choose")
+          || strchr(Input::get('newposition'), "Choose")
+          || strchr(Input::get('newcommittee'), "Choose")
+          || strchr(Input::get('oldcommittee'), "Choose")
+          || Input::get('newcommittee')=="IT- Web Committee"&&strchr(Input::get('newteams'), "Choose")
+          || Input::get('newcommittee')=="Media"&&strchr(Input::get('newteams'), "Choose")
+          || Input::get('oldcommittee')=="IT- Web Committee"&&strchr(Input::get('oldteams'), "Choose")
+          || Input::get('oldcommittee')=="Media"&&strchr(Input::get('oldteams'), "Choose")
           || strchr(Input::get('day'), "Choose")
-          || strchr(Input::get('time'), "Choose")
-          || (Input::get('workshop')== "IT- Game Committee" && strchr(Input::get('track'), "Choose"))
-        ) {
-        return Redirect::back()->withInput()->with('fail', 'Make Sure You Filled All Fields');
+          || strchr(Input::get('time'), "Choose")        
+          ) {
+        return Redirect::back()->withInput()->with('fail', 'Make sure you filled all fields');
       }
       else
       {
@@ -98,30 +98,35 @@ public function register()
         $register->name = Input::get('name');
         $register->email = Input::get('email');
         $register->mobile = Input::get('mobile');
-        $register->university = Input::get('university');
-        $register->college = Input::get('faculty');
         $register->year = Input::get('year');
-        $register->workshop = Input::get('workshop');
-        if(Input::get('track')=='-Choose Track-')
-         $register->track =null;
-        else
-         $register->track = Input::get('track');
-        $register->link = Input::get('link');
-        $register->day = Input::get('day');
-        $register->time = Input::get('time');
+        $register->address=Input::get('address');
+        $register->birthday = Input::get('birthday');
+        $register->oldcommittee = Input::get('oldcommittee');
+        $register->newcommittee = Input::get('newcommittee');
+        if(Input::get('oldcommittee')=="IT- Web Committee"||Input::get('oldcommittee')=="Media")
+          $register->oldteam=Input::get('oldteams');
+        if(Input::get('newcommittee')=="IT- Web Committee"||Input::get('newcommittee')=="Media")
+          $register->newteam=Input::get('newteams');
+
+        $register->oldposition = Input::get('oldposition');
+        $register->newposition = Input::get('newposition');
+
+        if(Input::hasFile('image'))
+        {
+          $name=time() . '.' .Input::file('image')->getClientOriginalName();
+          Input::file('image')->move('../../images/profiles',$name);
+          $register->imagepath='/images/profiles/' . $name;
+        }
+        
         $register->comments = Input::get('comments');
 
-        CpanelRegController::add($register->workshop, $register->day, $register->time);
-        // {
-        //     return Redirect::back()->withInput()->with('fail', 'There is a Problem, Please Try Again.');
-        // }
-
         if ($register->save()) {
+          return View::make('SupportWebsite.Thankyou');
           return Redirect::to('/home')->with('success', 'Your Application has been Sent Successfully, Thank You!');
         }
         else
         {
-          return Redirect::back()->withInput()->with('fail', 'There is a problem in Saving your Data, Please Try Again.');
+          return Redirect::back()->withInput()->with('fail', 'There is a problem in saving your data, please try again or contact IT-members.');
         }
       }
     }

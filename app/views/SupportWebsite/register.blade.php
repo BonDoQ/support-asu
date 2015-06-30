@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/socialicious.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/subevent.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/supportiens.css')}}">
+     
     <style type="text/css">
         body
         {
@@ -88,11 +89,6 @@
               <li>
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
-              <li class="active" >
-                <a href="/registration">
-                  <span style="color:#f8b619;">Registration</span>
-                </a>
-              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!-- /.navbar-inner -->
@@ -111,9 +107,11 @@
                 <input type="email" class="form-control" placeholder="Email address" name="sender_email" required>
                 <input type="text" class="form-control" placeholder="Subject" name="sender_subject" required>
                 <textarea class="form-control" placeholder="Message" name="sender_message" required></textarea>
+                <hr />
+                <div class="g-recaptcha" data-sitekey="6LcvEQITAAAAAMly2I0JTuq3THwvG_uvbwYwP4l2"></div>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-branded" >submit</button>
+                <button class="btn btn-branded">submit</button>
                 </form>
               </div>
             </div>
@@ -125,219 +123,133 @@
 
     <div class="container">
         <div class="col-sm-5">
-           <form class="form-signin" method="POST" action="{{{ URL::to('submit')  }}}" enctype="multipart/form-data">
+           <form class="form-signin" method="POST" action="{{URL::route('postregistration')}}" enctype="multipart/form-data">
             {{Form::token()}}
         <h2 class="form-signin-heading">Registration</h2>
         <hr/>
         <div id="errorDiv1" class="error-div"></div>
 
-        <input type="text"  pattern="[a-zA-Z\s]+" required class="form-control req-min req-full-name" minlength="3" maxlength="60" placeholder="Full Name" name="name" value="{{Input::old('name')}}">
+        <input type="text"  required class="form-control req-min req-full-name" minlength="3" maxlength="60" placeholder="Full Name" name="name" value="{{Input::old('name')}}">
         <input type="email" required class="form-control req-min req-email" minlength="3" maxlength="40" placeholder="Email address" name="email" value="{{Input::old('email')}}">
         <input type="tel"  pattern="[0-9]+" required class="form-control req-numeric req-min" minlength="3" maxlength="14" placeholder="Mobile" name="mobile" value="{{Input::old('mobile')}}">
-        <select class="form-control" name="university">
-          <option>-Choose University-</option>
-          <option>Ain Shams</option>
-          <option>Cairo</option>
-          <option>Helwan</option>
-          <option>Other</option>
-        </select>
-        <select class="form-control" name="faculty">
-          <option>-Choose Faculty-</option>
-          <option>Computer Science</option>
-          <option>Science</option>
-          <option>Engineering</option>
-          <option>Other</option>
-        </select>
-        <select class="form-control" name="year" >
-          <option>-Academic Year-</option>
-          <option>1st</option>
-          <option>2nd</option>
-          <option>3rd</option>
-          <option>4th</option>
-        </select>
-        <select class="form-control" name="workshop" onchange="show_tracks(this.value)">
-          <option>-Choose Committee-</option>
+        <hr />
+        <p style="color: blue;"><small>Date of birth ?</small></p>
+        <input type="date"  required class="form-control req-numeric req-min"  placeholder="Date of birth" name="birthday" value="{{Input::old('birthdate')}}">
+        <hr />
+        <input type="text"  required class="form-control req-numeric req-min" minlength="0" maxlength="200" placeholder="Address" name="address" value="{{Input::old('address')}}">
+        <input type="text"  pattern="[0-9]+" required class="form-control req-numeric req-min" minlength="4" maxlength="6" placeholder="Year of participation" name="year">
+        <hr />
+        <select class="form-control" name="oldcommittee" onchange="show_teams(this.value,'old')" >
+          <option>-Choose Old Committee-</option>
           <option>Fundraising</option>
           <option>IT- Web Committee</option>
           <option>IT- Game Committee</option>
+          <option>IT- Android Committee</option>
+          <option>Logistics</option>
+          <option>Media</option>
+          <option>Public Relations</option>
+          <option>Human Resources</option>
+        </select>
+          
+          <div id="oldteam_div" style="display:none">
+          <p style="color: blue;"><small>Which team are you belong to ?</small></p>
+          <select class="form-control" name="oldteams" id="oldteams">    
+          </select>
+          </div>
+
+        <select class="form-control" name="oldposition" >
+          <option>-Choose Old Position-</option>
+          <option>Member</option>
+          <option>Head</option>
+          <option>Presdident</option>
+        </select>
+        <hr/>
+        <select class="form-control" name="newcommittee" onchange="show_teams(this.value,'new')">
+          <option>-Choose New Committee-</option>
+          <option>Fundraising</option>
+          <option>IT- Web Committee</option>
+          <option>IT- Game Committee</option>
+          <option>IT- Android Committee</option>
           <option>Logistics</option>         
           <option>Media</option>
-          <option>Social Media</option>
+          <option>Public Relations</option>
+          <option>Human Resources</option>
         </select>
-        <!--- time -->
-      <!--- tracks -->
-      <div id="trackid" style="display:none">
-        <select id="trackidinput" class="form-control" name="track">
-          <option>-Choose Track-</option>
-          <option>Art Team</option>
-          <option>Development Team</option>
-        </select>
-      </div>
-      <div id="linkid" style="display:none">
-         <hr />
-         <p style="color: black;"><small>Paste a link of your behance profile or any work profile</small></p>
-         <input type="url" id="linkinputid"  class="form-control" minlength="3" placeholder="Link of your works" name="link">
-      </div>
-        <div id="day_div" style="display:none">
-          <hr />
-          <p>Choose interview time:</p>
-          <p style="color: red;"><small>You're seeing only available times</small></p>
-          <select class="form-control" name="day" id="day" onchange="show_times(this.value)">    
+        <div id="newteam_div" style="display:none">
+          <p style="color: blue;"><small>Which team are you looking forward to participating in ?</small></p>
+          <select class="form-control" name="newteams" id="newteams">    
           </select>
-        </div>
-       
-        <div id="time_div" style="display:none">
-          <select class="form-control" name="time" id="time">
-          </select>
-        </div>
-        <hr />
+          </div>
 
+        <select class="form-control" name="newposition" >
+          <option>-Choose New Position-</option>
+          <option>Member</option>
+          <option>Head</option>
+          <option>Presdident</option>
+        </select>
+        <hr />
+        <div class="form-group">
+            <input type="file" name="image" style="display:none;" class="form-control" id="img-upload" placeholder="Upload your personal photo">
+            <label class="btn btn-primary" for="img-upload">Your personal photo (Optional)</label>
+        </div>
           <textarea class="form-control" placeholder="Comments" name="comments"></textarea><br />
-          <button class="btn btn-primary disabled" type="submit" id="send">Send</button>
+          <button class="btn btn-primary" type="submit" id="send">Send</button>
       </form>
         </div><!--/span-->
         <!--description body-->
         <div class="col-sm-6" id="event_des_body">
-          <h1 class="form-signin-heading">Become one of us..</h1>
+          <h1 class="form-signin-heading">Let's begin a new season..</h1>
          <img src="{{ URL::asset('assets/SupportWebsite/img/join-graphic.png')}}">
 
             
         </div><!--/span-->
     </div><!--/.fluid-container-->
 
-    <script type="text/javascript">
-    function show_tracks(workshop)
-    { 
-      var div;
-      if(workshop=="Media")
-      {
-        document.getElementById("trackid").style.display="none";
-        document.getElementById("trackidinput").value="-Choose Track-";
-        div= document.getElementById("linkid");
-        if (div.style.display == "none") 
-        {
-            $(div).slideToggle("fast");
-        }
-      }
-      else if(workshop=="IT- Game Committee")
-      {     
-             document.getElementById("linkinputid").value=null;
-           document.getElementById("linkid").style.display="none";
-         div = document.getElementById("trackid");
-        if (div.style.display == "none") 
-        {
-            $(div).slideToggle("fast");
-        }
-      }
-      else
-      {
-        document.getElementById("trackid").style.display="none";
-        document.getElementById("trackidinput").value="-Choose Track-";
-
-          document.getElementById("linkinputid").value=null;
-          document.getElementById("linkid").style.display="none";
-      }
-      show_days(workshop);
-    }
-    function show_days(workshop) 
-    {
-      window.workshop = workshop; 
-      if (workshop=="-Choose Workshop-") {
-        document.getElementById("day").innerHTML="";
-        document.getElementById("time").innerHTML="";
-        var div = document.getElementById("day_div");
-        var div2 = document.getElementById("time_div");
-        // $(div).fadeOut("fast");
-        // $(div2).fadeOut("fast");
-        if (div.style.display != "none") {
-          $(div).slideToggle("fast");
-        }
-        if (div2.style.display != "none") {
-          $(div2).slideToggle("fast");
-        }
-        document.getElementById("send").className = "btn btn-primary disabled";
-        return;
-      } 
-      if (window.XMLHttpRequest) {
-        xmlhttp=new XMLHttpRequest();
-      } else {
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) 
-        {
-          var op_json = xmlhttp.responseText;
-          var parsed_days = JSON.parse(op_json);
-          var list_com = "<option>-Choose Day-</option>";
-          var i;
-          for (i=0; i<parsed_days.length; i++) {
-            if(parsed_days[i]=="Thursday")
-              {
-               list_com = list_com + "<option value=Thursday>" + parsed_days[i] +", February 12, 2015"+ "</option>";
-               
-              }
-          }
-          document.getElementById("day").innerHTML=list_com;
-          var div = document.getElementById("day_div");
-          if (div.style.display == "none") {
+<script type="text/javascript">
+function show_teams(committee,type)
+{
+  var div,list;
+  if(type=="old")
+  {
+     list=document.getElementById("oldteams");
+     div= document.getElementById("oldteam_div");
+  }
+  else if(type=="new")
+  {
+     list=document.getElementById("newteams");
+     div= document.getElementById("newteam_div");
+  }
+  if(committee=="IT- Web Committee")
+   {
+      var list_com = "<option>-Choose Old Team-</option>";
+      list_com+="<option>Development</option>";
+      list_com+="<option>Design</option>";
+      list.innerHTML=list_com;
+      if (div.style.display == "none") {
             $(div).slideToggle("fast");
           }
-          var div2 = document.getElementById("time_div");
-          // $(div2).fadeOut("fast");
-          if (div2.style.display != "none") {
-            $(div2).slideToggle("fast");
+   }
+   else if(committee=="Media")
+   {
+     var list_com = "<option>-Choose Old Team-</option>";
+      list_com+="<option>Video</option>";
+      list_com+="<option>Photography</option>";
+      list_com+="<option>Design</option>";
+      list.innerHTML=list_com;
+      if (div.style.display == "none") {
+            $(div).slideToggle("fast");
           }
-        }
-      }
-      xmlhttp.open("GET", "/get_days/"+workshop, true);
-      xmlhttp.send();
-    }
-    function show_times(day) 
-    {
-      if (day=="-Choose Day-") {
-        document.getElementById("time").innerHTML="";
-        var div2 = document.getElementById("time_div");
-        // $(div2).fadeOut("fast");
-        if (div2.style.display != "none") {
-          $(div2).slideToggle("fast");
-        }
-        document.getElementById("send").className = "btn btn-primary disabled";
-        return;
-      } 
-      if (window.XMLHttpRequest) {
-        xmlhttp=new XMLHttpRequest();
-      } else {
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState== 4 && xmlhttp.status==200) 
-        {
-          var op_json2 = xmlhttp.responseText;
-          var parsed_time = JSON.parse(op_json2);
-          var list_com2 = "<option>-Choose Time-</option>";
-          var i;
-          for (i=0; i<parsed_time.length; i++) {
-            list_com2 = list_com2 + "<option>" + parsed_time[i] + "</option>";
-          }
-          document.getElementById("time").innerHTML=list_com2;
-          var div2 = document.getElementById("time_div");
-          if (div2.style.display == "none") {
-            $(div2).slideToggle("fast");
-          };
-          document.getElementById("send").className = "btn btn-primary";
-        }
-      }
-      xmlhttp.open("GET", "/get_time/"+window.workshop+"/"+day, true);
-      xmlhttp.send();
-    }
-    </script>
-
+   
+   }
+   else
+    $(div).fadeOut("fast");
+}
+</script>
 <!-- FOOTER -->
-            <footer>
-
+   <footer>
       <div id="footer">
         <div class="container-fluid">
-          <div class="col-sm-4" id="posts">
+          <div class="col-sm-5 col-xs-5" id="posts">
             <!--blockquote>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
               <small class="pull-right">- Someone famous in <cite title="Source Title">Source Title</cite> -</small>
@@ -354,21 +266,20 @@
 
          
 
-          <div class="col-sm-5">
-            <ul class="col-sm-12">
-              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6"><i class="icon-facebook"></i></li></a>
-              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6"><i class="icon-youtube"></i></li></a>
-              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6"><i class="icon-twitter"></i></li></a>
-              <a href="#"><li class="social col-sm-6"><i class="icon-googleplus"></i></li></a>
-              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6"><i class="icon-behance"></i></li></a>
-              <a href="#"><li class="social col-sm-6"><i class="icon-pinterest"></i></li></a>
+          <div class=" social-networks2">
+            <ul class="">
+              <a href="https://www.facebook.com/support.fcis"><li class="social col-sm-6 col-xs-3"><i class="icon-facebook"></i></li></a>
+              <a href="https://www.youtube.com/channel/UCBJlOGsuL-tMKTvjpvP8DyQ"><li class="social col-sm-6 col-xs-3"><i class="icon-youtube"></i></li></a>
+              <a href="https://www.twitter.com/supportasu"><li class="social col-sm-6 col-xs-3"><i class="icon-twitter"></i></li></a>             
+              <a href="https://www.behance.net/supportasu"><li class="social col-sm-6 col-xs-3"><i class="icon-behance"></i></li></a>
+              
             </ul>
           </div>
 
-      </div>
-    </div>
+        </div>
+       </div>
         <p id="foot">© {{date("Y")}} SUPPORT - All Rights Reserved</p>
-      </footer>
+     </footer>
 
 
     <a id="scroll-top" href="#page-top"><h1>^</h1></a>
@@ -377,10 +288,12 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+  
+    <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/jquery.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
+    
     <script>
       !function ($) {
         $(function(){

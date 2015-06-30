@@ -7,10 +7,10 @@ class CpanelRegController extends BaseController {
 	public function index()
 	{
 	 if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
-           ||Auth::user()->position=="HR Head"||Auth::user()->position=="HR Member")
+           ||Auth::user()->position=="HR Head"||Auth::user()->position=="HR Member"||Auth::user()->position=="Adviser Head")
         {
-		$apps = Register::all();
-		return View::make('Cpanel.register', ['apps' => $apps]);
+			$apps = Register::all();
+			 return View::make('Cpanel.register', ['apps' => $apps]);
 	    }
 	    else
 	    	return Redirect::to('/cpanel');
@@ -18,12 +18,12 @@ class CpanelRegController extends BaseController {
 	public function DownloadApllicantsData()
 	{
 		$data=Register::all();
-        $output = implode(",", array('Name', 'Email','Mobile','University','College','Academic Year', 'Workshop', 'Track','Interview Time','Link(Media Commitee)','Comments'));
+        $output = implode(",", array('Name', 'Email','Mobile','Address','Date of Birth','Participation Year','Old Committee', 'Old Team', 'Old Position','New Committee', 'New Team', 'New Position','Comments'));
         $output.="\n";
    		 foreach ($data as $row)
     	 {
-        	$output.=implode(",", array($row->name, $row->email,$row->mobile ,$row->university,
-              $row->college,$row->year,$row->workshop , $row->track,substr($row->day,0,3)." ".$row->time,$row->link,$row->comments));
+        	$output.=implode(",", array($row->name, $row->email,$row->mobile ,$row->address,
+              $row->birthday,$row->year,$row->oldcommittee , $row->oldteam,$row->oldposition." ".$row->newcommittee,$row->newteam,$row->newposition,$row->comments));
         	$output.="\n";
          }
         // headers used to make the file "downloadable", we set them manually
@@ -34,7 +34,12 @@ class CpanelRegController extends BaseController {
          );
       return Response::make($output, 200, $headers);
 	}
-	
+	public function profile($id)
+	{
+		$user_profile_data=Register::where('id','=',$id)->first();
+		//var_dump($user_profile_data);
+		return View::make('Cpanel.profile',['profile'=>$user_profile_data]);
+	}
 
 	public function update($app_id)
 	{
