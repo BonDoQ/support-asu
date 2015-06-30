@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/socialicious.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/subevent.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/supportiens.css')}}">
-     
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <style type="text/css">
         body
         {
