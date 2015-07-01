@@ -161,7 +161,7 @@
           <option>-Choose Old Position-</option>
           <option>Member</option>
           <option>Head</option>
-          <option>Presdident</option>
+          <option>President</option>
         </select>
         <hr/>
         <select class="form-control" name="newcommittee" onchange="show_teams(this.value,'new')">
@@ -185,7 +185,7 @@
           <option>-Choose New Position-</option>
           <option>Member</option>
           <option>Head</option>
-          <option>Presdident</option>
+          <option>President</option>
         </select>
         <hr />
         <div class="form-group">
