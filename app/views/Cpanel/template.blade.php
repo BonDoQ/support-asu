@@ -61,7 +61,7 @@
               </li>
               @endif
               @if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
-            ||Auth::user()->position=="HR Member"||Auth::user()->position=="HR Head"||Auth::user()->position=="Adviser Head")
+            ||Auth::user()->position=="HR Member"||Auth::user()->position=="HR Head"||Auth::user()->position=="Adviser")
               <li {{{ (Request::is('cpanel/applicants') ? 'class=active' : '') }}} >
                 <a href="{{{ URL::to('cpanel/applicants')  }}}">Applicants</a>
               @endif

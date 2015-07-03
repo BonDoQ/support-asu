@@ -7,7 +7,7 @@ class CpanelRegController extends BaseController {
 	public function index()
 	{
 	 if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
-           ||Auth::user()->position=="HR Head"||Auth::user()->position=="HR Member"||Auth::user()->position=="Adviser Head")
+           ||Auth::user()->position=="HR Head"||Auth::user()->position=="HR Member"||Auth::user()->position=="Adviser")
         {
 			$apps = Register::all();
 			 return View::make('Cpanel.register', ['apps' => $apps]);
@@ -23,7 +23,7 @@ class CpanelRegController extends BaseController {
    		 foreach ($data as $row)
     	 {
         	$output.=implode(",", array($row->name, $row->email,$row->mobile ,$row->address,
-              $row->birthday,$row->year,$row->oldcommittee , $row->oldteam,$row->oldposition." ".$row->newcommittee,$row->newteam,$row->newposition,$row->comments));
+              $row->birthday,$row->year,$row->oldcommittee , $row->oldteam,$row->oldposition,$row->newcommittee,$row->newteam,$row->newposition,$row->comments));
         	$output.="\n";
          }
         // headers used to make the file "downloadable", we set them manually
