@@ -26,6 +26,8 @@ Route::get('events/{event_id}', 'WebsiteController@subevent');
 //Route::post('/submit',array('uses'=>'WebsiteController@submit','as'=>'submit'));
 Route::get('/get_days/{workshop}', 'CpanelRegController@get_days');
 Route::get('/get_time/{workshop}/{day}', 'CpanelRegController@get_time');
+
+
 //App Links
 Route::get('XXXXXXXXXXXXXXXXXXXGetAllNotes/{userId}','AppController@getAllNotes');
 Route::get('XXXXXXXXXXXXXXXXXXXGetAllSessions/{year}','AppController@GetAllSessions');

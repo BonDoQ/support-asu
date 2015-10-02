@@ -4,12 +4,12 @@
     <!-- Styles -->
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap-theme.css')}}">
+    <!--<link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap-theme.css')}}">-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap-switch.css')}}"> 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap.min.css')}}">
+    <!--<link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/bootstrap.min.css')}}">-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/Cpanel/css/switch-highlight.css')}}"> 
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">  
+    <!--<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
 
     <!-- Scripts -->
 
