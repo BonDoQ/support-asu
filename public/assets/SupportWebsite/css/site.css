@@ -1,6 +1,8 @@
 body{overflow-x: hidden;width: 100%;}
 .navbar-header{padding-top:15px; padding-right: 10px;}
-.carousel-control{padding-top:140px;height: 99%;}
+.carousel-control{
+	padding-top:140px;height: 99%;
+}
 .carousel{margin-top: 50px;}
 #posts > blockquote > p {font-size: 10pt}
 .no_padding{padding:0 !important;}
