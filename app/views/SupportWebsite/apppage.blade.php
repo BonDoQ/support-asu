@@ -66,8 +66,8 @@
                   <li><a href="#">2011</a></li>
                   <li><a href="#">2010</a></li>
                   <li><a href="#">2009</a></li>
-                </ul-->
-              </li>
+                </ul>
+              </li-->
               <!--<li><a href="#about">Gallary</a></li>-->
               <li {{{ (Request::is('sponsors') ? 'class=active' : '') }}} >
                 <a href="{{{ URL::to('/sponsors')  }}}">Sponsors</a>
@@ -78,7 +78,7 @@
               <li>
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
-              <li>
+              <li {{{ (Request::is('ScheduleApp') ? 'class=active' : '') }}} >
                 <a href="{{{ URL::to('/ScheduleApp')  }}}">
                   <span style="color:#f8b619;">Schedule App</span>
                 </a>
