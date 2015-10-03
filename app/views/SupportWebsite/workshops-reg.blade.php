@@ -1,5 +1,5 @@
 @extends('SupportWebsite.template')
-
+
 @section('content')
 
     <div class="container no-slider">
