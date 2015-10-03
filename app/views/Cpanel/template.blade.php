@@ -60,6 +60,7 @@
                 <a href="{{{ URL::to('cpanel/sliders')  }}}">Sliders</a>
               </li>
               @endif
+              <!--
               @if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"
             ||Auth::user()->position=="HR Member"||Auth::user()->position=="HR Head"||Auth::user()->position=="Adviser")
               <li {{{ (Request::is('cpanel/applicants') ? 'class=active' : '') }}} >
@@ -72,6 +73,7 @@
               <li {{{ (Request::is('cpanel/post') ? 'class=active' : '') }}} >
                 <a href="#">Post</a>
               </li>
+              -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
              @if(Auth::user()->position=="President"||Auth::user()->position=="Vice President"

@@ -1,9 +1,9 @@
 
 body{
-/*        background: url(city.png);*/
-       /* background-size: cover ;*/
-        background-repeat: no-repeat;
-        background-color: gray;
+    background: url(../img/city.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: gray;
 }
 a{
   color: black;

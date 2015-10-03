@@ -23,8 +23,10 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/site.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/socialicious.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/subevent.css')}}">
+    @if(Request::is('events/*')) <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/subevent.css')}}"> @endif
     <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/supportiens.css')}}">
+    @if(isset($p404)) <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/404style.css')}}"> @endif
+    @if(Request::is('ScheduleApp')) <link rel="stylesheet" type="text/css" href="{{asset('assets/SupportWebsite/css/apppage.css')}}"> @endif
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -38,6 +40,21 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('assets/SupportWebsite/ico/apple-touch-icon-114-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('assets/SupportWebsite/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('assets/SupportWebsite/ico/apple-touch-icon-57-precomposed.png')}}">
+
+    <style type="text/css">
+        .no-slider
+        {
+            padding-top: 60px;
+           /* background-color: #f5f5f5;*/
+        }
+        .com_logo
+        {
+            border-radius: 50px;
+            /*background-color: #282828*/
+            width: 100px;
+        }
+    </style>
+
   </head>
 
   <body id="page-top">
@@ -83,7 +100,7 @@
               <li>
                 <a href="#myModal" data-toggle="modal">Contact us</a>
               </li>
-              <li>
+              <li {{{ (Request::is('ScheduleApp') ? 'class=active' : '') }}} >
                 <a href="{{{ URL::to('/ScheduleApp')  }}}">
                   <span style="color:#f8b619;">Schedule App</span>
                 </a>
@@ -125,38 +142,6 @@
 
       </div><!-- /.navbar -->
 
-     <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-      <div class="carousel-inner">
-        <?php $i =0; ?>
-        @foreach ($sliders as $slider)
-        @if ($i == 0)
-          <div class="item active">
-        @else
-          <div class="item">
-        @endif
-          <img src="{{$slider->imgPath}}" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>{{$slider->name}}</h1>
-              @if($slider->IsDescriptionNull()!=null)
-              <p class="lead">{{$slider->description}}</p>
-              @endif
-              @if($slider->IsEventSlider())
-              <a class="btn btn-large btn-primary" href="/events/{{$slider->name}}">Read more</a>
-              @endif
-            </div>
-          </div>
-        </div>
-        <?php $i = 1; ?>
-        @endforeach
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
-
-    <!-- /.carousel -->
     @yield('content')
 
     <!-- FOOTER -->
@@ -197,7 +182,7 @@
      </footer>
 
 
-    <a id="scroll-top" href="#page-top"><h1>^</h1></a>
+    <!--<a id="scroll-top" href="#page-top"><h1>^</h1></a>-->
 
 
     <!-- Le javascript
@@ -205,7 +190,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{asset('assets/SupportWebsite/js/jquery.js')}}"></script>
     <script src="{{asset('assets/SupportWebsite/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>
+    <!--<script src="{{asset('assets/SupportWebsite/js/slide-top.js')}}"></script>-->
     <script src="{{asset('assets/SupportWebsite/js/notify-min.js')}}"></script>
     <script>
       !function ($) {

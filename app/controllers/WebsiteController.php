@@ -63,74 +63,75 @@
       //return 'unsaved';
  }
 }
-public function register()
-    {        
-        return View::make('SupportWebsite.register');
-    }
-    public function submit()
-    {
-      $validation = Validator::make(Input::all(), [
-            'name' => 'required',
-            'email' => 'required',
-            'mobile' => 'required',
-            'birthday' => 'required',
-            'address' => 'required',
-            'year' => 'required',
-        ]);
+    // public function register()
+    // {        
+    //     return View::make('SupportWebsite.register');
+    // }
+    // public function submit()
+    // {
+    //   $validation = Validator::make(Input::all(), [
+    //         'name' => 'required',
+    //         'email' => 'required',
+    //         'mobile' => 'required',
+    //         'birthday' => 'required',
+    //         'address' => 'required',
+    //         'year' => 'required',
+    //     ]);
 
-      if ($validation->fails()
-          || strchr(Input::get('oldposition'), "Choose")
-          || strchr(Input::get('newposition'), "Choose")
-          || strchr(Input::get('newcommittee'), "Choose")
-          || strchr(Input::get('oldcommittee'), "Choose")
-          || Input::get('newcommittee')=="IT- Web Committee"&&strchr(Input::get('newteams'), "Choose")
-          || Input::get('newcommittee')=="Media"&&strchr(Input::get('newteams'), "Choose")
-          || Input::get('oldcommittee')=="IT- Web Committee"&&strchr(Input::get('oldteams'), "Choose")
-          || Input::get('oldcommittee')=="Media"&&strchr(Input::get('oldteams'), "Choose")
-          || strchr(Input::get('day'), "Choose")
-          || strchr(Input::get('time'), "Choose")        
-          ) {
-        return Redirect::back()->withInput()->with('fail', 'Make sure you filled all fields');
-      }
-      else
-      {
-        $register = new Register();
-        $register->name = Input::get('name');
-        $register->email = Input::get('email');
-        $register->mobile = Input::get('mobile');
-        $register->year = Input::get('year');
-        $register->address=Input::get('address');
-        $register->birthday = Input::get('birthday');
-        $register->oldcommittee = Input::get('oldcommittee');
-        $register->newcommittee = Input::get('newcommittee');
-        if(Input::get('oldcommittee')=="IT- Web Committee"||Input::get('oldcommittee')=="Media")
-          $register->oldteam=Input::get('oldteams');
-        if(Input::get('newcommittee')=="IT- Web Committee"||Input::get('newcommittee')=="Media")
-          $register->newteam=Input::get('newteams');
+    //   if ($validation->fails()
+    //       || strchr(Input::get('oldposition'), "Choose")
+    //       || strchr(Input::get('newposition'), "Choose")
+    //       || strchr(Input::get('newcommittee'), "Choose")
+    //       || strchr(Input::get('oldcommittee'), "Choose")
+    //       || Input::get('newcommittee')=="IT- Web Committee"&&strchr(Input::get('newteams'), "Choose")
+    //       || Input::get('newcommittee')=="Media"&&strchr(Input::get('newteams'), "Choose")
+    //       || Input::get('oldcommittee')=="IT- Web Committee"&&strchr(Input::get('oldteams'), "Choose")
+    //       || Input::get('oldcommittee')=="Media"&&strchr(Input::get('oldteams'), "Choose")
+    //       || strchr(Input::get('day'), "Choose")
+    //       || strchr(Input::get('time'), "Choose")        
+    //       ) {
+    //     return Redirect::back()->withInput()->with('fail', 'Make sure you filled all fields');
+    //   }
+    //   else
+    //   {
+    //     $register = new Register();
+    //     $register->name = Input::get('name');
+    //     $register->email = Input::get('email');
+    //     $register->mobile = Input::get('mobile');
+    //     $register->year = Input::get('year');
+    //     $register->address=Input::get('address');
+    //     $register->birthday = Input::get('birthday');
+    //     $register->oldcommittee = Input::get('oldcommittee');
+    //     $register->newcommittee = Input::get('newcommittee');
+    //     if(Input::get('oldcommittee')=="IT- Web Committee"||Input::get('oldcommittee')=="Media")
+    //       $register->oldteam=Input::get('oldteams');
+    //     if(Input::get('newcommittee')=="IT- Web Committee"||Input::get('newcommittee')=="Media")
+    //       $register->newteam=Input::get('newteams');
 
-        $register->oldposition = Input::get('oldposition');
-        $register->newposition = Input::get('newposition');
+    //     $register->oldposition = Input::get('oldposition');
+    //     $register->newposition = Input::get('newposition');
 
-        if(Input::hasFile('image'))
-        {
-          $name=time() . '.' .Input::file('image')->getClientOriginalName();
-          Input::file('image')->move('../../images/profiles',$name);
-          $register->imagepath='/images/profiles/' . $name;
-        }
+    //     if(Input::hasFile('image'))
+    //     {
+    //       $name=time() . '.' .Input::file('image')->getClientOriginalName();
+    //       Input::file('image')->move('../../images/profiles',$name);
+    //       $register->imagepath='/images/profiles/' . $name;
+    //     }
         
-        $register->comments = Input::get('comments');
+    //     $register->comments = Input::get('comments');
 
-        if ($register->save()) {
-          return View::make('SupportWebsite.Thankyou');
-          return Redirect::to('/home')->with('success', 'Your Application has been Sent Successfully, Thank You!');
-        }
-        else
-        {
-          return Redirect::back()->withInput()->with('fail', 'There is a problem in saving your data, please try again or contact IT-members.');
-        }
-      }
-    }
-public function events()
+    //     if ($register->save()) {
+    //       return View::make('SupportWebsite.Thankyou');
+    //       return Redirect::to('/home')->with('success', 'Your Application has been Sent Successfully, Thank You!');
+    //     }
+    //     else
+    //     {
+    //       return Redirect::back()->withInput()->with('fail', 'There is a problem in saving your data, please try again or contact IT-members.');
+    //     }
+    //   }
+    // }
+
+    public function events()
     {
         //Getting data from the database.
          $vents = Event::where('availibility','=',true)->orderBy('ve_year','DESC')->get();
@@ -164,4 +165,19 @@ public function events()
         else
             App::abort(404);
     }
+
+
+
+
+
+
+
+
+
+    //this part is related to the latest '16 workshops registration
+
+
+
+
+
  }

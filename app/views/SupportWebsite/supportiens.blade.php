@@ -1,7 +1,7 @@
 @extends('SupportWebsite.template')
 
 @section('content')
-      @include('SupportWebsite.slider-template')
+      @include('SupportWebsite.slider')
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->

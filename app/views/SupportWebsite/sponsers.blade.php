@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('SupportWebsite.slider')
+
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->

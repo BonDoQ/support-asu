@@ -20,12 +20,17 @@ Route::get('events','WebsiteController@events');
 Route::get('sponsors','WebsiteController@sponsors');
 Route::get('/ScheduleApp','WebsiteController@ScheduleApp');
 
-Route::get('/registration',array('uses'=>'WebsiteController@register','as'=>'getregistration'));
-Route::post('/registration',array('uses'=>'WebsiteController@submit','as'=>'postregistration'));
+// Route::get('/registration',array('uses'=>'WebsiteController@register','as'=>'getregistration'));
+// Route::post('/registration',array('uses'=>'WebsiteController@submit','as'=>'postregistration'));
 Route::get('events/{event_id}', 'WebsiteController@subevent');
+
 //Route::post('/submit',array('uses'=>'WebsiteController@submit','as'=>'submit'));
-Route::get('/get_days/{workshop}', 'CpanelRegController@get_days');
-Route::get('/get_time/{workshop}/{day}', 'CpanelRegController@get_time');
+// Route::get('/get_days/{workshop}', 'CpanelRegController@get_days');
+// Route::get('/get_time/{workshop}/{day}', 'CpanelRegController@get_time');
+
+
+//workshops registration
+Route::get('/workshops/registration','RegistrationController@registerWorkshop');
 
 
 //App Links
@@ -86,9 +91,9 @@ Route::group(array('before'=>'auth'),function()
     Route::resource('cpanel/sponsors', 'CpanelSponserController');
     Route::resource('cpanel/events','CpanelEventController');
     Route::resource('cpanel/messages', 'CpanelMessageController');
-    Route::get('cpanel/applicants/download', 'CpanelRegController@DownloadApllicantsData');
-    Route::get('cpanel/applicants/profile/{id}', 'CpanelRegController@profile');
-    Route::resource('cpanel/applicants', 'CpanelRegController');
+    // Route::get('cpanel/applicants/download', 'CpanelRegController@DownloadApllicantsData');
+    // Route::get('cpanel/applicants/profile/{id}', 'CpanelRegController@profile');
+    // Route::resource('cpanel/applicants', 'CpanelRegController');
     Route::post('cpanel/messages/reply/{email_id}', 'CpanelMessageController@reply');
     Route::get('cpanel/change',array('uses' =>'CpanelUserAccount@GetChange','as'=>'getchange'));
     Route::post('cpanel/change',array('uses' =>'CpanelUserAccount@PostChange','as'=>'postchange'));
