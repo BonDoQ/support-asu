@@ -1,5 +1,7 @@
 @extends('SupportWebsite.template')
 
+@section('title', $thisvent->name)
+
 @section('content') 
 
     <div class="container-fluid no-slider">

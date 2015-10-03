@@ -1,5 +1,7 @@
 @extends('SupportWebsite.template')
 
+@section('title', 'Schedule App')
+
 @section('content')
 
 <div class="container apppage">

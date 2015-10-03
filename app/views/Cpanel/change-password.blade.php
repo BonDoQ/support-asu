@@ -1,5 +1,7 @@
 @extends('Cpanel.template')
 
+@section('title', 'Change password')
+
 @section('content')
 
         <div class="row omb_row-sm-offset-3">

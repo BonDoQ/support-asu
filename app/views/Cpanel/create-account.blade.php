@@ -1,5 +1,7 @@
 @extends('Cpanel.template')
 
+@section('title', 'Create Account')
+
 @section('content')
 
 	<!-- Events Panel -->

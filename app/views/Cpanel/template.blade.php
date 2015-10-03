@@ -16,22 +16,7 @@
 
     <!-- == -->
     <meta charset="UTF-8">
-    <title>
-      Admin's Panel | 
-      @if(Request::is('cpanel/events')) Events
-      @elseif(Request::is('cpanel/events/create')) Event Create
-      @elseif(Request::is('cpanel/events/*')) Event Edit
-      @elseif(Request::is('cpanel/sponsors')) Sponsors
-      @elseif(Request::is('cpanel/sponsors/create')) Sponsor Create
-      @elseif(Request::is('cpanel/sponsors/*')) Sponsor Edit
-      @elseif(Request::is('cpanel/sliders')) Sliders
-      @elseif(Request::is('cpanel/sliders/create')) Slide Create
-      @elseif(Request::is('cpanel/sliders/*')) Slide Edit
-      @elseif(Request::is('cpanel/messages')) Messages
-      @elseif(Request::is('cpanel')) Profile
-      @elseif(Request::is('cpanel/applicants')) Applicants
-      @endif
-    </title>
+    <title>Admin's Panel | @yield('title')</title>
 </head>
 <body>
     <div class="container">

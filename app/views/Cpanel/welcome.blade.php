@@ -1,5 +1,7 @@
 @extends('Cpanel.template')
 
+@section('title', 'Welcome')
+
 @section('content')
 <div class="col-sm-12">
 	<div class="row">

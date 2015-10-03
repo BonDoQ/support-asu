@@ -2,6 +2,8 @@
 
 @extends('SupportWebsite.template')
 
+@section('title', 'Page Not found')
+
 @section('content') 
 
       <div class="container marketing no-slider">

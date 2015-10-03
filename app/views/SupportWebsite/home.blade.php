@@ -1,5 +1,7 @@
 @extends('SupportWebsite.template')
 
+@section('title', 'Home')
+
 @section('content')
 
     @include('SupportWebsite.slider')

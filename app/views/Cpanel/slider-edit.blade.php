@@ -1,5 +1,7 @@
 @extends('Cpanel.template')
 
+@section('title', 'Edit Slide')
+
 @section('content')
       
 	<!-- Events Panel -->
