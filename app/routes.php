@@ -14,6 +14,7 @@
 Route::get('/','WebsiteController@home');
 Route::get('/home','WebsiteController@home');
 Route::get('/events','WebsiteController@events');
+Route::get('events/{event_id}', 'WebsiteController@subevent');
 Route::get('/about','WebsiteController@about');
 Route::post('/contactus','WebsiteController@contactus');
 Route::get('events','WebsiteController@events');
@@ -22,15 +23,16 @@ Route::get('/ScheduleApp','WebsiteController@ScheduleApp');
 
 // Route::get('/registration',array('uses'=>'WebsiteController@register','as'=>'getregistration'));
 // Route::post('/registration',array('uses'=>'WebsiteController@submit','as'=>'postregistration'));
-Route::get('events/{event_id}', 'WebsiteController@subevent');
-
 //Route::post('/submit',array('uses'=>'WebsiteController@submit','as'=>'submit'));
 // Route::get('/get_days/{workshop}', 'CpanelRegController@get_days');
 // Route::get('/get_time/{workshop}/{day}', 'CpanelRegController@get_time');
 
 
 //workshops registration
-Route::get('/workshops/registration','RegistrationController@registerWorkshop');
+Route::get('/workshops/register',array('uses'=>'RegistrationController@register', 'as'=>'getRegistrationForm'));
+Route::post('/workshops/register',array('uses'=>'RegistrationController@submit', 'as'=>'postRegistrationForm'));
+Route::get('/QWERTYUIOPASDFGHJKL/{workshop}/applicants/table', 'RegistrationController@table');
+
 
 
 //App Links

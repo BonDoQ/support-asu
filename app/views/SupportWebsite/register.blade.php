@@ -123,7 +123,7 @@
 
     <div class="container">
         <div class="col-sm-5">
-           <form class="form-signin" method="POST" action="{{URL::route('postregistration')}}" enctype="multipart/form-data">
+           <form class="form-signin" method="POST" action="{{URL::route('postRegisterWorkshop')}}" enctype="multipart/form-data">
             {{Form::token()}}
         <h2 class="form-signin-heading">Registration</h2>
         <hr/>

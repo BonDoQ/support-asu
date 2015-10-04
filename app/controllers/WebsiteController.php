@@ -31,7 +31,7 @@
 
        if ($json['success']==false) {
         return Redirect::back ()->with('fail','Please Verify that you are not a Robot !');
-    }
+        }
 
       $valid = Validator::make(Input::all(),array(
         'sender_name'=>'required',
