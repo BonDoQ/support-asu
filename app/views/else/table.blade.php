@@ -69,7 +69,7 @@
 </head>
 <body>
   <div class="wrapper">
-    
+  
     <div class="table">
       
       <div class="row header {{$color}}">

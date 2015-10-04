@@ -12,10 +12,10 @@
       $sliders=Slider::where('availibility','=',true)->get();
  		return View::make('SupportWebsite.about',['sliders' => $sliders]);
  	}
- 	public function supportians()
- 	{
- 		return View::make('SupportWebsite.home');
- 	}
+ 	// public function supportians()
+ 	// {
+ 	// 	return View::make('SupportWebsite.home');
+ 	// }
   public function ScheduleApp()
   {
     return View::make('SupportWebsite.apppage');

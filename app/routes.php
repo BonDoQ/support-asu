@@ -51,6 +51,8 @@ Route::get('XXXXXXXXXXXXXXXXXXXDeleteUserSession/{userid}','AppController@Delete
 Route::get('XXXXXXXXXXXXXXXXXXXDownloadUserSession/{userid}','AppController@DownloadUserSession');
 Route::get('XXXXXXXXXXXXXXXXXXXGetDBVersion','AppController@GetDBVersion');
 //end of App links
+
+
 Route::get('images/sliders/{image}', function($image = null)
 {
     $path = '../../images/sliders/'.$image; 
@@ -93,12 +95,12 @@ Route::group(array('before'=>'auth'),function()
     Route::resource('cpanel/sponsors', 'CpanelSponserController');
     Route::resource('cpanel/events','CpanelEventController');
     Route::resource('cpanel/messages', 'CpanelMessageController');
-    // Route::get('cpanel/applicants/download', 'CpanelRegController@DownloadApllicantsData');
-    // Route::get('cpanel/applicants/profile/{id}', 'CpanelRegController@profile');
-    // Route::resource('cpanel/applicants', 'CpanelRegController');
     Route::post('cpanel/messages/reply/{email_id}', 'CpanelMessageController@reply');
     Route::get('cpanel/change',array('uses' =>'CpanelUserAccount@GetChange','as'=>'getchange'));
     Route::post('cpanel/change',array('uses' =>'CpanelUserAccount@PostChange','as'=>'postchange'));
     
+    // Route::get('cpanel/applicants/download', 'CpanelRegController@DownloadApllicantsData');
+    // Route::get('cpanel/applicants/profile/{id}', 'CpanelRegController@profile');
+    // Route::resource('cpanel/applicants', 'CpanelRegController');
 });
 

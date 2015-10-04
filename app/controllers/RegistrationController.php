@@ -36,7 +36,7 @@ class RegistrationController extends BaseController
 
       		if ($record->save()) 
       		{
-      			return "Thank you the data was saved";
+      			return View::make('SupportWebsite.Thankyouv2');
 
       		} else
       		{
