@@ -32,7 +32,7 @@
         <div class="col-sm-4 backhistory">
            <div class="holder">
             <div class="avatar">
-             <a class="span4 pollback" href="javascript:history.go(-1)"> 
+             <a class="span4 pollback" href="{{URL::route('getRegistrationForm')}}"> 
               <img src="{{ URL::asset('assets/SupportWebsite/img/back.png')}}" class="user"/>
              </a>
             </div>
