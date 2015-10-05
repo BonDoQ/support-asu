@@ -1,6 +1,6 @@
 @extends('SupportWebsite.template')
 
-@section('title', 'Workshop Registra')
+@section('title', 'Workshop Registration')
 
 @section('content')
 
