@@ -26,6 +26,7 @@
           <select id="committee" class="form-control" name="committee">
             <option>-Choose Committee-</option>
             <option value="HR">Human Resources</option>
+            <option value="PR">Public Relations</option>
             <option value="LR">Logistics and Receptionists</option>
             <option value="Media">Media</option> 
             <option value="Web">IT-Web</option> 
