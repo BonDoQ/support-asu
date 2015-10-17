@@ -31,7 +31,10 @@ Route::get('/ScheduleApp','WebsiteController@ScheduleApp');
 //workshops registration
 Route::get('/workshops/register',array('uses'=>'RegistrationController@register', 'as'=>'getRegistrationForm'));
 Route::post('/workshops/register',array('uses'=>'RegistrationController@submit', 'as'=>'postRegistrationForm'));
-Route::get('/workshops/QWERTYUIOPASDFGHJKL/{workshop}/applicants/table', 'RegistrationController@table');
+
+Route::get('/recruitment/register',array('uses'=>'RegistrationController@registerrecruit', 'as'=>'getRegistrationFormrecruit'));
+Route::post('/recruitment/register',array('uses'=>'RegistrationController@submitrecruit', 'as'=>'postRegistrationFormrecruit'));
+
 
 
 
@@ -87,6 +90,9 @@ Route::group(array('before'=>'guest'),function()
  
 Route::group(array('before'=>'auth'),function()
 {
+    Route::get('/workshops/QWERTYUIOPASDFGHJKL/{workshop}/applicants/table', 'RegistrationController@table');
+    Route::get('/recruitment/QWERTYUIOPASDFGHJKL/{committee}/applicants/table', 'RegistrationController@tablerecruit');
+
     Route::get('cpanel/','CpanelUserAccount@welcome');
     Route::get('cpanel/logout','CpanelUserAccount@logout');
     Route::get('cpanel/create-account',array('uses' =>'CpanelUserAccount@getcreate','as'=>'getcreate')); 
