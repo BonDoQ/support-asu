@@ -53,8 +53,6 @@
             <option>04:00 PM</option>
           </select>
           <textarea class="form-control" placeholder="Comments (optional)" name="comments"></textarea><br />
-          <hr />
-          <div class="g-recaptcha" data-sitekey="6LcvEQITAAAAAMly2I0JTuq3THwvG_uvbwYwP4l2"></div>
           <input type="button" value="Send" class="btn btn-primary" id="send">
           <script type="text/javascript">
             window.onload = function(){

@@ -133,5 +133,107 @@ class RegistrationController extends BaseController
     return View::make('else.table2')->with(['records' => $records, 'committee' => $committee, 'color' => $color]);
   }
 
+
+
+  public function downloadrecruit()
+  {
+    $data=Regrecord2::all();
+    $output = implode(
+      ",",
+         array('Name',
+          'Email',
+          'Mobile',
+          'University',
+          'Academic Year',
+          'Committee',
+          'Day',
+          'Time', 
+          'Comments'
+          )
+    );
+
+    $output.="\n";
+
+    foreach ($data as $row)
+    {
+
+      $output.=implode(
+        ",", 
+        array(
+          $row->name, 
+          $row->email,
+          $row->mobile,
+          $row->university,
+          $row->academic_year,
+          $row->committee,
+          $row->day ,
+          $row->time,
+          $row->comments
+        )
+      );
+
+      $output.="\n";
+
+    }
+
+    // headers used to make the file "downloadable", we set them manually
+    // since we can't use Laravel's Response::download() function
+    $headers = array(
+      'Content-Type' => 'text/csv',
+      'Content-Disposition' => 'attachment; filename="RecruitmentApplicants.csv" ',
+    );
+    return Response::make($output, 200, $headers);
+  }
+
+
+
+
+  public function downloadworkshops()
+  {
+    $data=Regrecord1::all();
+    $output = implode(
+      ",",
+         array('Name',
+          'Email',
+          'Mobile',
+          'Academic Year',
+          'Workshop',
+          'Comments'
+          )
+    );
+
+    $output.="\n";
+
+    foreach ($data as $row)
+    {
+
+      $output.=implode(
+        ",", 
+        array(
+          $row->name, 
+          $row->email,
+          $row->mobile,
+          $row->academic_year,
+          $row->workshop,
+          $row->comments
+        )
+      );
+
+      $output.="\n";
+
+    }
+
+    // headers used to make the file "downloadable", we set them manually
+    // since we can't use Laravel's Response::download() function
+    $headers = array(
+      'Content-Type' => 'text/csv',
+      'Content-Disposition' => 'attachment; filename="WorkshopsApplicants.csv" ',
+    );
+    return Response::make($output, 200, $headers);
+  }
+
+
+
+
 }
 ?>
