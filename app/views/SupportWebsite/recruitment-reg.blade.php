@@ -36,7 +36,6 @@
           </select>
           <select id="day" class="form-control" name="day">
             <option>-Choose Interview Day-</option>
-            <option value="Sunday">Sunday - 18/10</option>
             <option value="Monday">Monday - 19/10</option>
             <option value="Tuesday">Tuesday - 20/10</option>
             <option value="Wednesday">Wednesday - 21/10</option>
