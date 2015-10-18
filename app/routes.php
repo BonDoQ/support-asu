@@ -92,7 +92,9 @@ Route::group(array('before'=>'auth'),function()
 {
     Route::get('/workshops/QWERTYUIOPASDFGHJKL/{workshop}/applicants/table', 'RegistrationController@table');
     Route::get('/workshops/QWERTYUIOPASDFGHJKL/applicants/download', 'RegistrationController@downloadworkshops');
+    Route::get('/recruitment/QWERTYUIOPASDFGHJKL/applicants/table/{day}', 'RegistrationController@tablerecruitday');
     Route::get('/recruitment/QWERTYUIOPASDFGHJKL/{committee}/applicants/table', 'RegistrationController@tablerecruit');
+
     Route::get('/recruitment/QWERTYUIOPASDFGHJKL/applicants/download', 'RegistrationController@downloadrecruit');
 
     Route::get('cpanel/','CpanelUserAccount@welcome');

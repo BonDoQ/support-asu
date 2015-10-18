@@ -117,6 +117,59 @@ class RegistrationController extends BaseController
 
   }
 
+
+  function tablerecruitday($day)
+  {
+    $data=Regrecord2::where('day', '=', $day)->get();
+    $output = implode(
+      ",",
+         array('Name',
+          'Email',
+          'Mobile',
+          'University',
+          'Academic Year',
+          'Committee',
+          'Day',
+          'Time', 
+          'Comments'
+          )
+    );
+
+    $output.="\n";
+
+    foreach ($data as $row)
+    {
+
+      $output.=implode(
+        ",", 
+        array(
+          $row->name, 
+          $row->email,
+          $row->mobile,
+          $row->university,
+          $row->academic_year,
+          $row->committee,
+          $row->day ,
+          $row->time,
+          $row->comments
+        )
+      );
+
+      $output.="\n";
+
+    }
+
+    // headers used to make the file "downloadable", we set them manually
+    // since we can't use Laravel's Response::download() function
+    $headers = array(
+      'Content-Type' => 'text/csv',
+      'Content-Disposition' => 'attachment; filename="RecruitmentApplicants.csv" ',
+    );
+    return Response::make($output, 200, $headers);
+  }
+
+
+
   function tablerecruit($committee)
   {
     $colors = array("green", "blue", "");
