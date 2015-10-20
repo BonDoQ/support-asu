@@ -29,8 +29,8 @@ Route::get('/ScheduleApp','WebsiteController@ScheduleApp');
 
 
 //workshops registration
-Route::get('/workshops/register',array('uses'=>'RegistrationController@register', 'as'=>'getRegistrationForm'));
-Route::post('/workshops/register',array('uses'=>'RegistrationController@submit', 'as'=>'postRegistrationForm'));
+//Route::get('/workshops/register',array('uses'=>'RegistrationController@register', 'as'=>'getRegistrationForm'));
+//Route::post('/workshops/register',array('uses'=>'RegistrationController@submit', 'as'=>'postRegistrationForm'));
 
 Route::get('/recruitment/register',array('uses'=>'RegistrationController@registerrecruit', 'as'=>'getRegistrationFormrecruit'));
 Route::post('/recruitment/register',array('uses'=>'RegistrationController@submitrecruit', 'as'=>'postRegistrationFormrecruit'));
