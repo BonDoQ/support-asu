@@ -11,15 +11,23 @@
 |
 */
 
-Route::get('/','WebsiteController@home');
-Route::get('/home','WebsiteController@home');
-Route::get('/events','WebsiteController@events');
-Route::get('events/{event_id}', 'WebsiteController@subevent');
-Route::get('/about','WebsiteController@about');
-Route::post('/contactus','WebsiteController@contactus');
-Route::get('events','WebsiteController@events');
-Route::get('sponsors','WebsiteController@sponsors');
-Route::get('/ScheduleApp','WebsiteController@ScheduleApp');
+Route::get('/','WebsiteController@landing');
+Route::get('/landing','WebsiteController@landing');
+
+Route::get('/mini-jam/register',array('uses'=>'RegistrationController@registerMiniJam', 'as'=>'getRegistrationMiniJam'));
+Route::post('/mini-jam/register',array('uses'=>'RegistrationController@submitMiniJam', 'as'=>'postRegistrationMiniJam'));
+
+
+
+// Route::get('/','WebsiteController@home');
+// Route::get('/home','WebsiteController@home');
+// Route::get('/events','WebsiteController@events');
+// Route::get('events/{event_id}', 'WebsiteController@subevent');
+// Route::get('/about','WebsiteController@about');
+// Route::post('/contactus','WebsiteController@contactus');
+// Route::get('events','WebsiteController@events');
+// Route::get('sponsors','WebsiteController@sponsors');
+// Route::get('/ScheduleApp','WebsiteController@ScheduleApp');
 
 // Route::get('/registration',array('uses'=>'WebsiteController@register','as'=>'getregistration'));
 // Route::post('/registration',array('uses'=>'WebsiteController@submit','as'=>'postregistration'));
@@ -32,8 +40,8 @@ Route::get('/ScheduleApp','WebsiteController@ScheduleApp');
 //Route::get('/workshops/register',array('uses'=>'RegistrationController@register', 'as'=>'getRegistrationForm'));
 //Route::post('/workshops/register',array('uses'=>'RegistrationController@submit', 'as'=>'postRegistrationForm'));
 
-Route::get('/recruitment/register',array('uses'=>'RegistrationController@registerrecruit', 'as'=>'getRegistrationFormrecruit'));
-Route::post('/recruitment/register',array('uses'=>'RegistrationController@submitrecruit', 'as'=>'postRegistrationFormrecruit'));
+// Route::get('/recruitment/register',array('uses'=>'RegistrationController@registerrecruit', 'as'=>'getRegistrationFormrecruit'));
+// Route::post('/recruitment/register',array('uses'=>'RegistrationController@submitrecruit', 'as'=>'postRegistrationFormrecruit'));
 
 
 
@@ -56,61 +64,67 @@ Route::get('XXXXXXXXXXXXXXXXXXXGetDBVersion','AppController@GetDBVersion');
 //end of App links
 
 
-Route::get('images/sliders/{image}', function($image = null)
-{
-    $path = '../../images/sliders/'.$image; 
-         return Response::download($path);
-});
-Route::get('images/events/{image}', function($image = null)
-{
-    $path = '../../images/events/'.$image;
-         return Response::download($path);
+//Images Directory
+
+// Route::get('images/sliders/{image}', function($image = null)
+// {
+//     $path = '../../images/sliders/'.$image; 
+//          return Response::download($path);
+// });
+// Route::get('images/events/{image}', function($image = null)
+// {
+//     $path = '../../images/events/'.$image;
+//          return Response::download($path);
     
-});
-Route::get('images/sponsors/{image}', function($image = null)
-{
-    $path = '../../images/sponsors/'.$image;
-         return Response::download($path);
-});
-Route::get('images/profiles/{image}', function($image = null)
-{
-    $path = '../../images/profiles/'.$image;
-         return Response::download($path);
-});                //Cpanel Routes
+// });
+// Route::get('images/sponsors/{image}', function($image = null)
+// {
+//     $path = '../../images/sponsors/'.$image;
+//          return Response::download($path);
+// });
+// Route::get('images/profiles/{image}', function($image = null)
+// {
+//     $path = '../../images/profiles/'.$image;
+//          return Response::download($path);
+// });               
+
+
+ //Cpanel Routes
 //useraccount
 
-Route::group(array('before'=>'guest'),function()
- {   
-    Route::get('cpanel/login',array('uses' =>'CpanelUserAccount@getlogin','as'=>'getlogin'));
-     Route::group(array('before'=>'csrf'), function()
-     {
-        Route::post('cpanel/login',array('uses' =>'CpanelUserAccount@postlogin','as'=>'postlogin'));    
-     });
-});
+// Route::group(array('before'=>'guest'),function()
+//  {   
+//     Route::get('cpanel/login',array('uses' =>'CpanelUserAccount@getlogin','as'=>'getlogin'));
+//      Route::group(array('before'=>'csrf'), function()
+//      {
+//         Route::post('cpanel/login',array('uses' =>'CpanelUserAccount@postlogin','as'=>'postlogin'));    
+//      });
+// });
  
-Route::group(array('before'=>'auth'),function()
-{
-    Route::get('/workshops/QWERTYUIOPASDFGHJKL/{workshop}/applicants/table', 'RegistrationController@table');
-    Route::get('/workshops/QWERTYUIOPASDFGHJKL/applicants/download', 'RegistrationController@downloadworkshops');
-    Route::get('/recruitment/QWERTYUIOPASDFGHJKL/applicants/table/{day}', 'RegistrationController@tablerecruitday');
-    Route::get('/recruitment/QWERTYUIOPASDFGHJKL/{committee}/applicants/table', 'RegistrationController@tablerecruit');
+// Route::group(array('before'=>'auth'),function()
+// {
+//     Route::get('/workshops/QWERTYUIOPASDFGHJKL/{workshop}/applicants/table', 'RegistrationController@table');
+//     Route::get('/workshops/QWERTYUIOPASDFGHJKL/applicants/download', 'RegistrationController@downloadworkshops');
+//     Route::get('/recruitment/QWERTYUIOPASDFGHJKL/applicants/table/{day}', 'RegistrationController@tablerecruitday');
+//     Route::get('/recruitment/QWERTYUIOPASDFGHJKL/{committee}/applicants/table', 'RegistrationController@tablerecruit');
 
-    Route::get('/recruitment/QWERTYUIOPASDFGHJKL/applicants/download', 'RegistrationController@downloadrecruit');
+//     Route::get('/recruitment/QWERTYUIOPASDFGHJKL/applicants/download', 'RegistrationController@downloadrecruit');
 
-    Route::get('cpanel/','CpanelUserAccount@welcome');
-    Route::get('cpanel/logout','CpanelUserAccount@logout');
-    Route::get('cpanel/create-account',array('uses' =>'CpanelUserAccount@getcreate','as'=>'getcreate')); 
-    Route::post('cpanel/create-account',array('uses' =>'CpanelUserAccount@postcreate','as'=>'postcreate'));
-    Route::resource('cpanel/sliders','CpanelSliderController');
-    Route::resource('cpanel/sponsors', 'CpanelSponserController');
-    Route::resource('cpanel/events','CpanelEventController');
-    Route::resource('cpanel/messages', 'CpanelMessageController');
-    Route::post('cpanel/messages/reply/{email_id}', 'CpanelMessageController@reply');
-    Route::get('cpanel/change',array('uses' =>'CpanelUserAccount@GetChange','as'=>'getchange'));
-    Route::post('cpanel/change',array('uses' =>'CpanelUserAccount@PostChange','as'=>'postchange'));
+//     Route::get('cpanel/','CpanelUserAccount@welcome');
+//     Route::get('cpanel/logout','CpanelUserAccount@logout');
+//     Route::get('cpanel/create-account',array('uses' =>'CpanelUserAccount@getcreate','as'=>'getcreate')); 
+//     Route::post('cpanel/create-account',array('uses' =>'CpanelUserAccount@postcreate','as'=>'postcreate'));
+//     Route::resource('cpanel/sliders','CpanelSliderController');
+//     Route::resource('cpanel/sponsors', 'CpanelSponserController');
+//     Route::resource('cpanel/events','CpanelEventController');
+//     Route::resource('cpanel/messages', 'CpanelMessageController');
+//     Route::post('cpanel/messages/reply/{email_id}', 'CpanelMessageController@reply');
+//     Route::get('cpanel/change',array('uses' =>'CpanelUserAccount@GetChange','as'=>'getchange'));
+//     Route::post('cpanel/change',array('uses' =>'CpanelUserAccount@PostChange','as'=>'postchange'));
     
-    // Route::get('cpanel/applicants/download', 'CpanelRegController@DownloadApllicantsData');
-    // Route::get('cpanel/applicants/profile/{id}', 'CpanelRegController@profile');
-    // Route::resource('cpanel/applicants', 'CpanelRegController');
-});
+    
+//     // Route::get('cpanel/applicants/download', 'CpanelRegController@DownloadApllicantsData');
+//     // Route::get('cpanel/applicants/profile/{id}', 'CpanelRegController@profile');
+//     // Route::resource('cpanel/applicants', 'CpanelRegController');
+// });
 

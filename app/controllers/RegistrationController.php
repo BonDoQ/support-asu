@@ -288,5 +288,75 @@ class RegistrationController extends BaseController
 
 
 
+
+
+
+
+
+
+//miniJam registeration
+  function registerMiniJam()
+  {
+    return View::make('SupportWebsite.mini-jam-reg');
+  }
+
+  function submitMiniJam()
+  {
+    $validation = Validator::make(Input::all(), [
+          'name1' => 'required',
+          'uni_fac1' => 'required',
+          
+          'name2' => 'required',
+          'uni_fac2' => 'required',
+          
+          'name3' => 'required',
+          'uni_fac3' => 'required',
+          
+          'email' => 'required',
+          'mobile' => 'required'
+        ]);
+
+        if ($validation->fails()){
+          return Redirect::back()->with('fail', 'Make sure you filled required fields');
+          
+        } else
+        {
+          $record = new RegrecordMiniJam();
+          
+          $record->team_name = Input::get('team_name');
+          
+          $record->name1 = Input::get('name1');
+          $record->university1 = Input::get('uni_fac1');
+          
+          $record->name2 = Input::get('name2');
+          $record->university2 = Input::get('uni_fac2');
+          
+          $record->name3 = Input::get('name3');
+          $record->university3 = Input::get('uni_fac3');
+          
+          $record->name4 = Input::get('name4');
+          $record->university4 = Input::get('uni_fac4');
+          
+          $record->name5 = Input::get('name5');
+          $record->university5 = Input::get('uni_fac5');
+          
+          $record->email = Input::get('email');
+          $record->mobile = Input::get('mobile');
+          $record->comments = Input::get('comments');
+
+          if ($record->save())
+          {
+            return Redirect::to('/')->with('success', 'Success.');
+
+          } else
+          {
+            return Redirect::back()->with('fail', 'There was a problem saving your data, please try again or contact IT-members.');
+          }
+        }
+
+  }
+
+
+
 }
 ?>

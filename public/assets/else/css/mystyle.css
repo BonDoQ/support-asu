@@ -1,0 +1,48 @@
+.Main-screen{
+	width: 100vw;
+	height: 100vh;
+	display: block;
+	background: black;
+	position: relative;
+}
+
+.my_container{
+	overflow: hidden;
+	max-height: 100vh;
+}
+.screen-footer{
+	height: 25vh;
+	display: block;
+	width: 100vw;
+	position: absolute;
+	bottom: 0;
+	background: #3498db;
+}
+
+.screen1{
+	background: url(../img/mainimg.jpg) no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+.screen2{
+	background: url(../img/minijam.png) no-repeat center center fixed; 
+  	-webkit-background-size: 20%;
+ 	-moz-background-size: 20%;
+  	-o-background-size: 20%;
+  	background-size: 20%;
+  	background-position-y: 0;
+}
+@media(max-width: 768px){
+	.screen2{
+  	-webkit-background-size: 50%;
+ 	-moz-background-size: 50%;
+  	-o-background-size: 50%;
+  	background-size: 50%;
+	}
+}	
+.main-txt{
+	margin-top: 70vh;
+	color: #fff;
+}

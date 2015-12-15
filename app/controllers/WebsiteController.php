@@ -174,7 +174,11 @@
 
 
 
-    //this part is related to the latest '16 workshops registration
+    //the landing page
+    function landing()
+    {
+        return View::make('else.landing');
+    }
 
 
 
