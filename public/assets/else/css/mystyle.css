@@ -43,6 +43,23 @@
 	}
 }	
 .main-txt{
+	margin-top: 60vh;
+	color: #fff;
+}
+
+.support{
 	margin-top: 70vh;
 	color: #fff;
+}
+
+@media(max-width: 768px){
+	.support{
+		margin-top: 60vh;
+		color: #fff;
+	}
+}
+
+.screen2 img
+{
+	margin: 0 auto;
 }

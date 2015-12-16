@@ -14,7 +14,7 @@ class RegrecordMiniJam extends Eloquent implements UserInterface, RemindableInte
 	 *
 	 * @var string
 	 */
-	protected $table = 'mini_jam1';
+	protected $table = 'mini_jam';
 
 	public function timestamp()
     {

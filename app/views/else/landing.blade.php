@@ -25,8 +25,8 @@
 	<div class="my_container">
 		<div class="Main-screen active screen1">
 			<div class="container-fluid">
-				<div class="main-txt col-md-4 text-center">
-					<h1>Support SUPPORT and let SUPPORT supports you</h1>
+				<div class="support col-md-5 text-center">
+					<h1>Support SUPPORT And Let SUPPORT Supports You</h1>
 				</div>
 			</div>
 		</div>
@@ -34,12 +34,13 @@
 			<div class="container-fluid">
 				
 				<div class="main-txt col-md-12 text-center">
-				<div class="col-md-3 text-center">
-					<a class="btn btn-primary" href="{{URL::route('getRegistrationMiniJam')}}">Register</a>
+				<div class="col-md-12 text-center">
+					<a class="btn btn-primary" href="{{URL::route('getRegistrationMiniJam')}}">Register Single</a>
+					<a class="btn btn-warning" href="{{URL::route('getRegistrationMiniJamTeam')}}">Register Team</a>
 				</div>
-				<div class="col-md-6 text-center">
+				<div class="col-md-12 text-center">
 
-					<img src="{{asset('assets/else/img/Appsinnovate_logo.jpg')}}" class="">
+					<img src="{{asset('assets/else/img/Appsinnovate_logo.jpg')}}" class="img-responsive">
 				</div>
 				</div>
 			</div>

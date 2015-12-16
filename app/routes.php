@@ -14,9 +14,11 @@
 Route::get('/','WebsiteController@landing');
 Route::get('/landing','WebsiteController@landing');
 
+Route::get('/mini-jam/team/register',array('uses'=>'RegistrationController@registerMiniJamTeam', 'as'=>'getRegistrationMiniJamTeam'));
+Route::post('/mini-jam/team/register',array('uses'=>'RegistrationController@submitMiniJamTeam', 'as'=>'postRegistrationMiniJamTeam'));
+
 Route::get('/mini-jam/register',array('uses'=>'RegistrationController@registerMiniJam', 'as'=>'getRegistrationMiniJam'));
 Route::post('/mini-jam/register',array('uses'=>'RegistrationController@submitMiniJam', 'as'=>'postRegistrationMiniJam'));
-
 
 
 // Route::get('/','WebsiteController@home');

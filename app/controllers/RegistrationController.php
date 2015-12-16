@@ -295,14 +295,19 @@ class RegistrationController extends BaseController
 
 
 //miniJam registeration
-  function registerMiniJam()
+  function registerMiniJamTeam()
   {
     return View::make('SupportWebsite.mini-jam-reg');
   }
 
-  function submitMiniJam()
+  function submitMiniJamTeam()
   {
+    
+    
+    
     $validation = Validator::make(Input::all(), [
+          'team_name' => 'required',
+      
           'name1' => 'required',
           'uni_fac1' => 'required',
           
@@ -321,7 +326,7 @@ class RegistrationController extends BaseController
           
         } else
         {
-          $record = new RegrecordMiniJam();
+          $record = new RegrecordMiniJamTeam();
           
           $record->team_name = Input::get('team_name');
           
@@ -356,7 +361,44 @@ class RegistrationController extends BaseController
 
   }
 
+  function registerMiniJam()
+  {
+    return View::make('SupportWebsite.mini-jam-reg1');
+  }
 
+  function submitMiniJam()
+  {
+     $validation = Validator::make(Input::all(), [
+          'name' => 'required',
+          'uni_fac' => 'required',
+          
+          'email' => 'required',
+          'mobile' => 'required'
+        ]);
+
+        if ($validation->fails()){
+          return Redirect::back()->with('fail', 'Make sure you filled required fields');
+          
+        } else
+        {
+          $record = new RegrecordMiniJam();
+          
+          $record->name = Input::get('name');
+          $record->university = Input::get('uni_fac');
+          $record->email = Input::get('email');
+          $record->mobile = Input::get('mobile');
+          $record->comments = Input::get('comments');
+
+          if ($record->save())
+          {
+            return Redirect::to('/')->with('success', 'Success.');
+
+          } else
+          {
+            return Redirect::back()->with('fail', 'There was a problem saving your data, please try again or contact IT-members.');
+          }
+        }
+  }
 
 }
 ?>
