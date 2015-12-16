@@ -10,7 +10,7 @@
 		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> 
 
  		<link href="{{asset('assets/else/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
- 		<link href="{{asset('assets/else/css/mystyle.css')}}" rel="stylesheet" type="text/css" />
+ 		<link href="{{asset('assets/else/css/mystyle.css?version=1.1')}}" rel="stylesheet" type="text/css" />
 		
 		<!-- Fav and touch icons -->
 		<link rel="shortcut icon" href="{{asset('assets/SupportWebsite/ico/favicon.ico')}}">
