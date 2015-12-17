@@ -10,7 +10,7 @@
 		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> 
 
  		<link href="{{asset('assets/else/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
- 		<link href="{{asset('assets/else/css/mystyle.css?version=1.1')}}" rel="stylesheet" type="text/css" />
+ 		<link href="{{asset('assets/else/css/mystyle.css?version=1.2')}}" rel="stylesheet" type="text/css" />
 		
 		<!-- Fav and touch icons -->
 		<link rel="shortcut icon" href="{{asset('assets/SupportWebsite/ico/favicon.ico')}}">
@@ -35,6 +35,7 @@
 				
 				<div class="main-txt col-md-12 text-center">
 				<div class="col-md-12 text-center">
+					<p style="color: black;">Registration ended on 17 Dec 2015.</p>
 					<a class="btn btn-primary disabled" href="{{URL::route('getRegistrationMiniJam')}}">Register Single</a>
 					<a class="btn btn-warning disabled" href="{{URL::route('getRegistrationMiniJamTeam')}}">Register Team</a>
 				</div>
