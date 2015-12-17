@@ -35,8 +35,8 @@
 				
 				<div class="main-txt col-md-12 text-center">
 				<div class="col-md-12 text-center">
-					<a class="btn btn-primary" href="{{URL::route('getRegistrationMiniJam')}}">Register Single</a>
-					<a class="btn btn-warning" href="{{URL::route('getRegistrationMiniJamTeam')}}">Register Team</a>
+					<a class="btn btn-primary disabled" href="{{URL::route('getRegistrationMiniJam')}}">Register Single</a>
+					<a class="btn btn-warning disabled" href="{{URL::route('getRegistrationMiniJamTeam')}}">Register Team</a>
 				</div>
 				<div class="col-md-12 text-center">
 

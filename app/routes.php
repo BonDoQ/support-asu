@@ -14,10 +14,10 @@
 Route::get('/','WebsiteController@landing');
 Route::get('/landing','WebsiteController@landing');
 
-Route::get('/mini-jam/team/register',array('uses'=>'RegistrationController@registerMiniJamTeam', 'as'=>'getRegistrationMiniJamTeam'));
+Route::get('/mini-jam/team/register',array(/*'uses'=>'RegistrationController@registerMiniJamTeam'*/ function () { return "Sorry registration for this event ended on 17 Dec 2015."; }, 'as'=>'getRegistrationMiniJamTeam'));
 Route::post('/mini-jam/team/register',array('uses'=>'RegistrationController@submitMiniJamTeam', 'as'=>'postRegistrationMiniJamTeam'));
 
-Route::get('/mini-jam/register',array('uses'=>'RegistrationController@registerMiniJam', 'as'=>'getRegistrationMiniJam'));
+Route::get('/mini-jam/register',array(/*'uses'=>'RegistrationController@registerMiniJam'*/ function () { return "Sorry registration for this event ended on 17 Dec 2015."; }, 'as'=>'getRegistrationMiniJam'));
 Route::post('/mini-jam/register',array('uses'=>'RegistrationController@submitMiniJam', 'as'=>'postRegistrationMiniJam'));
 
 
